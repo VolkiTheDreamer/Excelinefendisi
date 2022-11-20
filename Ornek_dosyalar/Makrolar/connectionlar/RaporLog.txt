@@ -1,0 +1,26 @@
+23.04.2019 23:30:00         VOLKANLAPTOP64              dwh_kontrol   Kontrol        0            Girildi
+23.04.2019 23:30:00         VOLKANLAPTOP64              dwh_kontrol   Kontrol        0            OK
+23.04.2019 23:30:15         VOLKANLAPTOP64              dwh-dept      WBOpen         0            WB giriþ yapýldý
+23.04.2019 23:30:16         VOLKANLAPTOP64              dwh-dept      WBOpen         0            OK
+23.04.2019 23:30:17         VOLKANLAPTOP64              dwh1          OK             0            rapor baþarýyla çalýþtý
+23.04.2019 23:30:21         VOLKANLAPTOP64              dwh-dept      WBOpen         0            WB giriþ yapýldý
+23.04.2019 23:30:21         VOLKANLAPTOP64              dwh-dept      WBOpen         0            OK
+23.04.2019 23:30:22         VOLKANLAPTOP64              dwh1          OK             0            rapor baþarýyla çalýþtý
+23.04.2019 23:30:31         VOLKANLAPTOP64              dwh-dept      WBOpen         0            WB giriþ yapýldý
+23.04.2019 23:30:32         VOLKANLAPTOP64              dwh-dept      WBOpen         0            OK
+23.04.2019 23:30:32         VOLKANLAPTOP64              dwh1          OK             0            rapor baþarýyla çalýþtý
+23.04.2019 23:31:00         VOLKANLAPTOP64              dm_kontrol    Kontrol        0            Girildi
+23.04.2019 23:31:09         VOLKANLAPTOP64              dm_kontrol    Kontrol        0            OK
+23.04.2019 23:31:20         VOLKANLAPTOP64              Dm1           WBOpen         0            WB giriþ yapýldý
+23.04.2019 23:31:21         VOLKANLAPTOP64              Dm1           WBOpen         0            OK
+23.04.2019 23:31:21         VOLKANLAPTOP64              dm1           OK             0            rapor baþarýyla çalýþtý
+23.04.2019 23:31:30         VOLKANLAPTOP64              dm2           WBOpen         0            WB giriþ yapýldý
+23.04.2019 23:31:31         VOLKANLAPTOP64              dm2           WBOpen         0            OK
+23.04.2019 23:31:31         VOLKANLAPTOP64              dm2           OK             0            rapor baþarýyla çalýþtý
+23.04.2019 23:31:40         VOLKANLAPTOP64              Mix Rapor1    WBOpen         0            WB giriþ yapýldý
+23.04.2019 23:32:02         VOLKANLAPTOP64              Mix Rapor1    WBOpen         0            OK
+23.04.2019 23:32:02         VOLKANLAPTOP64              mix           OK             0            rapor baþarýyla çalýþtý
+25.04.2019 23:30:00         VOLKANLAPTOP64              dwh_kontrol   Kontrol        0            Girildi
+25.04.2019 23:30:24         VOLKANLAPTOP64              dwh_kontrol   Kontrol        0            Reschedule
+25.04.2019 23:31:00         VOLKANLAPTOP64              dm_kontrol    Kontrol        0            Girildi
+25.04.2019 23:41:31         VOLKANLAPTOP64              dwh_kontrol   Kontrol        0            Girildi

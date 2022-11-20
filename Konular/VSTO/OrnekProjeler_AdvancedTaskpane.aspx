@@ -1,0 +1,2 @@
+﻿<%@ Page Title='Advanced Taskpane' Language='C#' MasterPageFile='~/MasterPage.master' AutoEventWireup='true' %><asp:Content ID='Content1' ContentPlaceHolderID='SayfaIcerik' Runat='Server'><div id='gizliforkonu'></div><h1>Advanced Taskpane</h1><p>Yapım aşamasında</p><h2 class='baslik'>Advanced Taskpane Alt konu1</h2><div class='konu'><p>Glossary user mail or sözlük. async var, grid var</p></div>
+</asp:Content>

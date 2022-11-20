@@ -1,0 +1,4 @@
+Sicil,PC,HataAçýklama
+12345,PC1,Falan filan hatasý
+45678,PC2,ODBC hatasý
+45781,PC3,Runtime hatasý

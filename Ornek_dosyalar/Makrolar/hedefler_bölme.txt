@@ -1,0 +1,104 @@
+Sub coksayfalý_bölme()
+
+'Örnek basit olsun diye aþaðýdaki varsayýmlar ypaýlmýþtýr
+'C:\böl klasörünün var olduðu
+'bölünecek birimin A kolonunda olduðu
+'bölme sonucunun excel dosya olarak istendiði(pdf de olabilirdi)
+
+Dim degisken() As Variant
+Dim ana As Workbook, yeni As Workbook
+
+'önce distinct(benzersiz) bölgeleri alalým
+Set ana = ActiveWorkbook
+Set yeni = Workbooks.Add
+ana.Activate
+Sheets(1).Columns(1).Copy
+yeni.Activate
+ActiveSheet.Paste
+Selection.RemoveDuplicates Columns:=1, header:=xlYes
+Range("a2").Select
+s = ActiveCell.End(xlDown).Row
+ReDim degisken(0 To s - 2) 'baþlýk hariç
+
+For x = 0 To s - 2
+    degisken(x) = ActiveCell.Value
+    ActiveCell.Offset(1, 0).Select
+Next x
+ActiveWorkbook.Close savechanges:=False
+
+dosya = ActiveWorkbook.FullName
+
+Select Case ActiveWorkbook.FileFormat
+    Case "-4143", "-4158", 6, 56 'normal xls, txt, csv veya Excel2007deki 97-2003 xls'i mi
+        ad = Left(ActiveWorkbook.Name, Len(ActiveWorkbook.Name) - 3)
+    Case 50, 51, 52 'xlsx, xlsb veya xlsm ise
+        ad = Left(ActiveWorkbook.Name, Len(ActiveWorkbook.Name) - 4)
+    Case Else
+        MsgBox "Bu dosya formatý bu makronun çalýþmasý için uygun deðil. xls, xlsx, xlsb, xlsm, txt veya csv dosyalarýyla çalýþmalýsýnýz"
+        Exit Sub
+End Select
+
+sayfa = Sheets.Count
+ActiveWorkbook.Close savechanges:=False 'az sonra tekrar açýlacak
+
+'baþlýk için ayrý bi dosya yaratalým
+Workbooks.Add
+Set baslik = ActiveWorkbook
+If Sheets.Count < sayfa Then
+    For Q = 1 To sayfa - Sheets.Count
+        Sheets.Add
+    Next Q
+End If
+
+For k = 0 To s - 2
+    unit = degisken(k)
+
+    Workbooks.Open Filename:=dosya
+    Set ana = ActiveWorkbook
+    
+    'baþlýk iþine devam
+    For y = 1 To sayfa
+        Sheets(y).Select
+        Rows("1:1").Select
+        Selection.Copy
+        baslik.Activate
+        
+        Sheets(y).Select
+        ActiveSheet.Paste
+        ana.Activate
+    Next y
+    
+    For I = 1 To sayfa
+        Sheets(I).Select
+        Range("A1").Select
+        Selection.AutoFilter
+        ActiveSheet.Range("$A$1").CurrentRegion.AutoFilter Field:=1, Criteria1:="<>" & unit & "", _
+            Operator:=xlAnd
+        Rows("1:1").Select
+        Range(Selection, Selection.End(xlDown)).Select
+        Selection.SpecialCells(xlCellTypeVisible).Select
+        Selection.Delete Shift:=xlUp
+    Next I
+    
+    
+    For I = 1 To Sheets.Count
+        baslik.Activate
+        Sheets(I).Select
+        Range("a1").Select
+        Range(Selection, Selection.End(xlToRight)).Select
+        Selection.Copy
+        
+        ana.Activate
+        Sheets(I).Select
+        Range("a1").Select
+        Selection.Insert Shift:=xlDown
+    Next I
+            
+    Application.DisplayAlerts = False
+    ActiveWorkbook.SaveAs "C:\böl\" & unit & "-" & ad & "xls", FileFormat:=-4143
+    ActiveWorkbook.Close
+Next k
+
+baslik.Close savechanges:=False
+Application.DisplayAlerts = True
+End Sub
