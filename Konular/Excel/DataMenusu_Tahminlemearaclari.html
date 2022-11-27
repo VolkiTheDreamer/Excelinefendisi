@@ -1,0 +1,979 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+
+<!-- Mirrored from www.excelinefendisi.com/Konular/Excel/DataMenusu_Tahminlemearaclari.aspx by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Nov 2022 16:24:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102945718-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-102945718-1');
+    </script>
+
+    
+    <meta name="google-site-verification" content="L1oqZYEbxH36cMm6Lf_DQrpi6vlRiPTp_zpGZUpJExw" /><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><meta name="Keywords" content="Volkan Yurtseven, İleri Excel, excel konu anlatımı, VBA, Makro, VSTO, MIS, Add-in, , tutorial, eğitim, kurs" /><meta name="description" content="Sitem Excel,VBA,Makro,VSTO konularında ileri seviyede bilgi hizmeti sunmaktadır." /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>
+	DataMenusu OutlineVeriGruplama
+</title><link rel="icon" type="image/x-icon" href="../../favicon.ico" /><link rel="stylesheet" href="../../../stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /><link href="../../styles/master.css" rel="stylesheet" type="text/css" media="all" /><link href="../../syntaxhighlighter_3.0.83/styles/shCore.css" rel="Stylesheet" type="text/css" /><link href="../../syntaxhighlighter_3.0.83/styles/shThemeDefault.css" rel="Stylesheet" type="text/css" />
+    <!--<link href="../../styles/jquery.jqTOC.css" rel="Stylesheet" type="text/css" />
+		-->
+
+    <script src="../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../../syntaxhighlighter_3.0.83/scripts/shCore.js"> </script>
+    <script src="../../syntaxhighlighter_3.0.83/scripts/shBrushVb.js"> </script>
+    <script src="../../syntaxhighlighter_3.0.83/scripts/shBrushCSharp.js"> </script>
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+    <script src="../../js/jqueryler.js"></script>
+    <script src="../../js/jquery.balloon.js"></script>
+    <script src="../../js/jscript.js"></script>
+    <script src="../../../stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+</head>
+
+<body>
+    
+    <div id="fb-root"></div>
+    
+    <script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "../../../connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v2.10";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+ 
+  
+
+    <form method="post" action="https://www.excelinefendisi.com/Konular/Excel/DataMenusu_Tahminlemearaclari.aspx" id="form2">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUIMjQ4NTIzOTEPZBYCZg9kFgQCAw9kFhgCFQ8PFgIeBFRleHQFB0tvbnVsYXJkZAIXDw8WAh8ABRJUYWhtaW5sZW1lYXJhY2xhcmlkZAIZDw8WAh8ABQpEYXRhTWVudXN1ZGQCGw8PFgIfAAUFRXhjZWxkZAIfDzwrAAkBAA8WBB4IRGF0YUtleXMWAB4LXyFJdGVtQ291bnQCCWQWEmYPZBYCAgEPDxYEHgtOYXZpZ2F0ZVVybAUifi9Lb251bGFyL0V4Y2VsL0dpcmlzX0tvbnVsYXIuYXNweB8ABQZHaXJpxZ9kZAIBD2QWAgIBDw8WBB8DBSd+L0tvbnVsYXIvRXhjZWwvSG9tZU1lbnVzdV9Lb251bGFyLmFzcHgfAAUNSG9tZSBNZW7DvHPDvGRkAgIPZBYCAgEPDxYEHwMFKX4vS29udWxhci9FeGNlbC9JbnNlcnRNZW51c3VfS29udWxhci5hc3B4HwAFD0luc2VydCBNZW7DvHPDvGRkAgMPZBYCAgEPDxYEHwMFN34vS29udWxhci9FeGNlbC9Gb3JtdWxhc01lbnVzdUZvbmtzaXlvbmxhcl9Lb251bGFyLmFzcHgfAAUfRm9ybXVsYXMgTWVuw7xzw7woRm9ua3NpeW9ubGFyKWRkAgQPZBYCAgEPDxYEHwMFMH4vS29udWxhci9FeGNlbC9Gb3JtdWxhc01lbnVzdURpZ2VyX0tvbnVsYXIuYXNweB8ABRlGb3JtdWxhcyBNZW7DvHPDvChEacSfZXIpZGQCBQ9kFgICAQ8PFgQfAwUnfi9Lb251bGFyL0V4Y2VsL0RhdGFNZW51c3VfS29udWxhci5hc3B4HwAFDURhdGEgTWVuw7xzw7xkZAIGD2QWAgIBDw8WBB8DBSl+L0tvbnVsYXIvRXhjZWwvUmV2aWV3TWVudXN1X0tvbnVsYXIuYXNweB8ABQ9SZXZpZXcgTWVuw7xzw7xkZAIHD2QWAgIBDw8WBB8DBSx+L0tvbnVsYXIvRXhjZWwvRGV2ZWxvcGVyTWVudXN1X0tvbnVsYXIuYXNweB8ABRJEZXZlbG9wZXIgTWVuw7xzw7xkZAIID2QWAgIBDw8WBB8DBS9+L0tvbnVsYXIvRXhjZWwvWWVuaUVrbGVuZW5BcmFjbGFyX0tvbnVsYXIuYXNweB8ABRVZZW5pIEVrbGVuZW4gQXJhw6dsYXJkZAIlDzwrAAkBAA8WBB8BFgAfAgIMZBYYZg9kFgICAQ8PFgQfAwUlfi9Lb251bGFyL1ZCQU1ha3JvL0dpcmlzX0tvbnVsYXIuYXNweB8ABQZHaXJpxZ9kZAIBD2QWAgIBDw8WBB8DBSh+L0tvbnVsYXIvVkJBTWFrcm8vVGVtZWxsZXJfS29udWxhci5hc3B4HwAFCFRlbWVsbGVyZGQCAg9kFgICAQ8PFgQfAwUufi9Lb251bGFyL1ZCQU1ha3JvL0RvcnRUZW1lbE5lc25lX0tvbnVsYXIuYXNweB8ABRFEw7ZydCBUZW1lbCBOZXNuZWRkAgMPZBYCAgEPDxYEHwMFOH4vS29udWxhci9WQkFNYWtyby9Lb3N1bGlmYWRlbGVyaXZlRG9uZ3VsZXJfS29udWxhci5hc3B4HwAFHktvxZ91bCBpZmFkZWxlcmkgdmUgRMO2bmfDvGxlcmRkAgQPZBYCAgEPDxYEHwMFN34vS29udWxhci9WQkFNYWtyby9EaXppbGVydmVEaXppbXNpWWFwaWxhcl9Lb251bGFyLmFzcHgfAAUbRGl6aWxlciB2ZSBEaXppbXNpIFlhcMSxbGFyZGQCBQ9kFgICAQ8PFgQfAwU3fi9Lb251bGFyL1ZCQU1ha3JvL0RlYnVnZ2luZ3ZlSGF0YVlvbmV0aW1pX0tvbnVsYXIuYXNweB8ABRtEZWJ1Z2dpbmcgdmUgSGF0YSBZw7ZuZXRpbWlkZAIGD2QWAgIBDw8WBB8DBSx+L0tvbnVsYXIvVkJBTWFrcm8vRm9ua3NpeW9ubGFyX0tvbnVsYXIuYXNweB8ABQxGb25rc2l5b25sYXJkZAIHD2QWAgIBDw8WBB8DBS5+L0tvbnVsYXIvVkJBTWFrcm8vRG9zeWFpc2xlbWxlcmlfS29udWxhci5hc3B4HwAFEERvc3lhIGnFn2xlbWxlcmlkZAIID2QWAgIBDw8WBB8DBSd+L0tvbnVsYXIvVkJBTWFrcm8vT2xheWxhcl9Lb251bGFyLmFzcHgfAAUHT2xheWxhcmRkAgkPZBYCAgEPDxYEHwMFJ34vS29udWxhci9WQkFNYWtyby9Gb3JtbGFyX0tvbnVsYXIuYXNweB8ABQdGb3JtbGFyZGQCCg9kFgICAQ8PFgQfAwU6fi9Lb251bGFyL1ZCQU1ha3JvL0RpZ2VyVXlndWxhbWFsYXJsYWlsZXRpc2ltX0tvbnVsYXIuYXNweB8ABR5EacSfZXIgVXlndWxhbWFsYXJsYSBpbGV0acWfaW1kZAILD2QWAgIBDw8WBB8DBTJ+L0tvbnVsYXIvVkJBTWFrcm8vSWxlcmlzZXZpeWVrb251bGFyX0tvbnVsYXIuYXNweB8ABRXEsGxlcmkgc2V2aXllIGtvbnVsYXJkZAIrDzwrAAkBAA8WBB8BFgAfAgIHZBYOZg9kFgICAQ8PFgQfAwUhfi9Lb251bGFyL1ZTVE8vR2lyaXNfS29udWxhci5hc3B4HwAFBkdpcmnFn2RkAgEPZBYCAgEPDxYEHwMFJH4vS29udWxhci9WU1RPL0NvcmVWU1RPX0tvbnVsYXIuYXNweB8ABQlDb3JlIFZTVE9kZAICD2QWAgIBDw8WBB8DBSh+L0tvbnVsYXIvVlNUTy9OZXRpc2xlbWxlcmlfS29udWxhci5hc3B4HwAFDy5OZXQgacWfbGVtbGVyaWRkAgMPZBYCAgEPDxYEHwMFMX4vS29udWxhci9WU1RPL1RoaXJkUGFydHlLdXR1cGhhbmxlcl9Lb251bGFyLmFzcHgfAAUZVGhpcmQgUGFydHkgS8O8dMO8cGhhbmxlcmRkAgQPZBYCAgEPDxYEHwMFLH4vS29udWxhci9WU1RPL1Byb2pleWlZYXlpbmxhbWFfS29udWxhci5hc3B4HwAFElByb2pleWkgWWF5xLFubGFtYWRkAgUPZBYCAgEPDxYEHwMFKX4vS29udWxhci9WU1RPL09ybmVrUHJvamVsZXJfS29udWxhci5hc3B4HwAFD8OWcm5layBQcm9qZWxlcmRkAgYPZBYCAgEPDxYEHwMFNn4vS29udWxhci9WU1RPL0RpZ2VyVXlndWxhbWFsYXJsYUNhbGlzbWFrX0tvbnVsYXIuYXNweB8ABSBEacSfZXIgVXlndWxhbWFsYXJsYSDDh2FsxLHFn21ha2RkAjEPPCsACQEADxYEHwEWAB8CAgJkFgRmD2QWAgIBDw8WBB8DBTt+L0tvbnVsYXIvRmFzdWx5ZS9EaWdlckFyYWNsYXJ1emVyaW5lbWFrYWxlbGVyX0tvbnVsYXIuYXNweB8ABSJEacSfZXIgQXJhw6dsYXIgw7x6ZXJpbmUgbWFrYWxl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IGF0xLF5b3N1biwgYnJhdm8uIBDEsHlpIGRlbmVtZXlkaS4gIEthYnVsIGVkZWxpbSwgZ8O8emVsIGF0xLF5b3N1bi4gT0thZmFtxLEgdGHFn2xhcmEgbcSxIHZ1cmF5xLFtLCBuZSB5YXBhecSxbS4gQnUga2FkYXIgbcSxIGvDtnTDvCBhbmxhdG3EscWfxLFtLiBKS29udWxhcsSxIHRha2lwIGVkZXJrZW4gYXluxLEgYW5kYSBzZXZnaWxpbmkgZMO8xZ/DvG7DvHJzZW4gb2xhY2HEn8SxIGJ1LiArTMO8dGZlbiByaWNhIGVkZXJpbSwgZMO8emfDvG4gc2FsbGF5YWzEsW0uIFZNaWxsZXRpbiBoYXlhbCBnw7xjw7xuw7xuIHPEsW7EsXLEsSB5b2ssIHNlbmluIGF0xLHFnyBnw7xjw7xuw7xuLiBCZW5pIGtvcmt1dHV5b3JzdW4uIF9Nb3JhbGltaSBib3p1eW9yc3VuLiBCdSBrYWRhciBtxLEgc8Sxa8SxY8SxIGFubGF0dMSxbSBraSBidSBkZXJzaSwgaGnDpyBpeWkgdGFraXAgZXRtZW1pxZ9zaW4uIB9NdWh0ZcWfZW0gc2FsbMSxeW9yc3VuIGRvc3R1bS4gEU5hecSxciwgbm9sYW1hei4gFE5lIGFsYWthc8SxIHZhciB5YS4gE05lIHlhcHTEsW4gc2VuIHlhLiAITmVlZWV5LiAXU2HDp21hbMSxeW9zdW4gZ2FsaWJhLiAgU2FsbGFtYWRhIHPEsW7EsXIgdGFubcSxeW9yc3VuLiAfU2FuYSBkaXllY2VrIGxhZiBidWxhbcSxeW9ydW0uICFTw7xwZXIgc2FsbMSxeW9yc3VuIGFya2FkYcWfxLFtLiAPxZ5ha2FjxLEgc2VuaS4gEFRhYmkgY2FhYWFuxLFtLiAsVHVoYWYgYmlyIGF0xLFjxLFzxLFuLCB5aW5lIGRlIHNldmRpbSBzZW5pLiAdWWEgYsSxcmFrIEFsbGFoIGHFn2vEsW5hIHlhLiARWWEgeWEgdGFiaSB0YWJpLiAgWWFsYWFhYWFuLCB5YWxhbiBzw7Z5bMO8eW9yc3VuLiBCPGEgaHJlZj0naHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1sMDNEQ0xRSDBSWSc+Wml5YWFhLiA8L2E+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LiALVGVicmlrbGVyLiAbU2F5Z8SxbGFyIHN1bmFyxLFtIGVmZW5pbS4gHC0tLS0tLVlhbmzEscWfbGFyIGnDp2luLS0tLS00QnJhdm8hJywgZGVtZWsgaXN0ZXJkaW0gYW1hIGJ1IGNldmFiYSBuYXPEsWwgZGl5aW0uICRBw6fEsWsgc8O2eWxleWltLCBnw7x6ZWwgYXTEsXlvc3VuLiAuQXTEscWfIHNlcmJlc3QgYW1hIG8ga2FkYXIgZGEgc2VyYmVzdCBkZcSfaWwuIC5BdMSxxZ90YSBzxLFuxLFyIHRhbsSxbcSxeW9zdW4sIGJ1IGRhIGfDvHplbC4gG0F0xLF5b3J1bSDDtnlsZXlzZSB2YXLEsW0uIBRBdG1heWFsxLFtIGzDvHRmZW4uIBlBdG1hecSxIHVudXR0dXJkdW4gYmFuYS4gKUF5xLFwdMSxciB5YSwgc2FsbGEgZGEgYnUga2FkYXIgc2FsbGFtYS4gDkJhayBoZWxlIGJhay4gFUJlbiBhdHTEsW0gc2VuIGF0bWEuIBlCaSB5YcWfxLFtYSBkYWhhIGdpcmRpbS4gKUJ1IGTDvG55YXlhIHNhbGxhbWF5YSBnZWxtacWfc2luIGRvc3R1bS4gLEJ1bmRhbiDDtm5jZWtpIGhheWF0xLFuZGEgYXTEsWPEsSBtxLF5ZMSxbj8gK0NhaGlsIGNhaGlsIGtvbnXFn3VwIG1vcmFsaW1pIGJvem1hIGJlbmltLiBXw4dvayB5YWtsYcWfdMSxbi4gxZ5ha2EgxZ9ha2EsIGFsYWthc8SxIGJpbGUgeW9rLCB1w6dtYW7EsW4gc8SxbsSxcmxhcsSxbmRhc8SxbiDFn3Vhbi4gDERhaGEgbmVsZXIhIAZFaGhoLiAwR8O2esO8bWUgZ8O2csO8bm1lZGVuIHlhdmHFn8OnYSB0ZXJrZXQgYnVyYXnEsS4gGUfDvHphbCBhdMSxeW9zdW4sIGJyYXZvLiAQxLB5aSBkZW5lbWV5ZGkuICBLYWJ1bCBlZGVsaW0sIGfDvHplbCBhdMSxeW9zdW4uIE9LYWZhbcSxIHRhxZ9sYXJhIG3EsSB2dXJhecSxbSwgbmUgeWFwYXnEsW0uIEJ1IGthZGFyIG3EsSBrw7Z0w7wgYW5sYXRtxLHFn8SxbS4gSktvbnVsYXLEsSB0YWtpcCBlZGVya2VuIGF5bsSxIGFuZGEgc2V2Z2lsaW5pIGTDvMWfw7xuw7xyc2VuIG9sYWNhxJ/EsSBidS4gK0zDvHRmZW4gcmljYSBlZGVyaW0sIGTDvHpnw7xuIHNhbGxheWFsxLFtLiBWTWlsbGV0aW4gaGF5YWwgZ8O8Y8O8bsO8biBzxLFuxLFyxLEgeW9rLCBzZW5pbiBhdMSxxZ8gZ8O8Y8O8bsO8bi4gQmVuaSBrb3JrdXR1eW9yc3VuLiBfTW9yYWxpbWkgYm96dXlvcnN1bi4gQnUga2FkYXIgbcSxIHPEsWvEsWPEsSBhbmxhdHTEsW0ga2kgYnUgZGVyc2ksIGhpw6cgaXlpIHRha2lwIGV0bWVtacWfc2luLiAfTXVodGXFn2VtIHNhbGzEsXlvcnN1biBkb3N0dW0uIBFOYXnEsXIsIG5vbGFtYXouIBROZSBhbGFrYXPEsSB2YXIgeWEuIBNOZSB5YXB0xLFuIHNlbiB5YS4gCE5lZWVleS4gF1Nhw6dtYWzEsXlvc3VuIGdhbGliYS4gIFNhbGxhbWFkYSBzxLFuxLFyIHRhbm3EsXlvcnN1bi4gH1NhbmEgZGl5ZWNlayBsYWYgYnVsYW3EsXlvcnVtLiAhU8O8cGVyIHNhbGzEsXlvcnN1biBhcmthZGHFn8SxbS4gD8WeYWthY8SxIHNlbmkuIBBUYWJpIGNhYWFhbsSxbS4gLFR1aGFmIGJpciBhdMSxY8Sxc8SxbiwgeWluZSBkZSBzZXZkaW0gc2VuaS4gHVlhIGLEsXJhayBBbGxhaCBhxZ9rxLFuYSB5YS4gEVlhIHlhIHRhYmkgdGFiaS4gIFlhbGFhYWFhbiwgeWFsYW4gc8O2eWzDvHlvcnN1bi4gQjxhIGhyZWY9J2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9bDAzRENMUUgwUlknPlppeWFhYS4gPC9hPhQrAzBnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dkZAIbDxAPFgIfBGdkEBUwEy0tRG/En3J1bGFyIGnDp2luLS0HQnJhdmEuIBdEb8SfcnUgc8O2emUgbmUgZGVuaXIuIAtUZWJyaWtsZXIuIBtTYXlnxLFsYXIgc3VuYXLEsW0gZWZlbmltLiAcLS0tLS0tWWFubMSxxZ9sYXIgacOnaW4tLS0tLTRCcmF2byEnLCBkZW1layBpc3RlcmRpbSBhbWEgYnUgY2V2YWJhIG5hc8SxbCBkaXlpbS4gJEHDp8SxayBzw7Z5bGV5aW0sIGfDvHplbCBhdMSxeW9zdW4uIC5BdMSxxZ8gc2VyYmVzdCBhbWEgbyBrYWRhciBkYSBzZXJiZXN0IGRlxJ9pbC4gLkF0xLHFn3RhIHPEsW7EsXIgdGFuxLFtxLF5b3N1biwgYnUgZGEgZ8O8emVsLiAbQXTEsXlvcnVtIMO2eWxleXNlIHZhcsSxbS4gFEF0bWF5YWzEsW0gbMO8dGZlbi4gGUF0bWF5xLEgdW51dHR1cmR1biBiYW5hLiApQXnEsXB0xLFyIHlhLCBzYWxsYSBkYSBidSBrYWRhciBzYWxsYW1hLiAOQmFrIGhlbGUgYmFrLiAVQmVuIGF0dMSxbSBzZW4gYXRtYS4gGUJpIHlhxZ/EsW1hIGRhaGEgZ2lyZGltLiApQnUgZMO8bnlheWEgc2FsbGFtYXlhIGdlbG1pxZ9zaW4gZG9zdHVtLiAsQnVuZGFuIMO2bmNla2kgaGF5YXTEsW5kYSBhdMSxY8SxIG3EsXlkxLFuPyArQ2FoaWwgY2FoaWwga29udcWfdXAgbW9yYWxpbWkgYm96bWEgYmVuaW0uIFfDh29rIHlha2xhxZ90xLFuLiDFnmFrYSDFn2FrYSwgYWxha2FzxLEgYmlsZSB5b2ssIHXDp21hbsSxbiBzxLFuxLFybGFyxLFuZGFzxLFuIMWfdWFuLiAMRGFoYSBuZWxlciEgBkVoaGguIDBHw7Z6w7xtZSBnw7Zyw7xubWVkZW4geWF2YcWfw6dhIHRlcmtldCBidXJhecSxLiAZR8O8emFsIGF0xLF5b3N1biwgYnJhdm8uIBDEsHlpIGRlbmVtZXlkaS4gIEthYnVsIGVkZWxpbSwgZ8O8emVsIGF0xLF5b3N1bi4gT0thZmFtxLEgdGHFn2xhcmEgbcSxIHZ1cmF5xLFtLCBuZSB5YXBhecSxbS4gQnUga2FkYXIgbcSxIGvDtnTDvCBhbmxhdG3EscWfxLFtLiBKS29udWxhcsSxIHRha2lwIGVkZXJrZW4gYXluxLEgYW5kYSBzZXZnaWxpbmkgZMO8xZ/DvG7DvHJzZW4gb2xhY2HEn8SxIGJ1LiArTMO8dGZlbiByaWNhIGVkZXJpbSwgZMO8emfDvG4gc2FsbGF5YWzEsW0uIFZNaWxsZXRpbiBoYXlhbCBnw7xjw7xuw7xuIHPEsW7EsXLEsSB5b2ssIHNlbmluIGF0xLHFnyBnw7xjw7xuw7xuLiBCZW5pIGtvcmt1dHV5b3JzdW4uIF9Nb3JhbGltaSBib3p1eW9yc3VuLiBCdSBrYWRhciBtxLEgc8Sxa8SxY8SxIGFubGF0dMSxbSBraSBidSBkZXJzaSwgaGnDpyBpeWkgdGFraXAgZXRtZW1pxZ9zaW4uIB9NdWh0ZcWfZW0gc2FsbMSxeW9yc3VuIGRvc3R1bS4gEU5hecSxciwgbm9sYW1hei4gFE5lIGFsYWthc8SxIHZhciB5YS4gE05lIHlhcHTEsW4gc2VuIHlhLiAITmVlZWV5LiAXU2HDp21hbMSxeW9zdW4gZ2FsaWJhLiAgU2FsbGFtYWRhIHPEsW7EsXIgdGFubcSxeW9yc3VuLiAfU2FuYSBkaXllY2VrIGxhZiBidWxhbcSxeW9ydW0uICFTw7xwZXIgc2FsbMSxeW9yc3VuIGFya2FkYcWfxLFtLiAPxZ5ha2FjxLEgc2VuaS4gEFRhYmkgY2FhYWFuxLFtLiAsVHVoYWYgYmlyIGF0xLFjxLFzxLFuLCB5aW5lIGRlIHNldmRpbSBzZW5pLiAdWWEgYsSxcmFrIEFsbGFoIGHFn2vEsW5hIHlhLiARWWEgeWEgdGFiaSB0YWJpLiAgWWFsYWFhYWFuLCB5YWxhbiBzw7Z5bMO8eW9yc3VuLiBCPGEgaHJlZj0naHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1sMDNEQ0xRSDBSWSc+Wml5YWFhLiA8L2E+FTATLS1Eb8SfcnVsYXIgacOnaW4tLQdCcmF2YS4gF0RvxJ9ydSBzw7Z6ZSBuZSBkZW5pci4gC1RlYnJpa2xlci4gG1NheWfEsWxhciBzdW5hcsSxbSBlZmVuaW0uIBwtLS0tLS1ZYW5sxLHFn2xhciBpw6dpbi0tLS0tNEJyYXZvIScsIGRlbWVrIGlzdGVyZGltIGFtYSBidSBjZXZhYmEgbmFzxLFsIGRpeWltLiAkQcOnxLFrIHPDtnlsZXlpbSwgZ8O8emVsIGF0xLF5b3N1bi4gLkF0xLHFnyBzZXJiZXN0IGFtYSBvIGthZGFyIGRhIHNlcmJlc3QgZGXEn2lsLiAuQXTEscWfdGEgc8SxbsSxciB0YW7EsW3EsXlvc3VuLCBidSBkYSBnw7x6ZWwuIBtBdMSxeW9ydW0gw7Z5bGV5c2UgdmFyxLFtLiAUQXRtYXlhbMSxbSBsw7x0ZmVuLiAZQXRtYXnEsSB1bnV0dHVyZHVuIGJhbmEuIClBecSxcHTEsXIgeWEsIHNhbGxhIGRhIGJ1IGthZGFyIHNhbGxhbWEuIA5CYWsgaGVsZSBiYWsuIBVCZW4gYXR0xLFtIHNlbiBhdG1hLiAZQmkgeWHFn8SxbWEgZGFoYSBnaXJkaW0uIClCdSBkw7xueWF5YSBzYWxsYW1heWEgZ2VsbWnFn3NpbiBkb3N0dW0uICxCdW5kYW4gw7ZuY2VraSBoYXlhdMSxbmRhIGF0xLFjxLEgbcSxeWTEsW4/ICtDYWhpbCBjYWhpbCBrb251xZ91cCBtb3JhbGltaSBib3ptYSBiZW5pbS4gV8OHb2sgeWFrbGHFn3TEsW4uIMWeYWthIMWfYWthLCBhbGFrYXPEsSBiaWxlIHlvaywgdcOnbWFuxLFuIHPEsW7EsXJsYXLEsW5kYXPEsW4gxZ91YW4uIAxEYWhhIG5lbGVyISAGRWhoaC4gMEfDtnrDvG1lIGfDtnLDvG5tZWRlbiB5YXZhxZ/Dp2EgdGVya2V0IGJ1cmF5xLEuIBlHw7x6YWwgYXTEsXlvc3VuLCBicmF2by4gEMSweWkgZGVuZW1leWRpLiAgS2FidWwgZWRlbGltLCBnw7x6ZWwgYXTEsXlvc3VuLiBPS2FmYW3EsSB0YcWfbGFyYSBtxLEgdnVyYXnEsW0sIG5lIHlhcGF5xLFtLiBCdSBrYWRhciBtxLEga8O2dMO8IGFubGF0bcSxxZ/EsW0uIEpLb251bGFyxLEgdGFraXAgZWRlcmtlbiBheW7EsSBhbmRhIHNldmdpbGluaSBkw7zFn8O8bsO8cnNlbiBvbGFjYcSfxLEgYnUuICtMw7x0ZmVuIHJpY2EgZWRlcmltLCBkw7x6Z8O8biBzYWxsYXlhbMSxbS4gVk1pbGxldGluIGhheWFsIGfDvGPDvG7DvG4gc8SxbsSxcsSxIHlvaywgc2VuaW4gYXTEscWfIGfDvGPDvG7DvG4uIEJlbmkga29ya3V0dXlvcnN1bi4gX01vcmFsaW1pIGJvenV5b3JzdW4uIEJ1IGthZGFyIG3EsSBzxLFrxLFjxLEgYW5sYXR0xLFtIGtpIGJ1IGRlcnNpLCBoacOnIGl5aSB0YWtpcCBldG1lbWnFn3Npbi4gH011aHRlxZ9lbSBzYWxsxLF5b3JzdW4gZG9zdHVtLiARTmF5xLFyLCBub2xhbWF6LiAUTmUgYWxha2FzxLEgdmFyIHlhLiATTmUgeWFwdMSxbiBzZW4geWEuIAhOZWVlZXkuIBdTYcOnbWFsxLF5b3N1biBnYWxpYmEuICBTYWxsYW1hZGEgc8SxbsSxciB0YW5txLF5b3JzdW4uIB9TYW5hIGRpeWVjZWsgbGFmIGJ1bGFtxLF5b3J1bS4gIVPDvHBlciBzYWxsxLF5b3JzdW4gYXJrYWRhxZ/EsW0uIA/FnmFrYWPEsSBzZW5pLiAQVGFiaSBjYWFhYW7EsW0uICxUdWhhZiBiaXIgYXTEsWPEsXPEsW4sIHlpbmUgZGUgc2V2ZGltIHNlbmkuIB1ZYSBixLFyYWsgQWxsYWggYcWfa8SxbmEgeWEuIBFZYSB5YSB0YWJpIHRhYmkuICBZYWxhYWFhYW4sIHlhbGFuIHPDtnlsw7x5b3JzdW4uIEI8YSBocmVmPSdodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWwwM0RDTFFIMFJZJz5aaXlhYWEuIDwvYT4UKwMwZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZGQCIw8QDxYCHwRnZBAVMBMtLURvxJ9ydWxhciBpw6dpbi0tB0JyYXZhLiAXRG/En3J1IHPDtnplIG5lIGRlbmlyLiALVGVicmlrbGVyLiAbU2F5Z8SxbGFyIHN1bmFyxLFtIGVmZW5pbS4gHC0tLS0tLVlhbmzEscWfbGFyIGnDp2luLS0tLS00QnJhdm8hJywgZGVtZWsgaXN0ZXJkaW0gYW1hIGJ1IGNldmFiYSBuYXPEsWwgZGl5aW0uICRBw6fEsWsgc8O2eWxleWltLCBnw7x6ZWwgYXTEsXlvc3VuLiAuQXTEscWfIHNlcmJlc3QgYW1hIG8ga2FkYXIgZGEgc2VyYmVzdCBkZcSfaWwuIC5BdMSxxZ90YSBzxLFuxLFyIHRhbsSxbcSxeW9zdW4sIGJ1IGRhIGfDvHplbC4gG0F0xLF5b3J1bSDDtnlsZXlzZSB2YXLEsW0uIBRBdG1heWFsxLFtIGzDvHRmZW4uIBlBdG1hecSxIHVudXR0dXJkdW4gYmFuYS4gKUF5xLFwdMSxciB5YSwgc2FsbGEgZGEgYnUga2FkYXIgc2FsbGFtYS4gDkJhayBoZWxlIGJhay4gFUJlbiBhdHTEsW0gc2VuIGF0bWEuIBlCaSB5YcWfxLFtYSBkYWhhIGdpcmRpbS4gKUJ1IGTDvG55YXlhIHNhbGxhbWF5YSBnZWxtacWfc2luIGRvc3R1bS4gLEJ1bmRhbiDDtm5jZWtpIGhheWF0xLFuZGEgYXTEsWPEsSBtxLF5ZMSxbj8gK0NhaGlsIGNhaGlsIGtvbnXFn3VwIG1vcmFsaW1pIGJvem1hIGJlbmltLiBXw4dvayB5YWtsYcWfdMSxbi4gxZ5ha2EgxZ9ha2EsIGFsYWthc8SxIGJpbGUgeW9rLCB1w6dtYW7EsW4gc8SxbsSxcmxhcsSxbmRhc8SxbiDFn3Vhbi4gDERhaGEgbmVsZXIhIAZFaGhoLiAwR8O2esO8bWUgZ8O2csO8bm1lZGVuIHlhdmHFn8OnYSB0ZXJrZXQgYnVyYXnEsS4gGUfDvHphbCBhdMSxeW9zdW4sIGJyYXZvLiAQxLB5aSBkZW5lbWV5ZGkuICBLYWJ1bCBlZGVsaW0sIGfDvHplbCBhdMSxeW9zdW4uIE9LYWZhbcSxIHRhxZ9sYXJhIG3EsSB2dXJhecSxbSwgbmUgeWFwYXnEsW0uIEJ1IGthZGFyIG3EsSBrw7Z0w7wgYW5sYXRtxLHFn8SxbS4gSktvbnVsYXLEsSB0YWtpcCBlZGVya2VuIGF5bsSxIGFuZGEgc2V2Z2lsaW5pIGTDvMWfw7xuw7xyc2VuIG9sYWNhxJ/EsSBidS4gK0zDvHRmZW4gcmljYSBlZGVyaW0sIGTDvHpnw7xuIHNhbGxheWFsxLFtLiBWTWlsbGV0aW4gaGF5YWwgZ8O8Y8O8bsO8biBzxLFuxLFyxLEgeW9rLCBzZW5pbiBhdMSxxZ8gZ8O8Y8O8bsO8bi4gQmVuaSBrb3JrdXR1eW9yc3VuLiBfTW9yYWxpbWkgYm96dXlvcnN1bi4gQnUga2FkYXIgbcSxIHPEsWvEsWPEsSBhbmxhdHTEsW0ga2kgYnUgZGVyc2ksIGhpw6cgaXlpIHRha2lwIGV0bWVtacWfc2luLiAfTXVodGXFn2VtIHNhbGzEsXlvcnN1biBkb3N0dW0uIBFOYXnEsXIsIG5vbGFtYXouIBROZSBhbGFrYXPEsSB2YXIgeWEuIBNOZSB5YXB0xLFuIHNlbiB5YS4gCE5lZWVleS4gF1Nhw6dtYWzEsXlvc3VuIGdhbGliYS4gIFNhbGxhbWFkYSBzxLFuxLFyIHRhbm3EsXlvcnN1bi4gH1NhbmEgZGl5ZWNlayBsYWYgYnVsYW3EsXlvcnVtLiAhU8O8cGVyIHNhbGzEsXlvcnN1biBhcmthZGHFn8SxbS4gD8WeYWthY8SxIHNlbmkuIBBUYWJpIGNhYWFhbsSxbS4gLFR1aGFmIGJpciBhdMSxY8Sxc8SxbiwgeWluZSBkZSBzZXZkaW0gc2VuaS4gHVlhIGLEsXJhayBBbGxhaCBhxZ9rxLFuYSB5YS4gEVlhIHlhIHRhYmkgdGFiaS4gIFlhbGFhYWFhbiwgeWFsYW4gc8O2eWzDvHlvcnN1bi4gQjxhIGhyZWY9J2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9bDAzRENMUUgwUlknPlppeWFhYS4gPC9hPhUwEy0tRG/En3J1bGFyIGnDp2luLS0HQnJhdmEuIBdEb8SfcnUgc8O2emUgbmUgZGVuaXIuIAtUZWJyaWtsZXIuIBtTYXlnxLFsYXIgc3VuYXLEsW0gZWZlbmltLiAcLS0tLS0tWWFubMSxxZ9sYXIgacOnaW4tLS0tLTRCcmF2byEnLCBkZW1layBpc3RlcmRpbSBhbWEgYnUgY2V2YWJhIG5hc8SxbCBkaXlpbS4gJEHDp8SxayBzw7Z5bGV5aW0sIGfDvHplbCBhdMSxeW9zdW4uIC5BdMSxxZ8gc2VyYmVzdCBhbWEgbyBrYWRhciBkYSBzZXJiZXN0IGRlxJ9pbC4gLkF0xLHFn3RhIHPEsW7EsXIgdGFuxLFtxLF5b3N1biwgYnUgZGEgZ8O8emVsLiAbQXTEsXlvcnVtIMO2eWxleXNlIHZhcsSxbS4gFEF0bWF5YWzEsW0gbMO8dGZlbi4gGUF0bWF5xLEgdW51dHR1cmR1biBiYW5hLiApQXnEsXB0xLFyIHlhLCBzYWxsYSBkYSBidSBrYWRhciBzYWxsYW1hLiAOQmFrIGhlbGUgYmFrLiAVQmVuIGF0dMSxbSBzZW4gYXRtYS4gGUJpIHlhxZ/EsW1hIGRhaGEgZ2lyZGltLiApQnUgZMO8bnlheWEgc2FsbGFtYXlhIGdlbG1pxZ9zaW4gZG9zdHVtLiAsQnVuZGFuIMO2bmNla2kgaGF5YXTEsW5kYSBhdMSxY8SxIG3EsXlkxLFuPyArQ2FoaWwgY2FoaWwga29udcWfdXAgbW9yYWxpbWkgYm96bWEgYmVuaW0uIFfDh29rIHlha2xhxZ90xLFuLiDFnmFrYSDFn2FrYSwgYWxha2FzxLEgYmlsZSB5b2ssIHXDp21hbsSxbiBzxLFuxLFybGFyxLFuZGFzxLFuIMWfdWFuLiAMRGFoYSBuZWxlciEgBkVoaGguIDBHw7Z6w7xtZSBnw7Zyw7xubWVkZW4geWF2YcWfw6dhIHRlcmtldCBidXJhecSxLiAZR8O8emFsIGF0xLF5b3N1biwgYnJhdm8uIBDEsHlpIGRlbmVtZXlkaS4gIEthYnVsIGVkZWxpbSwgZ8O8emVsIGF0xLF5b3N1bi4gT0thZmFtxLEgdGHFn2xhcmEgbcSxIHZ1cmF5xLFtLCBuZSB5YXBhecSxbS4gQnUga2FkYXIgbcSxIGvDtnTDvCBhbmxhdG3EscWfxLFtLiBKS29udWxhcsSxIHRha2lwIGVkZXJrZW4gYXluxLEgYW5kYSBzZXZnaWxpbmkgZMO8xZ/DvG7DvHJzZW4gb2xhY2HEn8SxIGJ1LiArTMO8dGZlbiByaWNhIGVkZXJpbSwgZMO8emfDvG4gc2FsbGF5YWzEsW0uIFZNaWxsZXRpbiBoYXlhbCBnw7xjw7xuw7xuIHPEsW7EsXLEsSB5b2ssIHNlbmluIGF0xLHFnyBnw7xjw7xuw7xuLiBCZW5pIGtvcmt1dHV5b3JzdW4uIF9Nb3JhbGltaSBib3p1eW9yc3VuLiBCdSBrYWRhciBtxLEgc8Sxa8SxY8SxIGFubGF0dMSxbSBraSBidSBkZXJzaSwgaGnDpyBpeWkgdGFraXAgZXRtZW1pxZ9zaW4uIB9NdWh0ZcWfZW0gc2FsbMSxeW9yc3VuIGRvc3R1bS4gEU5hecSxciwgbm9sYW1hei4gFE5lIGFsYWth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" />
+
+
+<script src="../../ScriptResourceb54a.js?d=qV8qacmWm0tSEQ-gOh_CMi4EzRKhunNFjY5N4WhtbuiUtkOeU2vNfdvGd3gJ4rQLu6o9-LuM2pzW5cB7mhuKj2beV-5bw8f5KoFCaEPXgZMOo3xORH5auCepiTsBnPC5TJuqssuXI87SzFLJbdT6aUIFIp4GYLSIHuW6EckgDHA1&amp;t=49337fe8" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="94D59A78" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAO4Bq1XgPXh52pNBIJOe4gZvJF3AxqI0AHIcVXQkJn8JcP6Cp81wEyvRBv4QmCHNnC/xuhZu9zE27sg6f75CZRGJq5X9mpDTnF36b4WCBbWwdfKB+7rbIrWFXd2PTmwi9/jjV33FKnwPpzv0Q0Bl/AQ76Iu4sxZYZ8L0NlxVty0uQodJzUtQhgNAfi2z3pJhXlYY8iadY+dK47EFJWNeP1Dt+oxcnWGiYPLbYyo16ubsdw0504OXTiIpavOw2LDwCYuDVQePO0/kyKotjRzOWcGe4uXg4d2Mzy4NBLS7VOSbFpPaIM1Yn7VfalApZG7LhiOad5B1t53QY3YGsbB+U39a7KkH/D2xZ6uJvCcQgA7dtAhNBWW5yC3x/J3wkG8xYyHu9fvF3GPS6K/Rng8Zw/fkSuUTgZqPAiejqRNvsmVElgq/OQO4uo6Hegb3nI+7hCLYBgzFtXjZLnMu0kW+4lqwZTUOFbxYI7x142PXiQrRS2eKuq6+rw07J4VeeRXoFk+0tPexusxK4d9aj+jmzUJZEbigBX9vS1Svhd5Vh9v+1N842U4+E2C4aAcpr90BrKmRUCDLifpTtozWe8v+Pr7dn4OO+0Wwp19ePt1vuO1g/L2NiyHTfknTuLb0Jly4muyBuRau4HkR/sCKNzaiB3h0BrhYpZNu+i2Bk3CAkKPnXgvzlOZOWSUbkvvg/YdHxSby5qDqRgTHqyZqMfx/NTptmp/8WqAt7Y1SRtivSRvFsezSwrOs9u6E7x+QwUj28kDEliHWn7X8TsTUcoXueORAsu2saSHhq3G/s/QlApU+6D4VR9a0nAnGPMOitPb1QVSdgy/SEtfoqbSRz3sRSL3Wi/WAOXxjOEKW0QSr0HlqEKaeHFclDTZ+f8cqmEfknnZ3Eezw2jpqknRh6mmod81WSUfOgcN6cUs6BNvELocNAo9QK3rTRYndMaWyAfeWSfVozPYQtqKul94jaJsk33aAUIsEZYreOFgdZD7He7H63n6cHjxOewUfr4WS+4JMuBWLO+ssgRmOFV3Y8XBfSiVHkj6Kj08i7a4edyCkajpZ7c4CqVOGlAgoPYeyS3iSI4fB6KrmHxJAQLGf8jFmhJvq0ReWhxVC4iINfUTJaih9CExgVMrbaLrf+T1mMooXrgijYLyliaLMiTjc+5Ai2CjUByMvoshrkdwyzDVA6YKXpO+YbvB9mHZEVksvpP0/p051sK05rGMYDnerCtEnY+QmDMwgt5m7aMZrvu5a8GpniaoGZIyHAachvXZx6Rzb8McgIvI6keIQ+ElMjbz1rv1j3qOmJEXkz+BS428U4jENrkzBLl+7ZjuiYMxHu3l8/QTb08+SEJEm3xnJlE2kf0F0HUYVm19uNLUfxcqHcaCSDMNr8uM7Zdah4sgls9sXvPrlQKOaG1QA3tzPrFUXT0Zb0r1B70bSTbKVFJBCPV7J6FJ7TaV8MWwVp6TVCKJZM6uUVeAetyXzxN4XiPulj2QiVkxGF4gRLoFNhlkxkQ6ttcOQ2C7eccLbB0a8VGrH6B0W5rHYBfGaqGIzgAYInWIKWBOMwpI8M+Fipg2JGqG8Nd6eqebM1u/Ie2v5QkQDUTMx2Cvv3rfpz/gPTu31cMckDY4+7rjyEQJ4XF0KPA8N95wv2+6Z1OAdtxP4XFob8P97XMGLW9Oumc9wi2MRck1COfDP+FXJU+3I7vqfS6LjbEux1SzKSrRv7wrwQpJq09wKAkKpTK1zkROXL+pHmz9Zbcpo7AHyKB0VTM2faYqLpxescZnbURUb6FrJBUKH9buC8PGCBpshu/+mK/0ZlC6z7evRGicz7TBnmf3YQETETe4JnFWGFXxVUjXoQcr4vcRQpFZZkwZp7Qy+Df+fhukhtsBgG/1TcuxQvHhBcpRNiktiTO1Jgb+2MlYFwqtIeh2YSkdnfS1EdbFIVjlK3YzvuAMhmrstNbSDyngrPy/Q4sBtTi4S/A2ysBVNIS39DYLMNbdG+7Q/K6bFr9ynknX0o//aOpVj9YxjMQapVmASjvSet0NPHyWw8rgv+HlU4SH+Dz/yCY5B7n+1ReBq6of1KQ9w1zRwTtUFaSurEuqsg35geB8Y+glHw+LdPcfcdgOPyTQcFHYjz6wLdU90Kbx2+3/LzNttLcB7lPAUuldjlutYyU9SsvjJ49pVNQFzvN+8TDAAEvHxC6BmE/TjglLVhsAy1i5cZNSPZUDvYfk94wTUqQzisB97pGYx/TPD6dttmbXvHygdQawG9HfJmELPdL48tqlTfpaCOgJd4kU4bNsx2Ad4/n1Xi5Tb6H+nWQXy9TgWBX7Ak0ihq+Mt6Y6/fwJ4hcP1EddcKKe3oOCgZXocvLrontG4gEJHKUQ4G6eACofGrIQZVCaWQoq+7ntUezPNLzZVVmtAyybGSLNZuePn9T0E+dnLMLBPWU3tjwhRwdqQtUdNkAYrWFbD77WkmaXAy7hoHesSrPi3jTo4Iy2p5Bxdeu0GYdVDrbuDWx+Tb3EmEB5ht6sfql/G9dVn5vu35gG4YdZTO5SdH6BsuAtC7npgMqhtVOxgv8cf/DTxuvkCYOVewGpD1mpICsttyy+5IT4Ih1i7hT8YTpqq8IMDdcxAaVyfvnVf4aUAmsH2mDEoODpo/TGax1GYzm7Kl16Seaokr9U35z4LavL4J2AzxAb4UUVJ89wMNsY0TZQchkUc5HTyHyZFsufiDd0x5xdKJSv2yalp4LTh/CN+jWfva48CRErRnIVyPs1ydLMRzI8g5RRKZgAN3e/2AfYb1qhFFPYWKjLXx/di/n17uufTv3HlI33qwpEEVoLkYfWIGGCb/YGxDkuN6frQd2xxICeIY32yA9OXlTM+3rjzX9HSXBcG5xY9ozHN8So4X/9Jp9W8LhwsFQqCRjZ1U+E6iShJsmcqUuzDguQZfWNAn2rPrCM+v8xoJXVzPjj3SJqc84oLv48WkJ/u81u1mjrrl1zE0UJ9CVL8wG/HAdi9lwK9OAArBtahBAGf9b2w+3WJtDaUNBKXoccx8dNCeV8aMo3YwgB+nmJD0HlUG8WHPJXm9Bwqyf15hN45CwANQn9yHaJyFp8Pzi9s3nqw3SZRejfN0kkbBL6lfiqM3GI2omtydTxWliG9paz32/3PcxiT2LBa6lC2SR7t9NXxPk7joKsMq/URaOb3YHKi5EGPUap9Zq83quQuwaxlR0hlWPT6DEswaBpjIYOmeJsV3/YY8Zovm3GjpjCmGispXHxDBqKhDazdddf15kj0Lt9ZjcAR2AIBRWk48JgTF7wn3FsHIMY7Vn0HJ4KTUH8x/wEcKnkpJrEXnCrKEG5oXplrDA51OeBPNFhewGa8x2fXKF1HxzMa47/mcrlUtTO4KaU4zJk3lOOpeZLzU6nTblXfRnlhhlKQUBXrCPsGPYMq/UHiHJ8swLSQ8aCEvp5wqVDZZ5hyygVt2029onUvNk/sOSG0H9dB8hUpX+391752W7H4qeFT7TH0hMWz+tyS0tLgiXp9Yax9+bh0sXvzPer7tM2xNyiTRopEPZfvRwDzqH9gIegsDws3gQdRPfHRCQ5xYxRFoW3sqUo07IG83DF+R4h5/4xuaDYqCxATpO2PBVGNVCNgFzFIlTitKDraPXRAtt42OXvKw708Cxc9xRrfafTjLdQcCvqbxUXRi6PgyNvG5bWlbEerIPcTxjcwhIVzFeey9jsKriCowN9+5sZB/4zLiYyyOf7aPfWOf4Nf3ghjs3mHTuKsnedSQT+6th3j6Owb/L+UJPfWZzZwqDdw9rJmLE5XVYv75UHhC8BGyTpHH068QWNJVuHvKNzvyJQKEZDyIXp1hlQNhuZ9+DwzhuE+YfyG+kHvN1MCSOlHXQg+wUzpBHD5ykixwS/NsP5AtnEIoVw/X6+cKG/AIgF9qa+FCDHSaNHjPyNmJ4XBh6+fsVCtDAF6Y0XYx50uAiBUDV+26zdGllXLZMIfCDKLPHP8eu6versw7Hi6I1ykDJIU4lShVm0jLgxJhnth6L7JRxGD6S5zUa114POwT2+U3/4DYfmwXbI3BTSQOfSZk5Qg2ulJaeiZzHKIaJssvUvK9ZFER6M6ziT4gRS1xwKldVJNABga+0AZMrI+GbdwD6SFQKTwY+X8Ml29hyLFzgN5tGU+mXnmO5UmjG/39BJhXG0O0dNSEaZ2NN0dhhaVlsGgactIr4rsMx350SgQufgtQxljfzF7P0bQmdznh4fClwVa8HHczuS1SWD3P/gF/6hd11Uy1kua6+lBkjzKUa8Dv8f1tbk23IMMmvT0b+Az7ovq16fvEWApQKgDXc4iWCuAcJg0d1H65EBPxIItRrDCE/fT1EtjYbK2181O92s5FT/ISKRd7iJD/lINpYI+R1R/Nd/t/QUswDld0t/WAHo02/G5wFI+2aQNhaY47FJvFnx/mxE9eLmDSgdss6NInMoeg7/vmzcudpx7tiBUkQEuLER8sDN/FYJsSKp89iY7XtNEp25/T7jf7O3CJTOEEvcE1JakyMPnPq3fKyQalHBFE0Ry9ESLISOmwprQfMK4Vlmfxd7Br+dumPo21QUV9lg6fmac+8fmbYBEKzpsQNR+yh0qsSfrWEErrl2L/aPbhWzgG5CiLFVdscJV12wv8t9mkN5W7P+2GIN3HPpoNHebk3jwBIKF9yEmz1ykmRoOtSH1QI/r3Y3KoNCuLUYaU/WGuliLDV7ZgsKsDIEnL+dn1otR++4aWi8hSvmkhS7QSDRVKYw3/BH2AC+zwE0H6i1q6+W1axNqz9xPrjXdUgaqpwDYjKGicdaVnSftiBCRofQiuLUYHg8ScqvEtmuaMn3gcHspxbJ7J/UyCzSIKV9RY7rGgQAwZ2uryoFW0c0ugnF3kt7MugjzHnFa9E1sZ6p6vAME7foraGp/HbgF0lK0uZQrhhJqCSpL7s0TAPY1uUYsZnon2Imyf46B7PVi6ekvFLkGD5cpua06Srt00uSkLXOYp++ywO9YAyeIy6QSXqs8cwCj/mj1b7A8uUKE7WzV9zw/ToZkyqo6TwwogZlGNDhSH7/vgESlvDEO4hxnYWXc3ItCpeS9ADg7pcvKUjQjnqx89uBbJq7gkSZuODUqciTGxVN72TiLjHuS9I5mq0+n" />
+        
+
+
+        <div id="cerez" class="alert alert-warning">
+            <div>
+                Bu siteye giriş yaparak Çerez kullanımını kabul etmiş oluyorsunuz. İşbu sitede; çerez olarak, sadece son giriş tarihiniz
+		    		    ve eğer üye olursanız oturum statünüz tutulacaktır. Bunlar dışında başka hiçbir bilgi tutulmamaktadır. Çerezler için 
+		    		    detaylı bilgi için <a href="../../sorun9bed.html#cerez">buraya </a>tıklayınız.
+            </div>
+            <div style="text-align: center">ANLADIM</div>
+        </div>
+
+        <div id="duyuruilan">
+            <div>
+                <p><b>DUYURULAR</b></p>
+                <p>Yeni eklenen ve/veya güncellenen sayfaları görmek için <a href='../../SayfaDegisim.html'>buraya</a> tıklayınız.</p>
+                <p>Güncel ödev ve test listesini görmek için <a href='../../TestveOdevList.html'>buraya</a> tıklayınız.</p>
+                <p>Sitede yapılan iyileştirmeler ve hata düzeltmelerine ait tüm bilgilendirmeleri görmek için<a href="../../sorun77fb.html">buraya</a> tıklayınız. </p>
+            </div>
+        </div>
+        <div id="duyuruimg" title="Duyuruları görmek için tıklayınız">
+            <img src="../../images/duyuru.png" class="pulse" />
+        </div>
+
+        <div id="ziyaret"></div>
+        <span id="lblUyemail"></span>
+                
+        <nav id="mynav" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-center"> 
+           
+            <div id="navhome" onclick="topFunction()" title="Başa dön">Baş</div>
+            <div id="navend" onclick="bottomFunction()" title="Sona git">Son</div>
+            <div id="udemy" onclick="udemyFunction()" title="Udemy video sayfama git"><img src="../../images/Udemy.png" /></div>            
+           
+            <div id="anamenu" class="col-md-10">
+                <ul class="nav nav-pills justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../default.html">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../sorunf6a8.html">Hakkımda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Sitemap.html">Sitemap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Excelent.html">Excelent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../iletisim.html">İletişim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../uyelik.html">Üyelik</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Arama.html">Arama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Testimonials.html">Sizden gelenler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:yellow;font-size:large" href="https://www.patreon.com/volkanyurtseven">Destek/Patreon</a>
+                    </li>
+                    <li class="nav-item">
+                        <div id="google_translate_element"></div>
+                    </li>        
+                    
+                </ul>
+            </div>
+ 
+        </nav>
+
+        <div class="nomobilsegizle" id="sabitmobilmenu">
+            <div class="mobilmenudiv5" id="mobilBasButon" onclick="topFunction()">Baş</div>
+            <div class="mobilmenudiv5" id="mobilUdemyButon" onclick="udemyFunction()">Udemy</div>
+            <div class="mobilmenudiv5" id="mobilana" onclick="mobilMenu()">
+                Anamenü		
+                <div id="mobil_anamenu">
+                <a id="m_hypDefault" href="../../Default-2.html">Anasayfa</a>
+                <a id="m_hypHakkim" href="../../sorunf6a8.html">Hakkımda</a>
+                <a id="m_hypSitemap" href="../../sitemap-2.html">Site Haritası</a>
+                <a id="m_hypExcelent" href="../../Excelent.html">Excelent</a>
+                <a id="m_hypiletisim" href="../../iletisim.html">İletişim</a>
+                <a id="m_hypMembership" href="../../uyelik.html">Üyelik</a>
+                <a id="m_hypSearch" href="../../Arama.html">Arama</a>
+                <a id="m_hypTestimonial" href="../../Testimonials.html">Sizden gelenler</a>
+                <a id="m_hypPatreon" href="https://www.patreon.com/volkanyurtseven">Destek/Patreon</a>
+                </div>
+            </div>
+            
+            <div class="mobilmenudiv5" id="mobilSideBar" onclick="mobilSideMenu()">Konular</div>
+            <div class="mobilmenudiv5" id="mobilSonButon" onclick="bottomFunction()">Son</div>
+
+        </div>
+
+        <div id="babacontainer">
+            <div class="row">
+                <div id="solsutunreklam" class="col-md-2">
+                   
+
+                    
+                    <div class="gizlefortestodev" style="margin-top:60px;">
+                        <span id="lblFolder">Konular</span><br />                                    
+                        <span id="lblSayfa">Tahminlemearaclari</span><br />
+                        <span id="lblAltkonu">DataMenusu</span><br />
+                        <span id="lblAnakonu">Excel</span><br />                        
+                    </div>
+                </div>
+
+                <div id="ortablok" class="col-md-8">
+
+                    <div id="ortablok_anacontent" class="row">
+                        <div id="sidebar" class="col-md-2">
+                            <ul>
+                                <li>
+                                    <a id="HyperLink1" class="baslik">Excel</a>
+                                    <table id="DataList1" class="konu" cellspacing="0">
+	<tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_0" href="Giris_Konular.html">Giriş</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_1" href="HomeMenusu_Konular.html">Home Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_2" href="InsertMenusu_Konular.html">Insert Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_3" href="FormulasMenusuFonksiyonlar_Konular.html">Formulas Menüsü(Fonksiyonlar)</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_4" href="FormulasMenusuDiger_Konular.html">Formulas Menüsü(Diğer)</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_5" href="DataMenusu_Konular.html">Data Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_6" href="ReviewMenusu_Konular.html">Review Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_7" href="DeveloperMenusu_Konular.html">Developer Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_8" href="YeniEklenenAraclar_Konular.html">Yeni Eklenen Araçlar</a>
+                                        </td>
+	</tr>
+</table>
+                                    
+                                </li>
+
+                                <li>
+                                    <a id="HyperLink2" class="baslik">VBA/Makro</a>
+                                    <table id="DataList2" class="konu" cellspacing="0">
+	<tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_0" href="../VBAMakro/Giris_Konular.html">Giriş</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_1" href="../VBAMakro/Temeller_Konular.html">Temeller</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_2" href="../VBAMakro/DortTemelNesne_Konular.html">Dört Temel Nesne</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_3" href="../VBAMakro/KosulifadeleriveDonguler_Konular.html">Koşul ifadeleri ve Döngüler</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_4" href="../VBAMakro/DizilerveDizimsiYapilar_Konular.html">Diziler ve Dizimsi Yapılar</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_5" href="../VBAMakro/DebuggingveHataYonetimi_Konular.html">Debugging ve Hata Yönetimi</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_6" href="../VBAMakro/Fonksiyonlar_Konular.html">Fonksiyonlar</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_7" href="../VBAMakro/Dosyaislemleri_Konular.html">Dosya işlemleri</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_8" href="../VBAMakro/Olaylar_Konular.html">Olaylar</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_9" href="../VBAMakro/Formlar_Konular.html">Formlar</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_10" href="../VBAMakro/DigerUygulamalarlailetisim_Konular.html">Diğer Uygulamalarla iletişim</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_11" href="../VBAMakro/Ileriseviyekonular_Konular.html">İleri seviye konular</a>
+                                        </td>
+	</tr>
+</table>
+                                    
+                                </li>
+
+                                <li>
+                                    <a id="HyperLink3" class="baslik">VSTO</a>
+                                    <table id="DataList3" class="konu" cellspacing="0">
+	<tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_0" href="../VSTO/Giris_Konular.html">Giriş</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_1" href="../VSTO/CoreVSTO_Konular.html">Core VSTO</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_2" href="../VSTO/Netislemleri_Konular.html">.Net işlemleri</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_3" href="../VSTO/ThirdPartyKutuphanler_Konular.html">Third Party Kütüphanler</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_4" href="../VSTO/ProjeyiYayinlama_Konular.html">Projeyi Yayınlama</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_5" href="../VSTO/OrnekProjeler_Konular.html">Örnek Projeler</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_6" href="../VSTO/DigerUygulamalarlaCalismak_Konular.html">Diğer Uygulamalarla Çalışmak</a>
+                                        </td>
+	</tr>
+</table>
+                                    
+                                </li>
+
+                                <li>
+                                    <a id="HyperLink4" class="baslik">Fasulye</a>
+                                    <table id="DataList4" class="konu" cellspacing="0">
+	<tr>
+		<td>
+                                            <a id="DataList4_AltKonuHyp_0" href="../Fasulye/DigerAraclaruzerinemakaleler_Konular.html">Diğer Araçlar üzerine makaleler</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList4_AltKonuHyp_1" href="../Fasulye/NeNeredeNasil_Konular.html">Ne Nerede Nasıl</a>
+                                        </td>
+	</tr>
+</table>
+                                    
+                                </li>
+                            </ul>
+                            <!--   			        <div class="marquee">VBA konularına Dosya okuma/yazma sayfası eklenmiştir.</div>-->
+                        </div>
+
+
+                        <div id="yazilar" class="col-md-10">
+                             
+                             
+                            
+                            <div id='gizliforkonu'><table><tr><td><span id="SayfaIcerik_Label1">Excel</span></td><td><span id="SayfaIcerik_Label2">Data Menüsü</span></td><td><span id="SayfaIcerik_Label3">5</span></td></tr></table></div><h1 class='baslik'>Tahminleme Araçları</h1><div class='konu'><p> Yapım aşamasında...</p></div>
+
+                            
+                            <div id="testsoru">
+                                <h2 class="baslik">TEST SORULARI</h2>
+                                <div class="konu">
+                                <div id="yenitestekle">
+                                    
+
+  <div>
+        <strong>
+            <span id="testsorucontrol_sonsoru">Son Sorumuz şuymuş:Bir metindeki tüm noktaları yoketmek istiyorsunuz. Hangi fonksiyonu kullanırdınız?</span>
+        </strong>
+        <hr />
+    </div>
+    <div class="container">
+        <div class="row">
+            <span id="testsorucontrol_Label1" class="col-md-1">Soru:</span>
+            <textarea name="ctl00$testsorucontrol$txtSoru" rows="2" cols="20" id="testsorucontrol_txtSoru" class="col-md-11">
+</textarea>
+        </div>      
+        <hr />
+        <div class="row">
+            <span id="testsorucontrol_Label2" class="col-md-1">A şıkkı:</span>
+            <textarea name="ctl00$testsorucontrol$txtOptA" rows="2" cols="20" id="testsorucontrol_txtOptA" class="col-md-3" placeholder="Şıkkı gir">
+</textarea>
+            <select name="ctl00$testsorucontrol$drpPrefixWhenAWrong" id="testsorucontrol_drpPrefixWhenAWrong" class="col-md-5">
+	<option value="--Doğrular için--">--Doğrular i&#231;in--</option>
+	<option value="Brava. ">Brava. </option>
+	<option value="Doğru söze ne denir. ">Doğru s&#246;ze ne denir. </option>
+	<option value="Tebrikler. ">Tebrikler. </option>
+	<option value="Saygılar sunarım efenim. ">Saygılar sunarım efenim. </option>
+	<option value="------Yanlışlar için-----">------Yanlışlar i&#231;in-----</option>
+	<option value="Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. ">Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. </option>
+	<option value="Açık söyleyim, güzel atıyosun. ">A&#231;ık s&#246;yleyim, g&#252;zel atıyosun. </option>
+	<option value="Atış serbest ama o kadar da serbest değil. ">Atış serbest ama o kadar da serbest değil. </option>
+	<option value="Atışta sınır tanımıyosun, bu da güzel. ">Atışta sınır tanımıyosun, bu da g&#252;zel. </option>
+	<option value="Atıyorum öyleyse varım. ">Atıyorum &#246;yleyse varım. </option>
+	<option value="Atmayalım lütfen. ">Atmayalım l&#252;tfen. </option>
+	<option value="Atmayı unutturdun bana. ">Atmayı unutturdun bana. </option>
+	<option value="Ayıptır ya, salla da bu kadar sallama. ">Ayıptır ya, salla da bu kadar sallama. </option>
+	<option value="Bak hele bak. ">Bak hele bak. </option>
+	<option value="Ben attım sen atma. ">Ben attım sen atma. </option>
+	<option value="Bi yaşıma daha girdim. ">Bi yaşıma daha girdim. </option>
+	<option value="Bu dünyaya sallamaya gelmişsin dostum. ">Bu d&#252;nyaya sallamaya gelmişsin dostum. </option>
+	<option value="Bundan önceki hayatında atıcı mıydın? ">Bundan &#246;nceki hayatında atıcı mıydın? </option>
+	<option value="Cahil cahil konuşup moralimi bozma benim. ">Cahil cahil konuşup moralimi bozma benim. </option>
+	<option value="Çok yaklaştın. Şaka şaka, alakası bile yok, uçmanın sınırlarındasın şuan. ">&#199;ok yaklaştın. Şaka şaka, alakası bile yok, u&#231;manın sınırlarındasın şuan. </option>
+	<option value="Daha neler! ">Daha neler! </option>
+	<option value="Ehhh. ">Ehhh. </option>
+	<option value="Gözüme görünmeden yavaşça terket burayı. ">G&#246;z&#252;me g&#246;r&#252;nmeden yavaş&#231;a terket burayı. </option>
+	<option value="Güzal atıyosun, bravo. ">G&#252;zal atıyosun, bravo. </option>
+	<option value="İyi denemeydi. ">İyi denemeydi. </option>
+	<option value="Kabul edelim, güzel atıyosun. ">Kabul edelim, g&#252;zel atıyosun. </option>
+	<option value="Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı kötü anlatmışım. ">Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı k&#246;t&#252; anlatmışım. </option>
+	<option value="Konuları takip ederken aynı anda sevgilini düşünürsen olacağı bu. ">Konuları takip ederken aynı anda sevgilini d&#252;ş&#252;n&#252;rsen olacağı bu. </option>
+	<option value="Lütfen rica ederim, düzgün sallayalım. ">L&#252;tfen rica ederim, d&#252;zg&#252;n sallayalım. </option>
+	<option value="Milletin hayal gücünün sınırı yok, senin atış gücünün. Beni korkutuyorsun. ">Milletin hayal g&#252;c&#252;n&#252;n sınırı yok, senin atış g&#252;c&#252;n&#252;n. Beni korkutuyorsun. </option>
+	<option value="Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hiç iyi takip etmemişsin. ">Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hi&#231; iyi takip etmemişsin. </option>
+	<option value="Muhteşem sallıyorsun dostum. ">Muhteşem sallıyorsun dostum. </option>
+	<option value="Nayır, nolamaz. ">Nayır, nolamaz. </option>
+	<option value="Ne alakası var ya. ">Ne alakası var ya. </option>
+	<option value="Ne yaptın sen ya. ">Ne yaptın sen ya. </option>
+	<option value="Neeeey. ">Neeeey. </option>
+	<option value="Saçmalıyosun galiba. ">Sa&#231;malıyosun galiba. </option>
+	<option value="Sallamada sınır tanmıyorsun. ">Sallamada sınır tanmıyorsun. </option>
+	<option value="Sana diyecek laf bulamıyorum. ">Sana diyecek laf bulamıyorum. </option>
+	<option value="Süper sallıyorsun arkadaşım. ">S&#252;per sallıyorsun arkadaşım. </option>
+	<option value="Şakacı seni. ">Şakacı seni. </option>
+	<option value="Tabi caaaanım. ">Tabi caaaanım. </option>
+	<option value="Tuhaf bir atıcısın, yine de sevdim seni. ">Tuhaf bir atıcısın, yine de sevdim seni. </option>
+	<option value="Ya bırak Allah aşkına ya. ">Ya bırak Allah aşkına ya. </option>
+	<option value="Ya ya tabi tabi. ">Ya ya tabi tabi. </option>
+	<option value="Yalaaaaan, yalan söylüyorsun. ">Yalaaaaan, yalan s&#246;yl&#252;yorsun. </option>
+	<option value="&lt;a href=../../sorun309a.html?v=l03DCLQH0RY'>Ziyaaa. &lt;/a>">&lt;a href=&#39;https://www.youtube.com/watch?v=l03DCLQH0RY&#39;&gt;Ziyaaa. &lt;/a&gt;</option>
+
+</select>
+            <textarea name="ctl00$testsorucontrol$txtWhenA" rows="2" cols="20" id="testsorucontrol_txtWhenA" class="col-md-3" placeholder="Cevaba göre uygun mesjaı gir, prefixten sorna bu gelecek">
+</textarea>
+        </div><br />
+        <div class="row">
+            <span id="testsorucontrol_Label3" class="col-md-1">B şıkkı:</span>
+            <textarea name="ctl00$testsorucontrol$txtOptB" rows="2" cols="20" id="testsorucontrol_txtOptB" class="col-md-3" placeholder="Şıkkı gir">
+</textarea>
+            <select name="ctl00$testsorucontrol$drpPrefixWhenBWrong" id="testsorucontrol_drpPrefixWhenBWrong" class="col-md-5">
+	<option value="--Doğrular için--">--Doğrular i&#231;in--</option>
+	<option value="Brava. ">Brava. </option>
+	<option value="Doğru söze ne denir. ">Doğru s&#246;ze ne denir. </option>
+	<option value="Tebrikler. ">Tebrikler. </option>
+	<option value="Saygılar sunarım efenim. ">Saygılar sunarım efenim. </option>
+	<option value="------Yanlışlar için-----">------Yanlışlar i&#231;in-----</option>
+	<option value="Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. ">Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. </option>
+	<option value="Açık söyleyim, güzel atıyosun. ">A&#231;ık s&#246;yleyim, g&#252;zel atıyosun. </option>
+	<option value="Atış serbest ama o kadar da serbest değil. ">Atış serbest ama o kadar da serbest değil. </option>
+	<option value="Atışta sınır tanımıyosun, bu da güzel. ">Atışta sınır tanımıyosun, bu da g&#252;zel. </option>
+	<option value="Atıyorum öyleyse varım. ">Atıyorum &#246;yleyse varım. </option>
+	<option value="Atmayalım lütfen. ">Atmayalım l&#252;tfen. </option>
+	<option value="Atmayı unutturdun bana. ">Atmayı unutturdun bana. </option>
+	<option value="Ayıptır ya, salla da bu kadar sallama. ">Ayıptır ya, salla da bu kadar sallama. </option>
+	<option value="Bak hele bak. ">Bak hele bak. </option>
+	<option value="Ben attım sen atma. ">Ben attım sen atma. </option>
+	<option value="Bi yaşıma daha girdim. ">Bi yaşıma daha girdim. </option>
+	<option value="Bu dünyaya sallamaya gelmişsin dostum. ">Bu d&#252;nyaya sallamaya gelmişsin dostum. </option>
+	<option value="Bundan önceki hayatında atıcı mıydın? ">Bundan &#246;nceki hayatında atıcı mıydın? </option>
+	<option value="Cahil cahil konuşup moralimi bozma benim. ">Cahil cahil konuşup moralimi bozma benim. </option>
+	<option value="Çok yaklaştın. Şaka şaka, alakası bile yok, uçmanın sınırlarındasın şuan. ">&#199;ok yaklaştın. Şaka şaka, alakası bile yok, u&#231;manın sınırlarındasın şuan. </option>
+	<option value="Daha neler! ">Daha neler! </option>
+	<option value="Ehhh. ">Ehhh. </option>
+	<option value="Gözüme görünmeden yavaşça terket burayı. ">G&#246;z&#252;me g&#246;r&#252;nmeden yavaş&#231;a terket burayı. </option>
+	<option value="Güzal atıyosun, bravo. ">G&#252;zal atıyosun, bravo. </option>
+	<option value="İyi denemeydi. ">İyi denemeydi. </option>
+	<option value="Kabul edelim, güzel atıyosun. ">Kabul edelim, g&#252;zel atıyosun. </option>
+	<option value="Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı kötü anlatmışım. ">Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı k&#246;t&#252; anlatmışım. </option>
+	<option value="Konuları takip ederken aynı anda sevgilini düşünürsen olacağı bu. ">Konuları takip ederken aynı anda sevgilini d&#252;ş&#252;n&#252;rsen olacağı bu. </option>
+	<option value="Lütfen rica ederim, düzgün sallayalım. ">L&#252;tfen rica ederim, d&#252;zg&#252;n sallayalım. </option>
+	<option value="Milletin hayal gücünün sınırı yok, senin atış gücünün. Beni korkutuyorsun. ">Milletin hayal g&#252;c&#252;n&#252;n sınırı yok, senin atış g&#252;c&#252;n&#252;n. Beni korkutuyorsun. </option>
+	<option value="Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hiç iyi takip etmemişsin. ">Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hi&#231; iyi takip etmemişsin. </option>
+	<option value="Muhteşem sallıyorsun dostum. ">Muhteşem sallıyorsun dostum. </option>
+	<option value="Nayır, nolamaz. ">Nayır, nolamaz. </option>
+	<option value="Ne alakası var ya. ">Ne alakası var ya. </option>
+	<option value="Ne yaptın sen ya. ">Ne yaptın sen ya. </option>
+	<option value="Neeeey. ">Neeeey. </option>
+	<option value="Saçmalıyosun galiba. ">Sa&#231;malıyosun galiba. </option>
+	<option value="Sallamada sınır tanmıyorsun. ">Sallamada sınır tanmıyorsun. </option>
+	<option value="Sana diyecek laf bulamıyorum. ">Sana diyecek laf bulamıyorum. </option>
+	<option value="Süper sallıyorsun arkadaşım. ">S&#252;per sallıyorsun arkadaşım. </option>
+	<option value="Şakacı seni. ">Şakacı seni. </option>
+	<option value="Tabi caaaanım. ">Tabi caaaanım. </option>
+	<option value="Tuhaf bir atıcısın, yine de sevdim seni. ">Tuhaf bir atıcısın, yine de sevdim seni. </option>
+	<option value="Ya bırak Allah aşkına ya. ">Ya bırak Allah aşkına ya. </option>
+	<option value="Ya ya tabi tabi. ">Ya ya tabi tabi. </option>
+	<option value="Yalaaaaan, yalan söylüyorsun. ">Yalaaaaan, yalan s&#246;yl&#252;yorsun. </option>
+	<option value="&lt;a href=../../sorun309a.html?v=l03DCLQH0RY'>Ziyaaa. &lt;/a>">&lt;a href=&#39;https://www.youtube.com/watch?v=l03DCLQH0RY&#39;&gt;Ziyaaa. &lt;/a&gt;</option>
+
+</select>
+            <textarea name="ctl00$testsorucontrol$txtWhenB" rows="2" cols="20" id="testsorucontrol_txtWhenB" class="col-md-3" placeholder="Cevaba göre uygun mesjaı gir, prefixten sorna bu gelecek">
+</textarea>
+        </div><br />
+        <div class="row">
+            <span id="testsorucontrol_Label4" class="col-md-1">C şıkkı:</span>
+            <textarea name="ctl00$testsorucontrol$txtOptC" rows="2" cols="20" id="testsorucontrol_txtOptC" class="col-md-3" placeholder="Şıkkı gir">
+</textarea>
+            <select name="ctl00$testsorucontrol$drpPrefixWhenCWrong" id="testsorucontrol_drpPrefixWhenCWrong" class="col-md-5">
+	<option value="--Doğrular için--">--Doğrular i&#231;in--</option>
+	<option value="Brava. ">Brava. </option>
+	<option value="Doğru söze ne denir. ">Doğru s&#246;ze ne denir. </option>
+	<option value="Tebrikler. ">Tebrikler. </option>
+	<option value="Saygılar sunarım efenim. ">Saygılar sunarım efenim. </option>
+	<option value="------Yanlışlar için-----">------Yanlışlar i&#231;in-----</option>
+	<option value="Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. ">Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. </option>
+	<option value="Açık söyleyim, güzel atıyosun. ">A&#231;ık s&#246;yleyim, g&#252;zel atıyosun. </option>
+	<option value="Atış serbest ama o kadar da serbest değil. ">Atış serbest ama o kadar da serbest değil. </option>
+	<option value="Atışta sınır tanımıyosun, bu da güzel. ">Atışta sınır tanımıyosun, bu da g&#252;zel. </option>
+	<option value="Atıyorum öyleyse varım. ">Atıyorum &#246;yleyse varım. </option>
+	<option value="Atmayalım lütfen. ">Atmayalım l&#252;tfen. </option>
+	<option value="Atmayı unutturdun bana. ">Atmayı unutturdun bana. </option>
+	<option value="Ayıptır ya, salla da bu kadar sallama. ">Ayıptır ya, salla da bu kadar sallama. </option>
+	<option value="Bak hele bak. ">Bak hele bak. </option>
+	<option value="Ben attım sen atma. ">Ben attım sen atma. </option>
+	<option value="Bi yaşıma daha girdim. ">Bi yaşıma daha girdim. </option>
+	<option value="Bu dünyaya sallamaya gelmişsin dostum. ">Bu d&#252;nyaya sallamaya gelmişsin dostum. </option>
+	<option value="Bundan önceki hayatında atıcı mıydın? ">Bundan &#246;nceki hayatında atıcı mıydın? </option>
+	<option value="Cahil cahil konuşup moralimi bozma benim. ">Cahil cahil konuşup moralimi bozma benim. </option>
+	<option value="Çok yaklaştın. Şaka şaka, alakası bile yok, uçmanın sınırlarındasın şuan. ">&#199;ok yaklaştın. Şaka şaka, alakası bile yok, u&#231;manın sınırlarındasın şuan. </option>
+	<option value="Daha neler! ">Daha neler! </option>
+	<option value="Ehhh. ">Ehhh. </option>
+	<option value="Gözüme görünmeden yavaşça terket burayı. ">G&#246;z&#252;me g&#246;r&#252;nmeden yavaş&#231;a terket burayı. </option>
+	<option value="Güzal atıyosun, bravo. ">G&#252;zal atıyosun, bravo. </option>
+	<option value="İyi denemeydi. ">İyi denemeydi. </option>
+	<option value="Kabul edelim, güzel atıyosun. ">Kabul edelim, g&#252;zel atıyosun. </option>
+	<option value="Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı kötü anlatmışım. ">Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı k&#246;t&#252; anlatmışım. </option>
+	<option value="Konuları takip ederken aynı anda sevgilini düşünürsen olacağı bu. ">Konuları takip ederken aynı anda sevgilini d&#252;ş&#252;n&#252;rsen olacağı bu. </option>
+	<option value="Lütfen rica ederim, düzgün sallayalım. ">L&#252;tfen rica ederim, d&#252;zg&#252;n sallayalım. </option>
+	<option value="Milletin hayal gücünün sınırı yok, senin atış gücünün. Beni korkutuyorsun. ">Milletin hayal g&#252;c&#252;n&#252;n sınırı yok, senin atış g&#252;c&#252;n&#252;n. Beni korkutuyorsun. </option>
+	<option value="Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hiç iyi takip etmemişsin. ">Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hi&#231; iyi takip etmemişsin. </option>
+	<option value="Muhteşem sallıyorsun dostum. ">Muhteşem sallıyorsun dostum. </option>
+	<option value="Nayır, nolamaz. ">Nayır, nolamaz. </option>
+	<option value="Ne alakası var ya. ">Ne alakası var ya. </option>
+	<option value="Ne yaptın sen ya. ">Ne yaptın sen ya. </option>
+	<option value="Neeeey. ">Neeeey. </option>
+	<option value="Saçmalıyosun galiba. ">Sa&#231;malıyosun galiba. </option>
+	<option value="Sallamada sınır tanmıyorsun. ">Sallamada sınır tanmıyorsun. </option>
+	<option value="Sana diyecek laf bulamıyorum. ">Sana diyecek laf bulamıyorum. </option>
+	<option value="Süper sallıyorsun arkadaşım. ">S&#252;per sallıyorsun arkadaşım. </option>
+	<option value="Şakacı seni. ">Şakacı seni. </option>
+	<option value="Tabi caaaanım. ">Tabi caaaanım. </option>
+	<option value="Tuhaf bir atıcısın, yine de sevdim seni. ">Tuhaf bir atıcısın, yine de sevdim seni. </option>
+	<option value="Ya bırak Allah aşkına ya. ">Ya bırak Allah aşkına ya. </option>
+	<option value="Ya ya tabi tabi. ">Ya ya tabi tabi. </option>
+	<option value="Yalaaaaan, yalan söylüyorsun. ">Yalaaaaan, yalan s&#246;yl&#252;yorsun. </option>
+	<option value="&lt;a href=../../sorun309a.html?v=l03DCLQH0RY'>Ziyaaa. &lt;/a>">&lt;a href=&#39;https://www.youtube.com/watch?v=l03DCLQH0RY&#39;&gt;Ziyaaa. &lt;/a&gt;</option>
+
+</select>
+            <textarea name="ctl00$testsorucontrol$txtWhenC" rows="2" cols="20" id="testsorucontrol_txtWhenC" class="col-md-3" placeholder="Cevaba göre uygun mesjaı gir, prefixten sorna bu gelecek">
+</textarea>
+        </div><br />
+        <div class="row">
+            <span id="testsorucontrol_Label5" class="col-md-1">D şıkkı:</span>
+            <textarea name="ctl00$testsorucontrol$txtOptD" rows="2" cols="20" id="testsorucontrol_txtOptD" class="col-md-3" placeholder="Şıkkı gir">
+</textarea>
+            <select name="ctl00$testsorucontrol$drpPrefixWhenDWrong" id="testsorucontrol_drpPrefixWhenDWrong" class="col-md-5">
+	<option value="--Doğrular için--">--Doğrular i&#231;in--</option>
+	<option value="Brava. ">Brava. </option>
+	<option value="Doğru söze ne denir. ">Doğru s&#246;ze ne denir. </option>
+	<option value="Tebrikler. ">Tebrikler. </option>
+	<option value="Saygılar sunarım efenim. ">Saygılar sunarım efenim. </option>
+	<option value="------Yanlışlar için-----">------Yanlışlar i&#231;in-----</option>
+	<option value="Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. ">Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. </option>
+	<option value="Açık söyleyim, güzel atıyosun. ">A&#231;ık s&#246;yleyim, g&#252;zel atıyosun. </option>
+	<option value="Atış serbest ama o kadar da serbest değil. ">Atış serbest ama o kadar da serbest değil. </option>
+	<option value="Atışta sınır tanımıyosun, bu da güzel. ">Atışta sınır tanımıyosun, bu da g&#252;zel. </option>
+	<option value="Atıyorum öyleyse varım. ">Atıyorum &#246;yleyse varım. </option>
+	<option value="Atmayalım lütfen. ">Atmayalım l&#252;tfen. </option>
+	<option value="Atmayı unutturdun bana. ">Atmayı unutturdun bana. </option>
+	<option value="Ayıptır ya, salla da bu kadar sallama. ">Ayıptır ya, salla da bu kadar sallama. </option>
+	<option value="Bak hele bak. ">Bak hele bak. </option>
+	<option value="Ben attım sen atma. ">Ben attım sen atma. </option>
+	<option value="Bi yaşıma daha girdim. ">Bi yaşıma daha girdim. </option>
+	<option value="Bu dünyaya sallamaya gelmişsin dostum. ">Bu d&#252;nyaya sallamaya gelmişsin dostum. </option>
+	<option value="Bundan önceki hayatında atıcı mıydın? ">Bundan &#246;nceki hayatında atıcı mıydın? </option>
+	<option value="Cahil cahil konuşup moralimi bozma benim. ">Cahil cahil konuşup moralimi bozma benim. </option>
+	<option value="Çok yaklaştın. Şaka şaka, alakası bile yok, uçmanın sınırlarındasın şuan. ">&#199;ok yaklaştın. Şaka şaka, alakası bile yok, u&#231;manın sınırlarındasın şuan. </option>
+	<option value="Daha neler! ">Daha neler! </option>
+	<option value="Ehhh. ">Ehhh. </option>
+	<option value="Gözüme görünmeden yavaşça terket burayı. ">G&#246;z&#252;me g&#246;r&#252;nmeden yavaş&#231;a terket burayı. </option>
+	<option value="Güzal atıyosun, bravo. ">G&#252;zal atıyosun, bravo. </option>
+	<option value="İyi denemeydi. ">İyi denemeydi. </option>
+	<option value="Kabul edelim, güzel atıyosun. ">Kabul edelim, g&#252;zel atıyosun. </option>
+	<option value="Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı kötü anlatmışım. ">Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı k&#246;t&#252; anlatmışım. </option>
+	<option value="Konuları takip ederken aynı anda sevgilini düşünürsen olacağı bu. ">Konuları takip ederken aynı anda sevgilini d&#252;ş&#252;n&#252;rsen olacağı bu. </option>
+	<option value="Lütfen rica ederim, düzgün sallayalım. ">L&#252;tfen rica ederim, d&#252;zg&#252;n sallayalım. </option>
+	<option value="Milletin hayal gücünün sınırı yok, senin atış gücünün. Beni korkutuyorsun. ">Milletin hayal g&#252;c&#252;n&#252;n sınırı yok, senin atış g&#252;c&#252;n&#252;n. Beni korkutuyorsun. </option>
+	<option value="Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hiç iyi takip etmemişsin. ">Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hi&#231; iyi takip etmemişsin. </option>
+	<option value="Muhteşem sallıyorsun dostum. ">Muhteşem sallıyorsun dostum. </option>
+	<option value="Nayır, nolamaz. ">Nayır, nolamaz. </option>
+	<option value="Ne alakası var ya. ">Ne alakası var ya. </option>
+	<option value="Ne yaptın sen ya. ">Ne yaptın sen ya. </option>
+	<option value="Neeeey. ">Neeeey. </option>
+	<option value="Saçmalıyosun galiba. ">Sa&#231;malıyosun galiba. </option>
+	<option value="Sallamada sınır tanmıyorsun. ">Sallamada sınır tanmıyorsun. </option>
+	<option value="Sana diyecek laf bulamıyorum. ">Sana diyecek laf bulamıyorum. </option>
+	<option value="Süper sallıyorsun arkadaşım. ">S&#252;per sallıyorsun arkadaşım. </option>
+	<option value="Şakacı seni. ">Şakacı seni. </option>
+	<option value="Tabi caaaanım. ">Tabi caaaanım. </option>
+	<option value="Tuhaf bir atıcısın, yine de sevdim seni. ">Tuhaf bir atıcısın, yine de sevdim seni. </option>
+	<option value="Ya bırak Allah aşkına ya. ">Ya bırak Allah aşkına ya. </option>
+	<option value="Ya ya tabi tabi. ">Ya ya tabi tabi. </option>
+	<option value="Yalaaaaan, yalan söylüyorsun. ">Yalaaaaan, yalan s&#246;yl&#252;yorsun. </option>
+	<option value="&lt;a href=../../sorun309a.html?v=l03DCLQH0RY'>Ziyaaa. &lt;/a>">&lt;a href=&#39;https://www.youtube.com/watch?v=l03DCLQH0RY&#39;&gt;Ziyaaa. &lt;/a&gt;</option>
+
+</select>
+            <textarea name="ctl00$testsorucontrol$txtWhenD" rows="2" cols="20" id="testsorucontrol_txtWhenD" class="col-md-3" placeholder="Cevaba göre uygun mesjaı gir, prefixten sorna bu gelecek">
+</textarea>
+        </div>
+        <br />
+        <div class="row">
+            <span id="testsorucontrol_Label6" class="col-md-1">Doğru Cevap</span>
+            <select name="ctl00$testsorucontrol$drpCevap" id="testsorucontrol_drpCevap" class="col-md-1">
+	<option value="A">A</option>
+	<option value="B">B</option>
+	<option value="C">C</option>
+	<option value="D">D</option>
+
+</select>
+            <span id="testsorucontrol_Label7" class="col-md-1">Etiketler</span>
+            <input name="ctl00$testsorucontrol$txtTag" type="text" maxlength="150" id="testsorucontrol_txtTag" class="col-md-9" />
+        </div>
+        <br />
+        <div id="testsorucontrol_UpdatePanel1">
+	
+        <div class="row">
+            <span id="testsorucontrol_Label8" class="col-md-3">İlişkili konuyu seç</span>
+
+            <select name="ctl00$testsorucontrol$drpAna" id="testsorucontrol_drpAna" class="col-md-3">
+		<option selected="selected" value="1">Excel</option>
+		<option value="2">VBAMakro</option>
+		<option value="3">VSTO</option>
+		<option value="4">Fasulye</option>
+
+	</select>
+            
+
+            <select name="ctl00$testsorucontrol$drpAlt" id="testsorucontrol_drpAlt" class="col-md-3">
+		<option selected="selected" value="1">Giriş</option>
+		<option value="2">Home Men&#252;s&#252;</option>
+		<option value="3">Insert Men&#252;s&#252;</option>
+		<option value="4">Formulas Men&#252;s&#252;(Fonksiyonlar)</option>
+		<option value="5">Formulas Men&#252;s&#252;(Diğer)</option>
+		<option value="6">Data Men&#252;s&#252;</option>
+		<option value="7">Review Men&#252;s&#252;</option>
+		<option value="33">Yeni Eklenen Ara&#231;lar</option>
+		<option value="34">Developer Men&#252;s&#252;</option>
+
+	</select>
+            
+
+            <select name="ctl00$testsorucontrol$drpKonu" id="testsorucontrol_drpKonu" class="col-md-3">
+		<option value="1">Excelin Tarihsel Gelişimi</option>
+		<option value="2">Dosya Uzantıları</option>
+		<option value="3">File Men&#252;s&#252;</option>
+		<option value="4">Pratik Kısayollar</option>
+		<option value="5">Ribbon</option>
+
+	</select>
+            
+
+        </div>
+                
+</div>
+        <br />
+        <div class="row">
+            <span id="testsorucontrol_lblControl">324208</span><br />
+            <input name="ctl00$testsorucontrol$txtControl" type="text" value="Yukardakini gircen baboş" id="testsorucontrol_txtControl" /><br />
+            <input type="submit" name="ctl00$testsorucontrol$Button1" value="Ekle" id="testsorucontrol_Button1" class="col-md-1" />
+
+            <span id="testsorucontrol_lblResult" class="col-md-1">Label</span>
+        </div>
+     </div>
+
+                                </div>
+                                    <div id="espiricevaptest" class="alert alert-info alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" onclick="espiricookie()">&times;</button>
+                                                * Sorulara verilen yanlış cevaplardaki esprili yorumlarım için hoşgörünüze sığınıyorum.<br />
+                                                 * Test ve Ödevlerdeki bazı detaylar burada anlatılmamış olabilir. Bunları kendiniz araştırıp bulmalısınız.<br />
+                                                 * Birden çok konuya ait içeriği olan ödevler var. Algoritmik açıdan bakıldığında o an en uygun konuya adreslenmiştir.<br />
+                                                 <strong>Dikkat!</strong> Bir soruya cevap verdikten sonra geri dönemezsiniz.
+                                              </div>                             
+                                             
+
+
+                                    <div id="UpdatePanel1">
+	
+                                            <div class="gizlefortestodev">
+                                                <span id="lblSoruadet">0</span><br />
+                                                <span id="lblSoruno">0</span><br />
+                                                <span id="lbltoplamDogruCevaplananSoru">0</span><br />                        
+                                                <span id="lblCevapDeneme">0</span><br />
+                                                <select size="4" name="ctl00$lbTest" id="lbTest">
+
+	</select><br />
+                                            </div>
+                        
+                                            <strong><span id="lblSoruID">SoruID:...</span></strong>
+                                            
+                                            <span id="lblSoru">Şu an için bu konu için soru bulunmamaktadır. İletişim menüsünden örnek sorularınızı bana iletebilirsiniz.</span>
+                                            <span id="RadioButtonList1" style="display:none;"><input id="RadioButtonList1_0" type="radio" name="ctl00$RadioButtonList1" value="a" /><label for="RadioButtonList1_0">a</label><br /><input id="RadioButtonList1_1" type="radio" name="ctl00$RadioButtonList1" value="b" /><label for="RadioButtonList1_1">b</label><br /><input id="RadioButtonList1_2" type="radio" name="ctl00$RadioButtonList1" value="c" /><label for="RadioButtonList1_2">c</label><br /><input id="RadioButtonList1_3" type="radio" name="ctl00$RadioButtonList1" value="d" /><label for="RadioButtonList1_3">d</label></span>
+                                            
+                                            <input type="submit" name="ctl00$btnTestKontrol" value="Cevabı kontrol et" id="btnTestKontrol" class="btn btn-primary" />
+                                            <br /><br />
+                                            <div id="testsonucalert"></div>
+                                            
+                                            <div id="lblTestMesaj" class="alert alert-dark alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>                                                
+                                              </div>
+                                            
+                                           <br />                                           
+                                           <input type="submit" name="ctl00$btnNextSoru" value="Sonraki Soru" id="btnNextSoru" class="btn btn-danger float-right" />
+                                            <br /><br />
+                                                       
+                                           
+                                        
+</div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div id="odevler">
+                                
+                                <h2 class="baslik">ÖDEVLER</h2>
+                                <div class="konu">
+                                    <div id="UpdatePanel2">
+	
+                                            <div class="gizlefortestodev">
+                                                <span id="lblOdevadet">0</span><br />
+                                                <span id="lblOdevno">0</span><br />
+                                                <select size="4" name="ctl00$lbOdev" id="lbOdev">
+
+	</select>
+                                            </div>
+
+                                            <strong><span id="lblOdevID">ÖdevNo:...</span></strong>
+                                             
+                                            <span id="lblOdevSoru">Şu an için bu konu için ödev bulunmamaktadır. İletişim menüsünden örnek ödev sorularını bana iletebilirsin.</span>
+                                            <br />   
+                                                            
+                                            <span id="lblEkdosya"><span></span></span>
+                                            
+                                            <a href="#odevcvp" data-toggle="collapse">Çözüme bakın(Başka türlü de çözülebilir tabi, bu benim çözümüm.)</a>   
+                                            <br /> <br />
+                                            <div id="odevcvp" class="collapse">
+                                                <span id="lblOdevCevap" style="display:none;"></span>
+                                                <br />
+                                             </div>
+
+                                           <input type="submit" name="ctl00$btnPrevOdev" value="Önceki Ödev" id="btnPrevOdev" class="btn btn-danger" />                                             
+                                           <input type="submit" name="ctl00$btnNextOdev" value="Sonraki Ödev" id="btnNextOdev" class="btn btn-danger float-right" />
+                                            <br /><br />
+         
+                                        
+</div>
+                                </div>
+                            </div>
+
+                            <div id="diskas">
+                                <h2 id="disqusyorum" class="baslik">=YORUMLAR ve SORULAR=</h2>
+                                <div id="disqus_thread">
+                                </div>
+
+                                <script>								
+                                    /**
+                                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                    /*
+                                    var disqus_config = function () {
+                                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                    };
+                                    */
+                                    (function () { // DON'T EDIT BELOW THIS LINE
+                                        var d = document, s = d.createElement('script');
+                                        s.src = '../../../www-excelinefendisi-com.disqus.com/embed.js';
+                                        s.setAttribute('data-timestamp', +new Date());
+                                        (d.head || d.body).appendChild(s);
+                                    })();
+                                </script>
+
+                                <noscript>
+                                    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                                </noscript>
+                            </div>
+
+
+
+
+
+                                    <div id="prevnext">
+                                        <input type="submit" name="ctl00$btnPrev" value="Önceki" id="btnPrev" />
+                                        <input type="submit" name="ctl00$btnNext" value="Sonraki" id="btnNext" />
+                                     
+                                        
+                                        
+                                    </div>
+                                
+                            <br />                          
+
+                        </div>
+
+                    </div>
+
+                    <div id="ortablok_footer" class="row justify-content-center">
+                        <div>
+                            <div id="copyright">Copyright &copy; Volkan Yurtseven. Tüm hakları saklıdır. İzinsiz alıntı yapılamaz.</div>
+                            <span id="lblOnlineUser">Aktif kullanıcı sayısı:25</span>
+                        </div>
+                    </div>
+
+                    <div id="share-buttons">
+
+
+                        <!-- Twitter -->
+                        <a href="https://twitter.com/share?url=http://www.excelinefendisi.com&amp;text=Bir%c5%9fey%20yaz%c4%b1n,%20hashtags=excelinefendisi" target="_blank">
+                            <img src="../../images/social/twitter.png" alt="Twitter" />
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.excelinefendisi.com" target="_blank">
+                            <img src="../../images/social/linkedin.png" alt="LinkedIn" />
+                        </a>
+
+                        <!-- Print -->
+                        <a href="javascript:;" onclick="window.print()">
+                            <img src="../../images/social/print.png" alt="Print" />
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://www.excelinefendisi.com">
+                            <img src="../../images/social/email.png" alt="Email" />
+                        </a>
+
+                        <!-- Facebook -->
+                        <a href="http://www.facebook.com/sharer.php?u=http://www.excelinefendisi.com" target="_blank">
+                            <img src="../../images/social/facebook.png" alt="Facebook" />
+                        </a>
+                        <div class="fb-like" data-href="https://www.facebook.com/ExcelinEfendisi-1912938025620770/" data-width="30" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+
+
+                    </div>
+
+                </div>
+
+                <div id="sagsutunbilgi" class="col-md-2">     
+                    <div id="udemydestek" class="yankutuluarmobildegizle">
+                        <h2>KAPANIŞ UYARISI</h2>
+                        <p>Herkese merhaba, uzun bir yolculuğun sonuna geldik. Üzülerek söylüyorum ki, hosting maliyetlerinin aşırı artması yüzünden sitemi yakın zamanda(en geç Mayıs 2023) kapatmaya 
+                        karar verdim. Umarım şimdiye kadar sizlere faydam dokunmuştur. Bununla beraber, site içeriğine <a href="https://github.com/VolkiTheDreamer/Excelinefendisi">
+                        github repomdan</a> hala ulaşabilirsiniz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+showHiddenTag('prevnext','id');showHiddenTag('diskas','id');showHiddenTag('testsoru','id');showHiddenTag('odevler','id');//]]>
+</script>
+</form>
+
+    
+    <!--		NOOOOW JAVASCRIPT TIME-->
+    
+    <script type="text/javascript"> 
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en', includedLanguages: 'be,de,en,es,fr,it,ru,sv,tr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true },
+                'google_translate_element'
+            );
+        }
+    </script> 
+    <script type="text/javascript" src="../../../translate.google.com/translate_a/element7a1d.js?%20%20%20%20%20%20%20%20cb=googleTranslateElementInit">
+    </script> 
+
+
+    <!-- VBA kopyala butonu -->
+    <script>
+        var tags = document.getElementsByClassName("brush:vb");
+        for (var i = 0, len = tags.length; i < len; i++) {
+            tags[i].insertAdjacentHTML('beforebegin', "<div class='SmartHeaderContainer'><div class='pre_baslik'>VBA Kodu</div><div class='CopyContent'>Kopyala</div></div>");
+        }
+
+        var tags = document.getElementsByClassName("brush:vbnet");
+        for (var i = 0, len = tags.length; i < len; i++) {
+            tags[i].insertAdjacentHTML('beforebegin', "<div class='SmartHeaderContainer'><div class='pre_baslik'>VB.Net Kodu</div><div class='CopyContent'>Kopyala</div></div>");
+        }
+
+        var tags = document.getElementsByClassName("brush:csharp");
+        for (var i = 0, len = tags.length; i < len; i++) {
+            tags[i].insertAdjacentHTML('beforebegin', "<div class='SmartHeaderContainer'><div class='pre_baslik'>C# Kodu</div><div class='CopyContent'>Kopyala</div></div>");
+        }
+
+        //"Üye olun" kutusu
+        var konular = document.getElementsByClassName("konu");
+        for (var i = 0, len = konular.length; i < len; i++) {
+            if (konular[i].parentNode.nodeName != 'LI' && (konular[i].parentNode.id != 'testsoru') && (konular[i].parentNode.id != 'odevler')) {
+                konular[i].insertAdjacentHTML('beforeend', "<div class='mailTopla'><a href='../../uyelik.html'>Üye olun</a> ve yeni eklenen sayfalardan hemen haberdar olun.</div>");
+            }
+        }
+
+        //h1lere last modified için ekleme+ziyaret kutusu
+        if (document.URL.indexOf('Konular.aspx') == -1 && document.URL.indexOf('/Konular') > -1) //konular sayfası dışındakilere yazmasın
+        {
+            var headerH1 = document.getElementsByTagName("h1");
+            headerH1[0].insertAdjacentHTML('afterend', '<span id="lblLastMod">Son Güncellenme Tarihi: 27.11.2022; Önceki değişim tarihi:31.12.2017;  Değişim derecesi:Düşük</span>'); //zaten sadece 1 tane var, o yüzden 0 indeksli eyterli
+            /*				document.getElementById("lblLastMod").insertAdjacentHTML('afterend', '<br><a href="https://restpack.io/html2pdf/save-as-pdf" target="_blank">Save this page as PDF</a>');*/
+            document.getElementById("ziyaret").innerText = DisplayPageVisitInfo();
+        }
+
+        if (document.location.pathname == "/Default.aspx" || document.location.pathname == "../../index.html") //ikincisi localhost için
+            document.getElementById("ziyaret").innerText = DisplaySiteVisitInfo();
+
+        //testimonial için
+        //if (document.location.pathname == "/Testimonials.aspx") {
+        //        wpac_init = window.wpac_init || [];
+        //        wpac_init.push({widget: 'Review', id: 18500});
+        //        (function() {
+        //            if ('WIDGETPACK_LOADED' in window) return;
+        //            WIDGETPACK_LOADED = true;
+        //            var mc = document.createElement('script');
+        //            mc.type = 'text/javascript';
+        //            mc.async = true;
+        //            mc.src = 'https://embed.widgetpack.com/widget.js';
+        //            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+        //        })();
+        //}
+
+        cookieUyariGoster(); //cerez ziyaret cooki burada başlıyor.
+
+    </script>
+
+    <!--Scroll üzerine BAŞ ve SON butonları-->
+    <script>
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("navhome").style.display = "block";
+                document.getElementById("navend").style.display = "block";
+                document.getElementById("udemy").style.display = "block";
+            } else {
+                document.getElementById("navhome").style.display = "none";
+                document.getElementById("navend").style.display = "none";
+                document.getElementById("udemy").style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        //bu olursa önce jquery için taşı, sonra da line gutter için de yap
+
+        var waitForEl = function (selector, callback) {
+            if (d(selector).length) {
+                callback();
+            } else {
+                setTimeout(function () {
+                    waitForEl(selector, callback);
+                }, 100);
+            }
+        };
+
+        waitForEl(".vb.spaces", function () {
+            // work the magic
+            d(".vb.spaces").each(function () {
+                d(this).html(d(this).html().replace(/&nbsp;/g, " "));
+            });
+            d('td.code>div.container').each(function () {
+                d(this).html(d(this).html().replace(/&nbsp;/g, " "));
+            });
+
+        });
+
+    </script>
+
+ 
+    <img id="keepAliveIMG" width="1" height="1" src="../../img/ui/spacerd41d.html?" /> 
+
+    <script> 
+        var myImg = document.getElementById("keepAliveIMG");
+
+        if (myImg) {
+            window.setInterval(function () {
+                myImg.src = myImg.src.replace(/\?.*$/, '?' + Math.random());
+            }, 1000*60*59);
+        }   
+    </script>
+
+</body>
+
+
+<!-- Mirrored from www.excelinefendisi.com/Konular/Excel/DataMenusu_Tahminlemearaclari.aspx by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Nov 2022 16:24:02 GMT -->
+</html>

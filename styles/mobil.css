@@ -1,0 +1,69 @@
+﻿.nomobilsegizle {
+	display:none; 
+}
+
+.yankutuluarmobildegizle {
+	display: none; /*burda çalışırken görünmesinler diye none yapıyorum, ama jquery ile açıyorum. yukardakinden farklı bir durumu var yani.*/
+}
+
+
+#sabitmobilmenu {
+	position: fixed;
+	z-index: 99;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	max-height: 5%;
+}
+
+.mobilmenudiv5 {
+	color:white;
+	width:19%;
+	float:left;
+	text-align:center;
+	vertical-align:middle;
+	margin-right:1%;
+	cursor:pointer;
+	height:100%;
+}
+
+
+	#mobilBasButon{
+		background:red;	
+	}
+
+	#mobilSonButon{
+		background:red;	
+	}
+
+	#mobilUdemyButon{
+		background:green;	
+	}
+
+	#mobilana{
+		background:maroon;	
+	}
+
+		#mobil_anamenu{
+			display:none;/*ilk başta gizli açılır.mobilana'ya tıklanınca js ile fixed açılır*/	
+			width:100%;	
+			background-color:gray;
+			color:white;	
+		}
+			
+			#mobil_anamenu *{
+				width:150%;
+				display:block;
+				padding:2%;
+				text-decoration:none;
+				background-color:black;
+				color:white;
+			}
+				#mobil_anamenu *:hover{
+					background-color:gray;
+				}
+	
+	#mobilSideBar {
+		background-color:maroon;
+		color:white;
+	}

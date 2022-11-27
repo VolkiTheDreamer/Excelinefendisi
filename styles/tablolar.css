@@ -1,0 +1,170 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+table.tblorta {
+    margin-left:auto; 
+    margin-right:auto;
+    border: 1px solid black;
+    table-layout: auto;
+    width: 1px;
+    white-space: nowrap;
+    border-collapse: collapse;    
+}
+
+table.tblorta th, table.tblorta td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+img.imgorta { 
+/* bu yöntem W3C tarafından tavisye edilir*/  
+	display: block;   
+	margin-left: auto;   
+	margin-right: auto; 
+/* bu alttaki yöntem W3C tarafından tavisye edilmez*/  
+/*daha sonra kaynak kodda p'nin clasıı olarak orta seçilir*/
+/*	text-align:center;*/
+}
+
+td.uyelik_vertical{
+    vertical-align:top;
+}
+
+td.uyelik_vertical caption{
+    color:red;
+    font-weight:bold;
+    text-align:left;
+}
+
+table.gizle{
+    width:100%;
+    color:red;
+    background-color:yellow;
+}
+
+
+.Grid { border: solid 1px #FFFFFF; }
+.Grid td
+{
+border: solid 1px #FFFFFF;
+margin: 1px 1px 1px 1px;
+padding: 1px 1px 1px 1px;
+text-align: center;
+}
+.GridHeader
+{
+font-weight: bold;
+background-color: #8b8dbb;
+}
+.GridItem
+{
+background-color: #e6e6e6;
+}
+
+.GridAltItem
+{
+background-color: white;
+}
+/*
+table.gizle{
+     width:100%;
+     display:none;
+}
+
+.gizle td{display:inherit;}
+
+.gizle tr{display:inherit;}
+
+.gizle label{display:inherit;}*/
+
+/* ------------------
+ styling for the tables 
+   ------------------   */
+
+
+/*#ctl00_SayfaIcerik_DataList1*/
+#SayfaIcerik_DataList1
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 100%;
+	margin: 0px 5%;
+	width: 50%;
+	text-align: left;
+        text-decoration:none;
+	border-collapse: collapse;
+}
+div#headerDatalist
+{
+    /*normalde th ile yapmak lazımdı ama bi türlü olmayınca div  ypatım*/
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 110%;
+	margin: 0px 5%;
+	width:48%;
+	background-color:maroon;
+	color: white;
+        padding:0.5% 1%;
+}
+#SayfaIcerik_DataList1 td
+{
+	padding: 2px 8px;
+	/*background: #e8edff; */
+	border-bottom: 1px solid #fff;
+	color: #669;
+        color:maroon;
+	border-top: 1px solid transparent;
+    text-decoration:none;
+}
+#SayfaIcerik_DataList1 tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+}
+
+#SayfaIcerik_DataList1 tr:nth-child(even) td {
+background-color: #C8C8C8;
+}
+
+#SayfaIcerik_DataList1 tr:nth-child(odd) td {
+background-color: #F0F0F0;
+}
+
+
+.alterantelitable {
+    border-collapse: collapse;
+    width: 95%;
+    margin-left:auto; 
+    margin-right:auto;
+    table-layout: fixed;
+}
+
+.alterantelitable th, td {
+    text-align: left;
+    padding: 1%;
+    font-size:90%;
+    word-wrap:break-word;
+    aawhite-space:nowrap;
+    width:1%;
+}
+
+.alterantelitable tr td:last-child{
+    fwidth:1%;
+    fwhite-space:nowrap;
+}
+
+.alterantelitable tr:nth-child(even) td {
+background-color: #C8C8C8;
+}
+
+.alterantelitable tr:nth-child(odd) td {
+background-color: #F0F0F0;
+}
+
+.alterantelitable th {
+    background-color: maroon;
+    color: white;
+}
+
+div.konulargridi span {
+	color:red;
+}

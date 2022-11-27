@@ -1,0 +1,2438 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+
+<!-- Mirrored from www.excelinefendisi.com/Konular/VBAMakro/DigerUygulamalarlailetisim_VeriTabani-ConnectionListObjectveQueryTable.aspx by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Nov 2022 16:26:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102945718-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-102945718-1');
+    </script>
+
+    
+    <meta name="google-site-verification" content="L1oqZYEbxH36cMm6Lf_DQrpi6vlRiPTp_zpGZUpJExw" /><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><meta name="Keywords" content="Volkan Yurtseven, İleri Excel, excel konu anlatımı, VBA, Makro, VSTO, MIS, Add-in, , tutorial, eğitim, kurs" /><meta name="description" content="Sitem Excel,VBA,Makro,VSTO konularında ileri seviyede bilgi hizmeti sunmaktadır." /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>
+	VeriTabanı Programlama - Connection ve ListObject
+</title><link rel="icon" type="image/x-icon" href="../../favicon.ico" /><link rel="stylesheet" href="../../../stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /><link href="../../styles/master.css" rel="stylesheet" type="text/css" media="all" /><link href="../../syntaxhighlighter_3.0.83/styles/shCore.css" rel="Stylesheet" type="text/css" /><link href="../../syntaxhighlighter_3.0.83/styles/shThemeDefault.css" rel="Stylesheet" type="text/css" />
+    <!--<link href="../../styles/jquery.jqTOC.css" rel="Stylesheet" type="text/css" />
+		-->
+
+    <script src="../../../ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../../syntaxhighlighter_3.0.83/scripts/shCore.js"> </script>
+    <script src="../../syntaxhighlighter_3.0.83/scripts/shBrushVb.js"> </script>
+    <script src="../../syntaxhighlighter_3.0.83/scripts/shBrushCSharp.js"> </script>
+    <script type="text/javascript">SyntaxHighlighter.all()</script>
+    <script src="../../js/jqueryler.js"></script>
+    <script src="../../js/jquery.balloon.js"></script>
+    <script src="../../js/jscript.js"></script>
+    <script src="../../../stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+</head>
+
+<body>
+    
+    <div id="fb-root"></div>
+    
+    <script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "../../../connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v2.10";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+ 
+  
+
+    <form method="post" action="https://www.excelinefendisi.com/Konular/VBAMakro/DigerUygulamalarlailetisim_VeriTabani-ConnectionListObjectveQueryTable.aspx" id="form2">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUIMjQ4NTIzOTEPZBYCZg9kFgQCAw9kFhgCFQ8PFgIeBFRleHQFB0tvbnVsYXJkZAIXDw8WAh8ABStWZXJpVGFiYW5pLUNvbm5lY3Rpb25MaXN0T2JqZWN0dmVRdWVyeVRhYmxlZGQCGQ8PFgIfAAUaRGlnZXJVeWd1bGFtYWxhcmxhaWxldGlzaW1kZAIbDw8WAh8ABQhWQkFNYWtyb2RkAh8PPCsACQEADxYEHghEYXRhS2V5cxYAHgtfIUl0ZW1Db3VudAIJZBYSZg9kFgICAQ8PFgQeC05hdmlnYXRlVXJsBSJ+L0tvbnVsYXIvRXhjZWwvR2lyaXNfS29udWxhci5hc3B4HwAFBkdpcmnFn2RkAgEPZBYCAgEPDxYEHwMFJ34vS29udWxhci9FeGNlbC9Ib21lTWVudXN1X0tvbnVsYXIuYXNweB8ABQ1Ib21lIE1lbsO8c8O8ZGQCAg9kFgICAQ8PFgQfAwUpfi9Lb251bGFyL0V4Y2VsL0luc2VydE1lbnVzdV9Lb251bGFyLmFzcHgfAAUPSW5zZXJ0IE1lbsO8c8O8ZGQCAw9kFgICAQ8PFgQfAwU3fi9Lb251bGFyL0V4Y2VsL0Zvcm11bGFzTWVudXN1Rm9ua3NpeW9ubGFyX0tvbnVsYXIuYXNweB8ABR9Gb3JtdWxhcyBNZW7DvHPDvChGb25rc2l5b25sYXIpZGQCBA9kFgICAQ8PFgQfAwUwfi9Lb251bGFyL0V4Y2VsL0Zvcm11bGFzTWVudXN1RGlnZXJfS29udWxhci5hc3B4HwAFGUZvcm11bGFzIE1lbsO8c8O8KERpxJ9lcilkZAIFD2QWAgIBDw8WBB8DBSd+L0tvbnVsYXIvRXhjZWwvRGF0YU1lbnVzdV9Lb251bGFyLmFzcHgfAAUNRGF0YSBNZW7DvHPDvGRkAgYPZBYCAgEPDxYEHwMFKX4vS29udWxhci9FeGNlbC9SZXZpZXdNZW51c3VfS29udWxhci5hc3B4HwAFD1JldmlldyBNZW7DvHPDvGRkAgcPZBYCAgEPDxYEHwMFLH4vS29udWxhci9FeGNlbC9EZXZlbG9wZXJNZW51c3VfS29udWxhci5hc3B4HwAFEkRldmVsb3BlciBNZW7DvHPDvGRkAggPZBYCAgEPDxYEHwMFL34vS29udWxhci9FeGNlbC9ZZW5pRWtsZW5lbkFyYWNsYXJfS29udWxhci5hc3B4HwAFFVllbmkgRWtsZW5lbiBBcmHDp2xhcmRkAiUPPCsACQEADxYEHwEWAB8CAgxkFhhmD2QWAgIBDw8WBB8DBSV+L0tvbnVsYXIvVkJBTWFrcm8vR2lyaXNfS29udWxhci5hc3B4HwAFBkdpcmnFn2RkAgEPZBYCAgEPDxYEHwMFKH4vS29udWxhci9WQkFNYWtyby9UZW1lbGxlcl9Lb251bGFyLmFzcHgfAAUIVGVtZWxsZXJkZAICD2QWAgIBDw8WBB8DBS5+L0tvbnVsYXIvVkJBTWFrcm8vRG9ydFRlbWVsTmVzbmVfS29udWxhci5hc3B4HwAFEUTDtnJ0IFRlbWVsIE5lc25lZGQCAw9kFgICAQ8PFgQfAwU4fi9Lb251bGFyL1ZCQU1ha3JvL0tvc3VsaWZhZGVsZXJpdmVEb25ndWxlcl9Lb251bGFyLmFzcHgfAAUeS2/Fn3VsIGlmYWRlbGVyaSB2ZSBEw7ZuZ8O8bGVyZGQCBA9kFgICAQ8PFgQfAwU3fi9Lb251bGFyL1ZCQU1ha3JvL0RpemlsZXJ2ZURpemltc2lZYXBpbGFyX0tvbnVsYXIuYXNweB8ABRtEaXppbGVyIHZlIERpemltc2kgWWFwxLFsYXJkZAIFD2QWAgIBDw8WBB8DBTd+L0tvbnVsYXIvVkJBTWFrcm8vRGVidWdnaW5ndmVIYXRhWW9uZXRpbWlfS29udWxhci5hc3B4HwAFG0RlYnVnZ2luZyB2ZSBIYXRhIFnDtm5ldGltaWRkAgYPZBYCAgEPDxYEHwMFLH4vS29udWxhci9WQkFNYWtyby9Gb25rc2l5b25sYXJfS29udWxhci5hc3B4HwAFDEZvbmtzaXlvbmxhcmRkAgcPZBYCAgEPDxYEHwMFLn4vS29udWxhci9WQkFNYWtyby9Eb3N5YWlzbGVtbGVyaV9Lb251bGFyLmFzcHgfAAUQRG9zeWEgacWfbGVtbGVyaWRkAggPZBYCAgEPDxYEHwMFJ34vS29udWxhci9WQkFNYWtyby9PbGF5bGFyX0tvbnVsYXIuYXNweB8ABQdPbGF5bGFyZGQCCQ9kFgICAQ8PFgQfAwUnfi9Lb251bGFyL1ZCQU1ha3JvL0Zvcm1sYXJfS29udWxhci5hc3B4HwAFB0Zvcm1sYXJkZAIKD2QWAgIBDw8WBB8DBTp+L0tvbnVsYXIvVkJBTWFrcm8vRGlnZXJVeWd1bGFtYWxhcmxhaWxldGlzaW1fS29udWxhci5hc3B4HwAFHkRpxJ9lciBVeWd1bGFtYWxhcmxhIGlsZXRpxZ9pbWRkAgsPZBYCAgEPDxYEHwMFMn4vS29udWxhci9WQkFNYWtyby9JbGVyaXNldml5ZWtvbnVsYXJfS29udWxhci5hc3B4HwAFFcSwbGVyaSBzZXZpeWUga29udWxhcmRkAisPPCsACQEADxYEHwEWAB8CAgdkFg5mD2QWAgIBDw8WBB8DBSF+L0tvbnVsYXIvVlNUTy9HaXJpc19Lb251bGFyLmFzcHgfAAUGR2lyacWfZGQCAQ9kFgICAQ8PFgQfAwUkfi9Lb251bGFyL1ZTVE8vQ29yZVZTVE9fS29udWxhci5hc3B4HwAFCUNvcmUgVlNUT2RkAgIPZBYCAgEPDxYEHwMFKH4vS29udWxhci9WU1RPL05ldGlzbGVtbGVyaV9Lb251bGFyLmFzcHgfAAUPLk5ldCBpxZ9sZW1sZXJpZGQCAw9kFgICAQ8PFgQfAwUxfi9Lb251bGFyL1ZTVE8vVGhpcmRQYXJ0eUt1dHVwaGFubGVyX0tvbnVsYXIuYXNweB8ABRlUaGlyZCBQYXJ0eSBLw7x0w7xwaGFubGVyZGQCBA9kFgICAQ8PFgQfAwUsfi9Lb251bGFyL1ZTVE8vUHJvamV5aVlheWlubGFtYV9Lb251bGFyLmFzcHgfAAUSUHJvamV5aSBZYXnEsW5sYW1hZGQCBQ9kFgICAQ8PFgQfAwUpfi9Lb251bGFyL1ZTVE8vT3JuZWtQcm9qZWxlcl9Lb251bGFyLmFzcHgfAAUPw5ZybmVrIFByb2plbGVyZGQCBg9kFgICAQ8PFgQfAwU2fi9Lb251bGFyL1ZTVE8vRGlnZXJVeWd1bGFtYWxhcmxhQ2FsaXNtYWtfS29udWxhci5hc3B4HwAFIERpxJ9lciBVeWd1bGFtYWxhcmxhIMOHYWzEscWfbWFrZGQCMQ88KwAJAQAPFgQfARYAHwICAmQWBGYPZBYCAgEPDxYEHwMFO34vS29udWxhci9GYXN1bHllL0RpZ2VyQXJhY2xhcnV6ZXJpbmVtYWthbGVsZXJfS29udWxhci5hc3B4HwAFIkRpxJ9lciBBcmHDp2xhciDDvHplcmluZSBtYWthbGVsZXJkZAIBD2QWAgIBDw8WBB8DBSx+L0tvbnVsYXIvRmFzdWx5ZS9OZU5lcmVkZU5hc2lsX0tvbnVsYXIuYXNweB8ABRBOZSBOZXJlZGUgTmFzxLFsZGQCOQ9kFg4CAQ8PFgIfAAVsU29uIFNvcnVtdXogxZ91eW11xZ86QmlyIG1ldGluZGVraSB0w7xtIG5va3RhbGFyxLEgeW9rZXRtZWsgaXN0aXlvcnN1bnV6LiBIYW5naSBmb25rc2l5b251IGt1bGxhbsSxcmTEsW7EsXo/ZGQCCw8QDxYCHgtfIURhdGFCb3VuZGdkEBUwEy0tRG/En3J1bGFyIGnDp2luLS0HQnJhdmEuIBdEb8SfcnUgc8O2emUgbmUgZGVuaXIuIAtUZWJyaWtsZXIuIBtTYXlnxLFsYXIgc3VuYXLEsW0gZWZlbmltLiAcLS0tLS0tWWFubMSxxZ9sYXIgacOnaW4tLS0tLTRCcmF2byEnLCBkZW1layBpc3RlcmRpbSBhbWEgYnUgY2V2YWJhIG5hc8SxbCBkaXlpbS4gJEHDp8SxayBzw7Z5bGV5aW0sIGfDvHplbCBhdMSxeW9zdW4uIC5BdMSxxZ8gc2VyYmVzdCBhbWEgbyBrYWRhciBkYSBzZXJiZXN0IGRlxJ9pbC4gLkF0xLHFn3RhIHPEsW7EsXIgdGFuxLFtxLF5b3N1biwgYnUgZGEgZ8O8emVsLiAbQXTEsXlvcnVtIMO2eWxleXNlIHZhcsSxbS4gFEF0bWF5YWzEsW0gbMO8dGZlbi4gGUF0bWF5xLEgdW51dHR1cmR1biBiYW5hLiApQXnEsXB0xLFyIHlhLCBzYWxsYSBkYSBidSBrYWRhciBzYWxsYW1hLiAOQmFrIGhlbGUgYmFrLiAVQmVuIGF0dMSxbSBzZW4gYXRtYS4gGUJpIHlhxZ/EsW1hIGRhaGEgZ2lyZGltLiApQnUgZMO8bnlheWEgc2FsbGFtYXlhIGdlbG1pxZ9zaW4gZG9zdHVtLiAsQnVuZGFuIMO2bmNla2kgaGF5YXTEsW5kYSBhdMSxY8SxIG3EsXlkxLFuPyArQ2FoaWwgY2FoaWwga29udcWfdXAgbW9yYWxpbWkgYm96bWEgYmVuaW0uIFfDh29rIHlha2xhxZ90xLFuLiDFnmFrYSDFn2FrYSwgYWxha2FzxLEgYmlsZSB5b2ssIHXDp21hbsSxbiBzxLFuxLFybGFyxLFuZGFzxLFuIMWfdWFuLiAMRGFoYSBuZWxlciEgBkVoaGguIDBHw7Z6w7xtZSBnw7Zyw7xubWVkZW4geWF2YcWfw6dhIHRlcmtldCBidXJhecSxLiAZR8O8emFsIGF0xLF5b3N1biwgYnJhdm8uIBDEsHlpIGRlbmVtZXlkaS4gIEthYnVsIGVkZWxpbSwgZ8O8emVsIGF0xLF5b3N1bi4gT0thZmFtxLEgdGHFn2xhcmEgbcSxIHZ1cmF5xLFtLCBuZSB5YXBhecSxbS4gQnUga2FkYXIgbcSxIGvDtnTDvCBhbmxhdG3EscWfxLFtLiBKS29udWxhcsSxIHRha2lwIGVkZXJrZW4gYXluxLEgYW5kYSBzZXZnaWxpbmkgZMO8xZ/DvG7DvHJzZW4gb2xhY2HEn8SxIGJ1LiArTMO8dGZlbiByaWNhIGVkZXJpbSwgZMO8emfDvG4gc2FsbGF5YWzEsW0uIFZNaWxsZXRpbiBoYXlhbCBnw7xjw7xuw7xuIHPEsW7EsXLEsSB5b2ssIHNlbmluIGF0xLHFnyBnw7xjw7xuw7xuLiBCZW5pIGtvcmt1dHV5b3JzdW4uIF9Nb3JhbGltaSBib3p1eW9yc3VuLiBCdSBrYWRhciBtxLEgc8Sxa8SxY8SxIGFubGF0dMSxbSBraSBidSBkZXJzaSwgaGnDpyBpeWkgdGFraXAgZXRtZW1pxZ9zaW4uIB9NdWh0ZcWfZW0gc2FsbMSxeW9yc3VuIGRvc3R1bS4gEU5hecSxciwgbm9sYW1hei4gFE5lIGFsYWthc8SxIHZhciB5YS4gE05lIHlhcHTEsW4gc2VuIHlhLiAITmVlZWV5LiAXU2HDp21hbMSxeW9zdW4gZ2FsaWJhLiAgU2FsbGFtYWRhIHPEsW7EsXIgdGFubcSxeW9yc3VuLiAfU2FuYSBkaXllY2VrIGxhZiBidWxhbcSxeW9ydW0uICFTw7xwZXIgc2FsbMSxeW9yc3VuIGFya2FkYcWfxLFtLiAPxZ5ha2FjxLEgc2VuaS4gEFRhYmkgY2FhYWFuxLFtLiAsVHVoYWYgYmlyIGF0xLFjxLFzxLFuLCB5aW5lIGRlIHNldmRpbSBzZW5pLiAdWWEgYsSxcmFrIEFsbGFoIGHFn2vEsW5hIHlhLiARWWEgeWEgdGFiaSB0YWJpLiAgWWFsYWFhYWFuLCB5YWxhbiBzw7Z5bMO8eW9yc3VuLiBCPGEgaHJlZj0naHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1sMDNEQ0xRSDBSWSc+Wml5YWFhLiA8L2E+FTATLS1Eb8SfcnVsYXIgacOnaW4tLQdCcmF2YS4gF0RvxJ9ydSBzw7Z6ZSBuZSBkZW5pci4gC1RlYnJpa2xlci4gG1NheWfEsWxhciBzdW5hcsSxbSBlZmVuaW0uIBwtLS0tLS1ZYW5sxLHFn2xhciBpw6dpbi0tLS0tNEJyYXZvIScsIGRlbWVrIGlzdGVyZGltIGFtYSBidSBjZXZhYmEgbmFzxLFsIGRpeWltLiAkQcOnxLFrIHPDtnlsZXlpbSwgZ8O8emVsIGF0xLF5b3N1bi4gLkF0xLHFnyBzZXJiZXN0IGFtYSBvIGthZGFyIGRhIHNlcmJlc3QgZGXEn2lsLiAuQXTEscWfdGEgc8SxbsSxciB0YW7EsW3EsXlvc3VuLCBidSBkYSBnw7x6ZWwuIBtBdMSxeW9ydW0gw7Z5bGV5c2UgdmFyxLFtLiAUQXRtYXlhbMSxbSBsw7x0ZmVuLiAZQXRtYXnEsSB1bnV0dHVyZHVuIGJhbmEuIClBecSxcHTEsXIgeWEsIHNhbGxhIGRhIGJ1IGthZGFyIHNhbGxhbWEuIA5CYWsgaGVsZSBiYWsuIBVCZW4gYXR0xLFtIHNlbiBhdG1hLiAZQmkgeWHFn8SxbWEgZGFoYSBnaXJkaW0uIClCdSBkw7xueWF5YSBzYWxsYW1heWEgZ2VsbWnFn3NpbiBkb3N0dW0uICxCdW5kYW4gw7ZuY2VraSBoYXlhdMSxbmRhIGF0xLFjxLEgbcSxeWTEsW4/ICtDYWhpbCBjYWhpbCBrb251xZ91cCBtb3JhbGltaSBib3ptYSBiZW5pbS4gV8OHb2sgeWFrbGHFn3TEsW4uIMWeYWthIMWfYWthLCBhbGFrYXPEsSBiaWxlIHlvaywgdcOnbWFuxLFuIHPEsW7EsXJsYXLEsW5kYXPEsW4gxZ91YW4uIAxEYWhhIG5lbGVyISAGRWhoaC4gMEfDtnrDvG1lIGfDtnLDvG5tZWRlbiB5YXZhxZ/Dp2EgdGVya2V0IGJ1cmF5xLEuIBlHw7x6YWwgYXTEsXlvc3VuLCBicmF2by4gEMSweWkgZGVuZW1leWRpLiAgS2FidWwgZWRlbGltLCBnw7x6ZWwgYXTEsXlvc3VuLiBPS2FmYW3EsSB0YcWfbGFyYSBtxLEgdnVyYXnEsW0sIG5lIHlhcGF5xLFtLiBCdSBrYWRhciBtxLEga8O2dMO8IGFubGF0bcSxxZ/EsW0uIEpLb251bGFyxLEgdGFraXAgZWRlcmtlbiBheW7EsSBhbmRhIHNldmdpbGluaSBkw7zFn8O8bsO8cnNlbiBvbGFjYcSfxLEgYnUuICtMw7x0ZmVuIHJpY2EgZWRlcmltLCBkw7x6Z8O8biBzYWxsYXlhbMSxbS4gVk1pbGxldGluIGhheWFsIGfDvGPDvG7DvG4gc8SxbsSxcsSxIHlvaywgc2VuaW4gYXTEscWfIGfDvGPDvG7DvG4uIEJlbmkga29ya3V0dXlvcnN1bi4gX01vcmFsaW1pIGJvenV5b3JzdW4uIEJ1IGthZGFyIG3EsSBzxLFrxLFjxLEgYW5sYXR0xLFtIGtpIGJ1IGRlcnNpLCBoacOnIGl5aSB0YWtpcCBldG1lbWnFn3Npbi4gH011aHRlxZ9lbSBzYWxsxLF5b3JzdW4gZG9zdHVtLiARTmF5xLFyLCBub2xhbWF6LiAUTmUgYWxha2FzxLEgdmFyIHlhLiATTmUgeWFwdMSxbiBzZW4geWEuIAhOZWVlZXkuIBdTYcOnbWFsxLF5b3N1biBnYWxpYmEuICBTYWxsYW1hZGEgc8SxbsSxciB0YW5txLF5b3JzdW4uIB9TYW5hIGRpeWVjZWsgbGFmIGJ1bGFtxLF5b3J1bS4gIVPDvHBlciBzYWxsxLF5b3JzdW4gYXJrYWRhxZ/EsW0uIA/FnmFrYWPEsSBzZW5pLiAQVGFiaSBjYWFhYW7EsW0uICxUdWhhZiBiaXIgYXTEsWPEsXPEsW4sIHlpbmUgZGUgc2V2ZGltIHNlbmkuIB1ZYSBixLFyYWsgQWxsYWggYcWfa8SxbmEgeWEuIBFZYSB5YSB0YWJpIHRhYmkuICBZYWxhYWFhYW4sIHlhbGFuIHPDtnlsw7x5b3JzdW4uIEI8YSBocmVmPSdodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWwwM0RDTFFIMFJZJz5aaXlhYWEuIDwvYT4UKwMwZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZGQCEw8QDxYCHwRnZBAVMBMtLURvxJ9ydWxhciBpw6dpbi0tB0JyYXZhLiAXRG/En3J1IHPDtnplIG5lIGRlbmlyLiALVGVicmlrbGVyLiAbU2F5Z8SxbGFyIHN1bmFyxLFtIGVmZW5pbS4gHC0tLS0tLVlhbmzEscWfbGFyIGnDp2luLS0tLS00QnJhdm8hJywgZGVtZWsgaXN0ZXJkaW0gYW1hIGJ1IGNldmFiYSBuYXPEsWwgZGl5aW0uICRBw6fEsWsgc8O2eWxleWltLCBnw7x6ZWwgYXTEsXlvc3VuLiAuQXTEscWfIHNlcmJlc3QgYW1hIG8ga2FkYXIgZGEgc2VyYmVzdCBkZcSfaWwuIC5BdMSxxZ90YSBzxLFuxLFyIHRhbsSxbcSxeW9zdW4sIGJ1IGRhIGfDvHplbC4gG0F0xLF5b3J1bSDDtnlsZXlzZSB2YXLEsW0uIBRBdG1heWFsxLFtIGzDvHRmZW4uIBlBdG1hecSxIHVudXR0dXJkdW4gYmFuYS4gKUF5xLFwdMSxciB5YSwgc2FsbGEgZGEgYnUga2FkYXIgc2FsbGFtYS4gDkJhayBoZWxlIGJhay4gFUJlbiBhdHTEsW0gc2VuIGF0bWEuIBlCaSB5YcWfxLFtYSBkYWhhIGdpcmRpbS4gKUJ1IGTDvG55YXlhIHNhbGxhbWF5YSBnZWxtacWfc2luIGRvc3R1bS4gLEJ1bmRhbiDDtm5jZWtpIGhheWF0xLFuZGEgYXTEsWPEsSBtxLF5ZMSxbj8gK0NhaGlsIGNhaGlsIGtvbnXFn3VwIG1vcmFsaW1pIGJvem1hIGJlbmltLiBXw4dvayB5YWtsYcWfdMSxbi4gxZ5ha2EgxZ9ha2EsIGFsYWthc8SxIGJpbGUgeW9rLCB1w6dtYW7EsW4gc8SxbsSxcmxhcsSxbmRhc8SxbiDFn3Vhbi4gDERhaGEgbmVsZXIhIAZFaGhoLiAwR8O2esO8bWUgZ8O2csO8bm1lZGVuIHlhdmHFn8OnYSB0ZXJrZXQgYnVyYXnEsS4gGUfDvHphbCBhdMSxeW9zdW4sIGJyYXZvLiAQxLB5aSBkZW5lbWV5ZGkuICBLYWJ1bCBlZGVsaW0sIGfDvHplbCBhdMSxeW9zdW4uIE9LYWZhbcSxIHRhxZ9sYXJhIG3EsSB2dXJhecSxbSwgbmUgeWFwYXnEsW0uIEJ1IGthZGFyIG3EsSBrw7Z0w7wgYW5sYXRtxLHFn8SxbS4gSktvbnVsYXLEsSB0YWtpcCBlZGVya2VuIGF5bsSxIGFuZGEgc2V2Z2lsaW5pIGTDvMWfw7xuw7xyc2VuIG9sYWNhxJ/EsSBidS4gK0zDvHRmZW4gcmljYSBlZGVyaW0sIGTDvHpnw7xuIHNhbGxheWFsxLFtLiBWTWlsbGV0aW4gaGF5YWwgZ8O8Y8O8bsO8biBzxLFuxLFyxLEgeW9rLCBzZW5pbiBhdMSxxZ8gZ8O8Y8O8bsO8bi4gQmVuaSBrb3JrdXR1eW9yc3VuLiBfTW9yYWxpbWkgYm96dXlvcnN1bi4gQnUga2FkYXIgbcSxIHPEsWvEsWPEsSBhbmxhdHTEsW0ga2kgYnUgZGVyc2ksIGhpw6cgaXlpIHRha2lwIGV0bWVtacWfc2luLiAfTXVodGXFn2VtIHNhbGzEsXlvcnN1biBkb3N0dW0uIBFOYXnEsXIsIG5vbGFtYXouIBROZSBhbGFrYXPEsSB2YXIgeWEuIBNOZSB5YXB0xLFuIHNlbiB5YS4gCE5lZWVleS4gF1Nhw6dtYWzEsXlvc3VuIGdhbGliYS4gIFNhbGxhbWFkYSBzxLFuxLFyIHRhbm3EsXlvcnN1bi4gH1NhbmEgZGl5ZWNlayBsYWYgYnVsYW3EsXlvcnVtLiAhU8O8cGVyIHNhbGzEsXlvcnN1biBhcmthZGHFn8SxbS4gD8WeYWthY8SxIHNlbmkuIBBUYWJpIGNhYWFhbsSxbS4gLFR1aGFmIGJpciBhdMSxY8Sxc8SxbiwgeWluZSBkZSBzZXZkaW0gc2VuaS4gHVlhIGLEsXJhayBBbGxhaCBhxZ9rxLFuYSB5YS4gEVlhIHlhIHRhYmkgdGFiaS4gIFlhbGFhYWFhbiwgeWFsYW4gc8O2eWzDvHlvcnN1bi4gQjxhIGhyZWY9J2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9bDAzRENMUUgwUlknPlppeWFhYS4gPC9hPhUwEy0tRG/En3J1bGFyIGnDp2luLS0HQnJhdmEuIBdEb8SfcnUgc8O2emUgbmUgZGVuaXIuIAtUZWJyaWtsZXIuIBtTYXlnxLFsYXIgc3VuYXLEsW0gZWZlbmltLiAcLS0tLS0tWWFubMSxxZ9sYXIgacOnaW4tLS0tLTRCcmF2byEnLCBkZW1layBpc3RlcmRpbSBhbWEgYnUgY2V2YWJhIG5hc8SxbCBkaXlpbS4gJEHDp8SxayBzw7Z5bGV5aW0sIGfDvHplbCBhdMSxeW9zdW4uIC5BdMSxxZ8gc2VyYmVzdCBhbWEgbyBrYWRhciBkYSBzZXJiZXN0IGRlxJ9pbC4gLkF0xLHFn3RhIHPEsW7EsXIgdGFuxLFtxLF5b3N1biwgYnUgZGEgZ8O8emVsLiAbQXTEsXlvcnVtIMO2eWxleXNlIHZhcsSxbS4gFEF0bWF5YWzEsW0gbMO8dGZlbi4gGUF0bWF5xLEgdW51dHR1cmR1biBiYW5hLiApQXnEsXB0xLFyIHlhLCBzYWxsYSBkYSBidSBrYWRhciBzYWxsYW1hLiAOQmFrIGhlbGUgYmFrLiAVQmVuIGF0dMSxbSBzZW4gYXRtYS4gGUJpIHlhxZ/EsW1hIGRhaGEgZ2lyZGltLiApQnUgZMO8bnlheWEgc2FsbGFtYXlhIGdlbG1pxZ9zaW4gZG9zdHVtLiAsQnVuZGFuIMO2bmNla2kgaGF5YXTEsW5kYSBhdMSxY8SxIG3EsXlkxLFuPyArQ2FoaWwgY2FoaWwga29udcWfdXAgbW9yYWxpbWkgYm96bWEgYmVuaW0uIFfDh29rIHlha2xhxZ90xLFuLiDFnmFrYSDFn2FrYSwgYWxha2FzxLEgYmlsZSB5b2ssIHXDp21hbsSxbiBzxLFuxLFybGFyxLFuZGFzxLFuIMWfdWFuLiAMRGFoYSBuZWxlciEgBkVoaGguIDBHw7Z6w7xtZSBnw7Zyw7xubWVkZW4geWF2YcWfw6dhIHRlcmtldCBidXJhecSxLiAZR8O8emFsIGF0xLF5b3N1biwgYnJhdm8uIBDEsHlpIGRlbmVtZXlkaS4gIEthYnVsIGVkZWxpbSwgZ8O8emVsIGF0xLF5b3N1bi4gT0thZmFtxLEgdGHFn2xhcmEgbcSxIHZ1cmF5xLFtLCBuZSB5YXBhecSxbS4gQnUga2FkYXIgbcSxIGvDtnTDvCBhbmxhdG3EscWfxLFtLiBKS29udWxhcsSxIHRha2lwIGVkZXJrZW4gYXluxLEgYW5kYSBzZXZnaWxpbmkgZMO8xZ/DvG7DvHJzZW4gb2xhY2HEn8SxIGJ1LiArTMO8dGZlbiByaWNhIGVkZXJpbSwgZMO8emfDvG4gc2FsbGF5YWzEsW0uIFZNaWxsZXRpbiBoYXlhbCBnw7xjw7xuw7xuIHPEsW7EsXLEsSB5b2ssIHNlbmluIGF0xLHFnyBnw7xjw7xuw7xuLiBCZW5pIGtvcmt1dHV5b3JzdW4uIF9Nb3JhbGltaSBib3p1eW9yc3VuLiBCdSBrYWRhciBtxLEgc8Sxa8SxY8SxIGFubGF0dMSxbSBraSBidSBkZXJzaSwgaGnDpyBpeWkgdGFraXAgZXRtZW1pxZ9zaW4uIB9NdWh0ZcWfZW0gc2FsbMSxeW9yc3VuIGRvc3R1bS4gEU5hecSxciwgbm9sYW1hei4gFE5lIGFsYWthc8SxIHZhciB5YS4gE05lIHlhcHTEsW4gc2VuIHlhLiAITmVlZWV5LiAXU2HDp21hbMSxeW9zdW4gZ2FsaWJhLiAgU2FsbGFtYWRhIHPEsW7EsXIgdGFubcSxeW9yc3VuLiAfU2FuYSBkaXllY2VrIGxhZiBidWxhbcSxeW9ydW0uICFTw7xwZXIgc2FsbMSxeW9yc3VuIGFya2FkYcWfxLFtLiAPxZ5ha2FjxLEgc2VuaS4gEFRhYmkgY2FhYWFuxLFtLiAsVHVoYWYgYmlyIGF0xLFjxLFzxLFuLCB5aW5lIGRlIHNldmRpbSBzZW5pLiAdWWEgYsSxcmFrIEFsbGFoIGHFn2vEsW5hIHlhLiARWWEgeWEgdGFiaSB0YWJpLiAgWWFsYWFhYWFuLCB5YWxhbiBzw7Z5bMO8eW9yc3VuLiBCPGEgaHJlZj0naHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1sMDNEQ0xRSDBSWSc+Wml5YWFhLiA8L2E+FCsDMGdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2RkAhsPEA8WAh8EZ2QQFTATLS1Eb8SfcnVsYXIgacOnaW4tLQdCcmF2YS4gF0RvxJ9ydSBzw7Z6ZSBuZSBkZW5pci4gC1RlYnJpa2xlci4gG1NheWfEsWxhciBzdW5hcsSxbSBlZmVuaW0uIBwtLS0tLS1ZYW5sxLHFn2xhciBpw6dpbi0tLS0tNEJyYXZvIScsIGRlbWVrIGlzdGVyZGltIGFtYSBidSBjZXZhYmEgbmFzxLFsIGRpeWltLiAkQcOnxLFrIHPDtnlsZXlpbSwgZ8O8emVsIGF0xLF5b3N1bi4gLkF0xLHFnyBzZXJiZXN0IGFtYSBvIGthZGFyIGRhIHNlcmJlc3QgZGXEn2lsLiAuQXTEscWfdGEgc8SxbsSxciB0YW7EsW3EsXlvc3VuLCBidSBkYSBnw7x6ZWwuIBtBdMSxeW9ydW0gw7Z5bGV5c2UgdmFyxLFtLiAUQXRtYXlhbMSxbSBsw7x0ZmVuLiAZQXRtYXnEsSB1bnV0dHVyZHVuIGJhbmEuIClBecSxcHTEsXIgeWEsIHNhbGxhIGRhIGJ1IGthZGFyIHNhbGxhbWEuIA5CYWsgaGVsZSBiYWsuIBVCZW4gYXR0xLFtIHNlbiBhdG1hLiAZQmkgeWHFn8SxbWEgZGFoYSBnaXJkaW0uIClCdSBkw7xueWF5YSBzYWxsYW1heWEgZ2VsbWnFn3NpbiBkb3N0dW0uICxCdW5kYW4gw7ZuY2VraSBoYXlhdMSxbmRhIGF0xLFjxLEgbcSxeWTEsW4/ICtDYWhpbCBjYWhpbCBrb251xZ91cCBtb3JhbGltaSBib3ptYSBiZW5pbS4gV8OHb2sgeWFrbGHFn3TEsW4uIMWeYWthIMWfYWthLCBhbGFrYXPEsSBiaWxlIHlvaywgdcOnbWFuxLFuIHPEsW7EsXJsYXLEsW5kYXPEsW4gxZ91YW4uIAxEYWhhIG5lbGVyISAGRWhoaC4gMEfDtnrDvG1lIGfDtnLDvG5tZWRlbiB5YXZhxZ/Dp2EgdGVya2V0IGJ1cmF5xLEuIBlHw7x6YWwgYXTEsXlvc3VuLCBicmF2by4gEMSweWkgZGVuZW1leWRpLiAgS2FidWwgZWRlbGltLCBnw7x6ZWwgYXTEsXlvc3VuLiBPS2FmYW3EsSB0YcWfbGFyYSBtxLEgdnVyYXnEsW0sIG5lIHlhcGF5xLFtLiBCdSBrYWRhciBtxLEga8O2dMO8IGFubGF0bcSxxZ/EsW0uIEpLb251bGFyxLEgdGFraXAgZWRlcmtlbiBheW7EsSBhbmRhIHNldmdpbGluaSBkw7zFn8O8bsO8cnNlbiBvbGFjYcSfxLEgYnUuICtMw7x0ZmVuIHJpY2EgZWRlcmltLCBkw7x6Z8O8biBzYWxsYXlhbMSxbS4gVk1pbGxldGluIGhheWFsIGfDvGPDvG7DvG4gc8SxbsSxcsSxIHlvaywgc2VuaW4gYXTEscWfIGfDvGPDvG7DvG4uIEJlbmkga29ya3V0dXlvcnN1bi4gX01vcmFsaW1pIGJvenV5b3JzdW4uIEJ1IGthZGFyIG3EsSBzxLFrxLFjxLEgYW5sYXR0xLFtIGtpIGJ1IGRlcnNpLCBoacOnIGl5aSB0YWtpcCBldG1lbWnFn3Npbi4gH011aHRlxZ9lbSBzYWxsxLF5b3JzdW4gZG9zdHVtLiARTmF5xLFyLCBub2xhbWF6LiAUTmUgYWxha2FzxLEgdmFyIHlhLiATTmUgeWFwdMSxbiBzZW4geWEuIAhOZWVlZXkuIBdTYcOnbWFsxLF5b3N1biBnYWxpYmEuICBTYWxsYW1hZGEgc8SxbsSxciB0YW5txLF5b3JzdW4uIB9TYW5hIGRpeWVjZWsgbGFmIGJ1bGFtxLF5b3J1bS4gIVPDvHBlciBzYWxsxLF5b3JzdW4gYXJrYWRhxZ/EsW0uIA/FnmFrYWPEsSBzZW5pLiAQVGFiaSBjYWFhYW7EsW0uICxUdWhhZiBiaXIgYXTEsWPEsXPEsW4sIHlpbmUgZGUgc2V2ZGltIHNlbmkuIB1ZYSBixLFyYWsgQWxsYWggYcWfa8SxbmEgeWEuIBFZYSB5YSB0YWJpIHRhYmkuICBZYWxhYWFhYW4sIHlhbGFuIHPDtnlsw7x5b3JzdW4uIEI8YSBocmVmPSdodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWwwM0RDTFFIMFJZJz5aaXlhYWEuIDwvYT4VMBMtLURvxJ9ydWxhciBpw6dpbi0tB0JyYXZhLiAXRG/En3J1IHPDtnplIG5lIGRlbmlyLiALVGVicmlrbGVyLiAbU2F5Z8SxbGFyIHN1bmFyxLFtIGVmZW5pbS4gHC0tLS0tLVlhbmzEscWfbGFyIGnDp2luLS0tLS00QnJhdm8hJywgZGVtZWsgaXN0ZXJkaW0gYW1hIGJ1IGNldmFiYSBuYXPEsWwgZGl5aW0uICRBw6fEsWsgc8O2eWxleWltLCBnw7x6ZWwgYXTEsXlvc3VuLiAuQXTEscWfIHNlcmJlc3QgYW1hIG8ga2FkYXIgZGEgc2VyYmVzdCBkZcSfaWwuIC5BdMSxxZ90YSBzxLFuxLFyIHRhbsSxbcSxeW9zdW4sIGJ1IGRhIGfDvHplbC4gG0F0xLF5b3J1bSDDtnlsZXlzZSB2YXLEsW0uIBRBdG1heWFsxLFtIGzDvHRmZW4uIBlBdG1hecSxIHVudXR0dXJkdW4gYmFuYS4gKUF5xLFwdMSxciB5YSwgc2FsbGEgZGEgYnUga2FkYXIgc2FsbGFtYS4gDkJhayBoZWxlIGJhay4gFUJlbiBhdHTEsW0gc2VuIGF0bWEuIBlCaSB5YcWfxLFtYSBkYWhhIGdpcmRpbS4gKUJ1IGTDvG55YXlhIHNhbGxhbWF5YSBnZWxtacWfc2luIGRvc3R1bS4gLEJ1bmRhbiDDtm5jZWtpIGhheWF0xLFuZGEgYXTEsWPEsSBtxLF5ZMSxbj8gK0NhaGlsIGNhaGlsIGtvbnXFn3VwIG1vcmFsaW1pIGJvem1hIGJlbmltLiBXw4dvayB5YWtsYcWfdMSxbi4gxZ5ha2EgxZ9ha2EsIGFsYWthc8SxIGJpbGUgeW9rLCB1w6dtYW7EsW4gc8SxbsSxcmxhcsSxbmRhc8SxbiDFn3Vhbi4gDERhaGEgbmVsZXIhIAZFaGhoLiAwR8O2esO8bWUgZ8O2csO8bm1lZGVuIHlhdmHFn8OnYSB0ZXJrZXQgYnVyYXnEsS4gGUfDvHphbCBhdMSxeW9zdW4sIGJyYXZvLiAQxLB5aSBkZW5lbWV5ZGkuICBLYWJ1bCBlZGVsaW0sIGfDvHplbCBhdMSxeW9zdW4uIE9LYWZhbcSxIHRhxZ9sYXJhIG3EsSB2dXJhecSxbSwgbmUgeWFwYXnEsW0uIEJ1IGthZGFyIG3EsSBrw7Z0w7wgYW5sYXRtxLHFn8SxbS4gSktvbnVsYXLEsSB0YWtpcCBlZGVya2VuIGF5bsSxIGFuZGEgc2V2Z2lsaW5pIGTDvMWfw7xuw7xyc2VuIG9sYWNhxJ/EsSBidS4gK0zDvHRmZW4gcmljYSBlZGVyaW0sIGTDvHpnw7xuIHNhbGxheWFsxLFtLiBWTWlsbGV0aW4gaGF5YWwgZ8O8Y8O8bsO8biBzxLFuxLFyxLEgeW9rLCBzZW5pbiBhdMSxxZ8gZ8O8Y8O8bsO8bi4gQmVuaSBrb3JrdXR1eW9yc3VuLiBfTW9yYWxpbWkgYm96dXlvcnN1bi4gQnUga2FkYXIgbcSxIHPEsWvEsWPEsSBhbmxhdHTEsW0ga2kgYnUgZGVyc2ksIGhpw6cgaXlpIHRha2lwIGV0bWVtacWfc2luLiAfTXVodGXFn2VtIHNhbGzEsXlvcnN1biBkb3N0dW0uIBFOYXnEsXIsIG5vbGFtYXouIBROZSBhbGFrYXPEsSB2YXIgeWEuIBNOZSB5YXB0xLFuIHNlbiB5YS4gCE5lZWVleS4gF1Nhw6dtYWzEsXlvc3VuIGdhbGliYS4gIFNhbGxhbWFkYSBzxLFuxLFyIHRhbm3EsXlvcnN1bi4gH1NhbmEgZGl5ZWNlayBsYWYgYnVsYW3EsXlvcnVtLiAhU8O8cGVyIHNhbGzEsXlvcnN1biBhcmthZGHFn8SxbS4gD8WeYWthY8SxIHNlbmkuIBBUYWJpIGNhYWFhbsSxbS4gLFR1aGFmIGJpciBhdMSxY8Sxc8SxbiwgeWluZSBkZSBzZXZkaW0gc2VuaS4gHVlhIGLEsXJhayBBbGxhaCBhxZ9rxLFuYSB5YS4gEVlhIHlhIHRhYmkgdGFiaS4gIFlhbGFhYWFhbiwgeWFsYW4gc8O2eWzDvHlvcnN1bi4gQjxhIGhyZWY9J2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9bDAzRENMUUgwUlknPlppeWFhYS4gPC9hPhQrAzBnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dkZAIjDxAPFgIfBGdkEBUwEy0tRG/En3J1bGFyIGnDp2luLS0HQnJhdmEuIBdEb8SfcnUgc8O2emUgbmUgZGVuaXIuIAtUZWJyaWtsZXIuIBtTYXlnxLFsYXIgc3VuYXLEsW0gZWZlbmltLiAcLS0tLS0tWWFubMSxxZ9sYXIgacOnaW4tLS0tLTRCcmF2byEnLCBkZW1layBpc3RlcmRpbSBhbWEgYnUgY2V2YWJhIG5hc8SxbCBkaXlpbS4gJEHDp8SxayBzw7Z5bGV5aW0sIGfDvHplbCBhdMSxeW9zdW4uIC5BdMSxxZ8gc2VyYmVzdCBhbWEgbyBrYWRhciBkYSBzZXJiZXN0IGRlxJ9pbC4gLkF0xLHFn3RhIHPEsW7EsXIgdGFuxLFtxLF5b3N1biwgYnUgZGEgZ8O8emVsLiAbQXTEsXlvcnVtIMO2eWxleXNlIHZhcsSxbS4gFEF0bWF5YWzEsW0gbMO8dGZlbi4gGUF0bWF5xLEgdW51dHR1cmR1biBiYW5hLiApQXnEsXB0xLFyIHlhLCBzYWxsYSBkYSBidSBrYWRhciBzYWxsYW1hLiAOQmFrIGhlbGUgYmFrLiAVQmVuIGF0dMSxbSBzZW4gYXRtYS4gGUJpIHlhxZ/EsW1hIGRhaGEgZ2lyZGltLiApQnUgZMO8bnlheWEgc2FsbGFtYXlhIGdlbG1pxZ9zaW4gZG9zdHVtLiAsQnVuZGFuIMO2bmNla2kgaGF5YXTEsW5kYSBhdMSxY8SxIG3EsXlkxLFuPyArQ2FoaWwgY2FoaWwga29udcWfdXAgbW9yYWxpbWkgYm96bWEgYmVuaW0uIFfDh29rIHlha2xhxZ90xLFuLiDFnmFrYSDFn2FrYSwgYWxha2FzxLEgYmlsZSB5b2ssIHXDp21hbsSxbiBzxLFuxLFybGFyxLFuZGFzxLFuIMWfdWFuLiAMRGFoYSBuZWxlciEgBkVoaGguIDBHw7Z6w7xtZSBnw7Zyw7xubWVkZW4geWF2YcWfw6dhIHRlcmtldCBidXJhecSxLiAZR8O8emFsIGF0xLF5b3N1biwgYnJhdm8uIBDEsHlpIGRlbmVtZXlkaS4gIEthYnVsIGVkZWxpbSwgZ8O8emVsIGF0xLF5b3N1bi4gT0thZmFtxLEgdGHFn2xhcmEgbcSxIHZ1cmF5xLFtLCBuZSB5YXBhecSxbS4gQnUga2FkYXIgbcSxIGvDtnTDvCBhbmxhdG3EscWfxLFtLiBKS29udWxhcsSxIHRha2lwIGVkZXJrZW4gYXluxLEgYW5kYSBzZXZnaWxpbmkgZMO8xZ/DvG7DvHJzZW4gb2xhY2HEn8SxIGJ1LiArTMO8dGZlbiByaWNhIGVkZXJpbSwgZMO8emfDvG4gc2FsbGF5YWzEsW0uIFZNaWxsZXRpbiBoYXlhbCBnw7xjw7xuw7xuIHPEsW7EsXLEsSB5b2ssIHNlbmluIGF0xLHFnyBnw7xjw7xuw7xuLiBCZW5pIGtvcmt1dHV5b3JzdW4uIF9Nb3JhbGltaSBib3p1eW9yc3VuLiBCdSBrYWRhciBtxLEgc8Sxa8SxY8SxIGFubGF0dMSxbSBraSBidSBkZXJzaSwgaGnDpyBpeWkgdGFraXAgZXRtZW1pxZ9zaW4uIB9NdWh0ZcWfZW0gc2FsbMSxeW9yc3VuIGRvc3R1bS4gEU5hecSxciwgbm9sYW1hei4gFE5lIGFsYWthc8SxIHZhciB5YS4gE05lIHlhcHTEsW4gc2VuIHlhLiAITmVlZWV5LiAXU2HDp21hbMSxeW9zdW4gZ2FsaWJhLiAgU2FsbGFtYWRhIHPEsW7EsXIgdGFubcSxeW9yc3VuLiAfU2FuYSBkaXllY2VrIGxhZiBidWxhbcSxeW9ydW0uICFTw7xwZXIgc2FsbMSxeW9yc3VuIGFya2FkYcWfxLFtLiAPxZ5ha2FjxLEgc2VuaS4gEFRhYmkgY2FhYWFuxLFtLiAsVHVoYWYgYmlyIGF0xLFjxLFzxLFuLCB5aW5lIGRlIHNldmRpbSBzZW5pLiAdWWEgYsSxcmFrIEFsbGFoIGHFn2vEsW5hIHlhLiARWWEgeWEgdGFiaSB0YWJpLiAgWWFsYWFhYWFuLCB5YWxhbiBzw7Z5bMO8eW9yc3VuLiBCPGEgaHJlZj0naHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1sMDNEQ0xRSDBSWSc+Wml5YWFhLiA8L2E+FTATLS1Eb8SfcnVsYXIgacOnaW4tLQdCcmF2YS4gF0RvxJ9ydSBzw7Z6ZSBuZSBkZW5pci4gC1RlYnJpa2xlci4gG1NheWfEsWxhciBzdW5hcsSxbSBlZmVuaW0uIBwtLS0tLS1ZYW5sxLHFn2xhciBpw6dpbi0tLS0tNEJyYXZvIScsIGRlbWVrIGlzdGVyZGltIGFtYSBidSBjZXZhYmEgbmFzxLFsIGRpeWltLiAkQcOnxLFrIHPDtnlsZXlpbSwgZ8O8emVsIGF0xLF5b3N1bi4gLkF0xLHFnyBzZXJiZXN0IGFtYSBvIGthZGFyIGRhIHNlcmJlc3QgZGXEn2lsLiAuQXTEscWfdGEgc8SxbsSxciB0YW7EsW3EsXlvc3VuLCBidSBkYSBnw7x6ZWwuIBtBdMSxeW9ydW0gw7Z5bGV5c2UgdmFyxLFtLiAUQXRtYXlhbMSxbSBsw7x0ZmVuLiAZQXRtYXnEsSB1bnV0dHVyZHVuIGJhbmEuIClBecSxcHTEsXIgeWEsIHNhbGxhIGRhIGJ1IGthZGFyIHNhbGxhbWEuIA5CYWsgaGVsZSBiYWsuIBVCZW4gYXR0xLFtIHNlbiBhdG1hLiAZQmkgeWHFn8SxbWEgZGFoYSBnaXJkaW0uIClCdSBkw7xueWF5YSBzYWxsYW1heWEgZ2VsbWnFn3NpbiBkb3N0dW0uICxCdW5kYW4gw7ZuY2VraSBoYXlhdMSxbmRhIGF0xLFjxLEgbcSxeWTEsW4/ICtDYWhpbCBjYWhpbCBrb251xZ91cCBtb3JhbGltaSBib3ptYSBiZW5pbS4gV8OHb2sgeWFrbGHFn3TEsW4uIMWeYWthIMWfYWthLCBhbGFrYXPEsSBiaWxlIHlvaywgdcOnbWFuxLFuIHPEsW7EsXJsYXLEsW5kYXPEsW4gxZ91YW4uIAxEYWhhIG5lbGVyISAGRWhoaC4gMEfDtnrDvG1lIGfDtnLDvG5tZWRlbiB5YXZhxZ/Dp2EgdGVya2V0IGJ1cmF5xLEuIBlHw7x6YWwgYXTEsXlvc3VuLCBicmF2by4gEMSweWkgZGVuZW1leWRpLiAgS2FidWwgZWRlbGltLCBnw7x6ZWwgYXTEsXlvc3VuLiBPS2FmYW3EsSB0YcWfbGFyYSBtxLEgdnVyYXnEsW0sIG5lIHlhcGF5xLFtLiBCdSBrYWRhciBtxLEga8O2dMO8IGFubGF0bcSxxZ/EsW0uIEpLb251bGFyxLEgdGFraXAgZWRlcmtlbiBheW7EsSBhbmRhIHNldmdpbGluaSBkw7zFn8O8bsO8cnNlbiBvbGFjYcSfxLEgYnUuICtMw7x0ZmVuIHJpY2EgZWRlcmltLCBkw7x6Z8O8biBzYWxsYXlhbMSxbS4gVk1pbGxldGluIGhheWFsIGfDvGPDvG7DvG4gc8SxbsSxcsSxIHlvaywgc2VuaW4gYXTEscWfIGfDvGPDvG7DvG4uIEJlbmkga29ya3V0dXlvcnN1bi4gX01vcmFsaW1pIGJvenV5b3JzdW4uIEJ1IGthZGFyIG3EsSBzxLFrxLFjxLEgYW5sYXR0xLFtIGtpIGJ1IGRlcnNpLCBoacOnIGl5aSB0YWtpcCBldG1lbWnFn3Npbi4gH011aHRlxZ9lbSBzYWxs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" />
+
+
+<script src="../../ScriptResourceb54a.js?d=qV8qacmWm0tSEQ-gOh_CMi4EzRKhunNFjY5N4WhtbuiUtkOeU2vNfdvGd3gJ4rQLu6o9-LuM2pzW5cB7mhuKj2beV-5bw8f5KoFCaEPXgZMOo3xORH5auCepiTsBnPC5TJuqssuXI87SzFLJbdT6aUIFIp4GYLSIHuW6EckgDHA1&amp;t=49337fe8" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D107ED8E" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+        
+
+
+        <div id="cerez" class="alert alert-warning">
+            <div>
+                Bu siteye giriş yaparak Çerez kullanımını kabul etmiş oluyorsunuz. İşbu sitede; çerez olarak, sadece son giriş tarihiniz
+		    		    ve eğer üye olursanız oturum statünüz tutulacaktır. Bunlar dışında başka hiçbir bilgi tutulmamaktadır. Çerezler için 
+		    		    detaylı bilgi için <a href="../../sorun957b.html#cerez">buraya </a>tıklayınız.
+            </div>
+            <div style="text-align: center">ANLADIM</div>
+        </div>
+
+        <div id="duyuruilan">
+            <div>
+                <p><b>DUYURULAR</b></p>
+                <p>Yeni eklenen ve/veya güncellenen sayfaları görmek için <a href='../../SayfaDegisim.html'>buraya</a> tıklayınız.</p>
+                <p>Güncel ödev ve test listesini görmek için <a href='../../TestveOdevList.html'>buraya</a> tıklayınız.</p>
+                <p>Sitede yapılan iyileştirmeler ve hata düzeltmelerine ait tüm bilgilendirmeleri görmek için<a href="../../sorun9c85.html">buraya</a> tıklayınız. </p>
+            </div>
+        </div>
+        <div id="duyuruimg" title="Duyuruları görmek için tıklayınız">
+            <img src="../../images/duyuru.png" class="pulse" />
+        </div>
+
+        <div id="ziyaret"></div>
+        <span id="lblUyemail"></span>
+                
+        <nav id="mynav" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-center"> 
+           
+            <div id="navhome" onclick="topFunction()" title="Başa dön">Baş</div>
+            <div id="navend" onclick="bottomFunction()" title="Sona git">Son</div>
+            <div id="udemy" onclick="udemyFunction()" title="Udemy video sayfama git"><img src="../../images/Udemy.png" /></div>            
+           
+            <div id="anamenu" class="col-md-10">
+                <ul class="nav nav-pills justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../default.html">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../sorunf6a8.html">Hakkımda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Sitemap.html">Sitemap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Excelent.html">Excelent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../iletisim.html">İletişim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../uyelik.html">Üyelik</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Arama.html">Arama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Testimonials.html">Sizden gelenler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:yellow;font-size:large" href="https://www.patreon.com/volkanyurtseven">Destek/Patreon</a>
+                    </li>
+                    <li class="nav-item">
+                        <div id="google_translate_element"></div>
+                    </li>        
+                    
+                </ul>
+            </div>
+ 
+        </nav>
+
+        <div class="nomobilsegizle" id="sabitmobilmenu">
+            <div class="mobilmenudiv5" id="mobilBasButon" onclick="topFunction()">Baş</div>
+            <div class="mobilmenudiv5" id="mobilUdemyButon" onclick="udemyFunction()">Udemy</div>
+            <div class="mobilmenudiv5" id="mobilana" onclick="mobilMenu()">
+                Anamenü		
+                <div id="mobil_anamenu">
+                <a id="m_hypDefault" href="../../Default-2.html">Anasayfa</a>
+                <a id="m_hypHakkim" href="../../sorunf6a8.html">Hakkımda</a>
+                <a id="m_hypSitemap" href="../../sitemap-2.html">Site Haritası</a>
+                <a id="m_hypExcelent" href="../../Excelent.html">Excelent</a>
+                <a id="m_hypiletisim" href="../../iletisim.html">İletişim</a>
+                <a id="m_hypMembership" href="../../uyelik.html">Üyelik</a>
+                <a id="m_hypSearch" href="../../Arama.html">Arama</a>
+                <a id="m_hypTestimonial" href="../../Testimonials.html">Sizden gelenler</a>
+                <a id="m_hypPatreon" href="https://www.patreon.com/volkanyurtseven">Destek/Patreon</a>
+                </div>
+            </div>
+            
+            <div class="mobilmenudiv5" id="mobilSideBar" onclick="mobilSideMenu()">Konular</div>
+            <div class="mobilmenudiv5" id="mobilSonButon" onclick="bottomFunction()">Son</div>
+
+        </div>
+
+        <div id="babacontainer">
+            <div class="row">
+                <div id="solsutunreklam" class="col-md-2">
+                   
+
+                    
+                    <div class="gizlefortestodev" style="margin-top:60px;">
+                        <span id="lblFolder">Konular</span><br />                                    
+                        <span id="lblSayfa">VeriTabani-ConnectionListObjectveQueryTable</span><br />
+                        <span id="lblAltkonu">DigerUygulamalarlailetisim</span><br />
+                        <span id="lblAnakonu">VBAMakro</span><br />                        
+                    </div>
+                </div>
+
+                <div id="ortablok" class="col-md-8">
+
+                    <div id="ortablok_anacontent" class="row">
+                        <div id="sidebar" class="col-md-2">
+                            <ul>
+                                <li>
+                                    <a id="HyperLink1" class="baslik">Excel</a>
+                                    <table id="DataList1" class="konu" cellspacing="0">
+	<tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_0" href="../Excel/Giris_Konular.html">Giriş</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_1" href="../Excel/HomeMenusu_Konular.html">Home Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_2" href="../Excel/InsertMenusu_Konular.html">Insert Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_3" href="../Excel/FormulasMenusuFonksiyonlar_Konular.html">Formulas Menüsü(Fonksiyonlar)</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_4" href="../Excel/FormulasMenusuDiger_Konular.html">Formulas Menüsü(Diğer)</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_5" href="../Excel/DataMenusu_Konular.html">Data Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_6" href="../Excel/ReviewMenusu_Konular.html">Review Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_7" href="../Excel/DeveloperMenusu_Konular.html">Developer Menüsü</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList1_AltKonuHyp_8" href="../Excel/YeniEklenenAraclar_Konular.html">Yeni Eklenen Araçlar</a>
+                                        </td>
+	</tr>
+</table>
+                                    
+                                </li>
+
+                                <li>
+                                    <a id="HyperLink2" class="baslik">VBA/Makro</a>
+                                    <table id="DataList2" class="konu" cellspacing="0">
+	<tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_0" href="Giris_Konular.html">Giriş</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_1" href="Temeller_Konular.html">Temeller</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_2" href="DortTemelNesne_Konular.html">Dört Temel Nesne</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_3" href="KosulifadeleriveDonguler_Konular.html">Koşul ifadeleri ve Döngüler</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_4" href="DizilerveDizimsiYapilar_Konular.html">Diziler ve Dizimsi Yapılar</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_5" href="DebuggingveHataYonetimi_Konular.html">Debugging ve Hata Yönetimi</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_6" href="Fonksiyonlar_Konular.html">Fonksiyonlar</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_7" href="Dosyaislemleri_Konular.html">Dosya işlemleri</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_8" href="Olaylar_Konular.html">Olaylar</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_9" href="Formlar_Konular.html">Formlar</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_10" href="DigerUygulamalarlailetisim_Konular.html">Diğer Uygulamalarla iletişim</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList2_AltKonuHyp_11" href="Ileriseviyekonular_Konular.html">İleri seviye konular</a>
+                                        </td>
+	</tr>
+</table>
+                                    
+                                </li>
+
+                                <li>
+                                    <a id="HyperLink3" class="baslik">VSTO</a>
+                                    <table id="DataList3" class="konu" cellspacing="0">
+	<tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_0" href="../VSTO/Giris_Konular.html">Giriş</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_1" href="../VSTO/CoreVSTO_Konular.html">Core VSTO</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_2" href="../VSTO/Netislemleri_Konular.html">.Net işlemleri</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_3" href="../VSTO/ThirdPartyKutuphanler_Konular.html">Third Party Kütüphanler</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_4" href="../VSTO/ProjeyiYayinlama_Konular.html">Projeyi Yayınlama</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_5" href="../VSTO/OrnekProjeler_Konular.html">Örnek Projeler</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList3_AltKonuHyp_6" href="../VSTO/DigerUygulamalarlaCalismak_Konular.html">Diğer Uygulamalarla Çalışmak</a>
+                                        </td>
+	</tr>
+</table>
+                                    
+                                </li>
+
+                                <li>
+                                    <a id="HyperLink4" class="baslik">Fasulye</a>
+                                    <table id="DataList4" class="konu" cellspacing="0">
+	<tr>
+		<td>
+                                            <a id="DataList4_AltKonuHyp_0" href="../Fasulye/DigerAraclaruzerinemakaleler_Konular.html">Diğer Araçlar üzerine makaleler</a>
+                                        </td>
+	</tr><tr>
+		<td>
+                                            <a id="DataList4_AltKonuHyp_1" href="../Fasulye/NeNeredeNasil_Konular.html">Ne Nerede Nasıl</a>
+                                        </td>
+	</tr>
+</table>
+                                    
+                                </li>
+                            </ul>
+                            <!--   			        <div class="marquee">VBA konularına Dosya okuma/yazma sayfası eklenmiştir.</div>-->
+                        </div>
+
+
+                        <div id="yazilar" class="col-md-10">
+                             
+                             
+                            
+                            <div id='gizliforkonu'>
+<table><tr><td><span id="SayfaIcerik_Label1">VBAMakro</span></td><td>
+<span id="SayfaIcerik_Label2">Diğer Uygulamalarla iletişim</span></td><td>
+<span id="SayfaIcerik_Label3">4</span></td></tr></table></div>
+
+<h1>Connection, ListObject 
+	ve QueryTable nesneleri</h1>
+	<p>Bu bölümde, DAO ve ADO'dan yöntem olarak biraz farklılaşan, 
+	refreshlenebilir bağlantı 
+	tekniklerine değineceğiz. Bu sayfada anlatılanlar için
+	<a href="../Excel/DataMenusu_BaskaVeriKaynaklariilecalismak.html">Dış veri 
+	kaynaklarıyla çalışmak</a> sayfasında 
+	anlatılan konuları iyi bilmek gerekiyor. Eğer bunları bilmiyorsanız 
+	öncelikle o sayfayı incelemenizi sonra buraya gelmenizi tavsiye ederim.</p>
+	<p>Örneklerdeki kodların olduğu dosyayı ve veritabanını 
+	<a href="../../Ornek_dosyalar/Makrolar/vbadata.html">buradan</a> 
+	indirebilirsiniz.&nbsp;</p>
+	<h2 class='baslik'>Giriş</h2><div class='konu'>
+	<p>Önceki bölümde DAO ve ADO ile bir 
+	veritabanına bağlanıp nasıl veri çekileceğini gördük. Bunların ortak noktası datayı 
+	değişkenler/diziler içinde depolayarak veya metodlar aracılığı ile Excele 
+	yapıştırmak şeklindeydi. Bu yöntemlerle elde edilen veri, Data menüsünden veya sağ 
+	tıklanarak refreshlenemez. Yani DAO/ADO refresh yapılamayan ve statik data 
+	getiren yöntemlerdir.&nbsp; Ancak ilgili kod tekrar çalıştırılarak(ilgili kod bir 
+	butona atanabilir), güncel data getirilebilir, yani dolaylı yoldan bir nevi 
+	refresh uygulanabilir. Refresh yapılabilirliğin VBA açısından önemi 
+	<span class="keywordler">Refresh</span> ve <span class="keywordler">RefreshAll</span> 
+	metodlarının kullanım kolaylığındandır.</p>
+	<p>Excel’den veritabanlarına 
+	ulaşmanın bir yolu da MS Query veya Data Connection Wizard aracılığı ile 
+	refreshelenbilir bir Tablo(VBA karşılığı ListObject) yaratmaktır. Bu kısımda 
+	bu yöntemlere bakıyor olacağız, tabi sadece VBA ile ilgili kısmına. Bu tür 
+	bağlantı yaratım tekniklerini biliyor olduğunuzu vasrsayacağım, bilmeyenler
+	<a href="../Excel/DataMenusu_BaskaVeriKaynaklariilecalismak.html">buradan</a> 
+	detay bilgi edinebilir.</p>
+	<p>Refreshlenebilir bir dosyayı ilk kez oluşturma işini 
+	genelde Excel içinden manuel yaparız. Ancak bazı durumlarda VBA ile de 
+	yapmamız gerekebilmektedir. Yine de ilk Connection String bilgilerini v.s ilk 
+	başta Excel’den yapmak daha kolaydır, hatta macro recorder ile oluşan kodu 
+	alıp, aradaki gereksiz kodu temizledikten sonra VBA kodunu 
+	hazırlayabilrsiniz.</p>
+	<p>Bunun refresh işlemini ise VBA’e bırakabiliriz, tabiki manuel olarak refresh 
+	edilebilir ancak bu sayfada VBA ile bunun yapılış yollarını öğreneceğiz. 
+	Zira bu bilgiler schedule işlemlerinde kritik öneme sahiptir.</p>
+	<h3>Önemli Classlar</h3>
+	<p>DAO ve ADO’dan farklı olarak bu sefer herhangi 
+	bir library’yi referans olarak eklememize gerek bulunmamaktadır. Bunun 
+	yerine Excel'in açılmasıyla mevcut bulunan 3 sınıf/nesne üzerinde çalışıyor olacağız.</p>
+	<ul>
+		<li><strong>Connection(s) sınıfı:</strong> Varolan bağlantılarla ilgili işlem yapılmasını veya 
+	bilgi edinilmesini sağlar. </li>
+		<li><strong>ListObject(s) sınıfı:</strong> Yeni connection 
+	kurmamızı sağlar. Nihai liste <a href="../Excel/HomeMenusu_Tablolar.html">Table</a> şeklindedir.</li>
+		<li><strong>QueryTable(s) sınıfı:</strong> 
+	Yeni connection kurmamızı sağlar. Nihai liste 
+		<a href="../Excel/HomeMenusu_Tablolar.html">Table</a> şeklinde 
+		<span style="text-decoration: underline">değildir</span>.</li>
+	</ul>
+	<p>Şimdi bunlara detaylıca bakalım.</p>
+	</div>
+		<h2 class="baslik">Connections sınıfı</h2>
+		<div class="konu">
+	<p>Connections’ın sonundaki s harfinden bunun bi collection olduğunu 
+	anlıyoruz. Normalde hemen her collectiona ait bir de sonunda “s” olmayan 
+	nesnesi vardır, Workbooks/Workbook gibi. Ancak Connections için bu tipte bir 
+	nesne yok. Bununla ilgili hiçbir kaynak bulamadım ancak benim tahminim tek 
+	bir tür connection olmaması. Bizim burada ilgileneceğimiz nesne 
+	<strong>WorkbookConnection</strong>’dır. WorkbookConnection nesnesi tüm dış bağlantıları 
+	yöneten nesnedir. Bunun da aşağıdaki gibi kendi içinde alt türleri vardır:</p>
+	<p>(Yandaki 
+	rakamlar Type propertysinin değeridir.)<br>2, xlConnectionTypeODBC<br>1, 
+	xlConnectionTypeOLEDB<br>4, xlConnectionTypeTEXT<br>5, xlConnectionTypeWEB<br>Diğer bikaç 
+	tip daha var, 
+	ama onlar bizi şu aşamada hiç ilgilendirmiyor.</p>
+	<p>Connection’ların güzelliği bi kere yaratıldıklarında Excel içinde 
+	depolanabilir olmalarıdır. Connectionlar, ayrı bir connection dosyasında da 
+	tutulabilir. Bunlar genelde ODC uzantılı dosyalardır. Ama biz bu 
+	şekilde çalışmaycağız, Excel içinde depolayacağız. Daha önceden bahsettiğim 
+	gibi bazen de direkt kodun içinde connection yaratımı olabilir, dolayısıyla dosya 
+	ilk açıldığında connection yoktur, onu yaratan kod tetiklenince oluşur. Her 
+	ne kadar çok sık ihtiyacımız olmayacaksa da bu yöntemi de göreceğiz.</p>
+	<h3>Yeni yaratım</h3>
+	<p>Her bir QueryTable, ListObject ve harici dataya başvuran bir 
+	PivotCache yaratıldığında yeni bir WorkbookConnection nesnesi yaratılır. 
+	Bu şekilde dolayı olarak yaratılan connectionlara biraz aşağıda bakacağız.</p>
+			<p>Sonradan Existing Connections içinden kullanılmak üzere standalone(tek başına duran) 
+	WorkbookConnection nesnesi de yaratılabilir, ama buna çok gerek olacağını 
+	sanmıyorum, o yüzden yeni yaratım yerine varolan connectionlar üzerinde 
+			duracağız.</p>
+	<h3>ConnectionString</h3>
+	<p>Bir connection’ın en önemli öğesi 
+	Connection Stringdir. DAO ve ADO’da gördüğümüz gibi bu öğe, dataya nasıl 
+	bağlanılacağını belirten yönergeyi içerir. Bunun içinde genellikle bağlantı 
+	türünün ODBC/OLEDB 
+	mi olduğu, Driver/Provider’in ne olduğu, varsa user ve şifreler ve diğer 
+	parametreler&nbsp; bulunur.</p>
+	<p>Çeşitli veritabanlarına bağlanma yöntemlerini 
+	<a href="http://www.connectionstrings.com/">www.connectionstrings.com</a> adresinden bulabilirsiniz.
+	</p>
+	<h3>Connection'a Erişim ve Varolan 
+	Connection'ı Editleme</h3>
+	<p>Bir kez daha belirtmek gerekirse biz daha çok Connectionların yeni 
+	yaratımlarından ziyade mevcut Connectionların özelliklerini okuma/değiştirme 
+	işlemleri yapacağız.</p>
+	<p>Connection’ın kendisine Connections koleksiyonuna 
+	index veya isim vererek ulaşabiliyoruz.</p>
+			<pre class="brush:vb">Activeworkbook.Connections(1)
+Activeworkbook.Connections("Query from PDWH_USR")</pre>
+	<p>Connection’ın kendisini 
+	elde ettikten sonra bunla ilgili işlemleri yapmak için genelde Connection’ın 
+	tipine göre ilgili property’yi seçip daha çok bunun üzerinden işlem 
+	yapıyoruz, Connection’ın kendisiyle pek bi işimiz olmuyor. Yani bağlantı 
+	tipimiz ODBC ise Activeworkbook.Connections(1) yerine 
+	<strong>Activeworkbook.Connections(1).ODBCConnection</strong> üzerinde işlem yapıyoruz. </p>
+	<p>Connection’ı kendisiyle ilgili olarak tek ihtiyaç duyacağımız bilgi 
+	connection’ın tipidir. Yani ODBC ise farklı işler olsun OLEDB ise farklı 
+	şeyler olsun demek için tip bilgisine ihtiyaç duyarız. Bunları da yukarıda 
+	görmüştük; ODBC için tip xlConnectionTypeODBC olup bunun nümerik değeri 
+	2'dir. Buna property <strong>Activeworkbook.Connections(1).Type</strong> 
+	şeklinde ulaşabiliriz</p>
+	<p>Bu tip bilgisine ulaştıktan sonra connection tipine göre ilgili property 
+	seçilir: <strong>Activeworkbook.Connections(1).ODBCConnection</strong> gibi. 
+	Bunun da sadece 
+	birkaç propertysine ihtiyaç duyacağız. En önemlisi, bize <strong>ConnectionStringi</strong> 
+	veren <span class="keywordler">Connection </span>propertysi’dir. Gördüğünüz gibi ConnectionString diye bir 
+	property yok onun yerine Connection var: <strong>Activeworkbook.Connections(1).ODBCConnection.Connection</strong></p>
+	<p>Mesela connection tipi ODBC ise ConnectionString ... olsun demek için 
+	aşağıdaki kodu yazarız.</p>
+			<pre class="brush:vb">If Activeworkbook.Connections(i).Type = 2 Then
+   Activeworkbook.Connections(i).ODBCConnection.Connection="....."
+End If</pre>
+			<p>Bu 
+	ConnectionString’i elde etmenin bir yolu daha var, bunu ilgili kısımda 
+	ayrıca göreceğiz ancak ön bilgi adına aşağıda veriyorum,&nbsp; 
+	QueryTable'lar üzerinden:</p>
+			<pre class="brush:vb">
+ActiveSheet.ListObjects(1).QueryTable.Connection 'access, oracle v.s
+'Veya text/web connection ise Doğrudan QT üzerinden(web ve txt con için)
+ActiveSheet.QueryTables(1).Connection			</pre>
+	<h3>Refresh işlemleri</h3>
+	<p>Workbook 
+	nesnesinin <span class="keywordler">RefreshAll</span> adında bir metodu vardır, ilgili dosyadaki tüm 
+	bağlantıları (ve pivot tabloları) refreshler. Bu bazı durumlarda işimizi 
+	gören pratik bir yöntemdir. Özellikle bu metod, kodumuzun son satırı yer 
+	alıyorsa. Mesela uzunca bir işten 
+	sonra ActiveWorkbook.RefreshAll derseniz, dosyadaki tüm bağlantılar 
+	sorunsuzca refreshlenir.
+	</p>
+	<p>Ancak(aslında büyük bir ancaaaak), bu metod 
+	<strong>asenkron(asynchronous)</strong> bir metoddur. 
+	<span style="text-decoration: underline">Yani, refresh işlemleri henüz bitmeden sonraki satırlar 
+	okunmaya devam edilir</span>. Bu da her zaman olmasa da bazen sorunlara 
+	neden olur. Zira arkasından bir kaydetme işlem gibi bir işlem varsa&nbsp; 
+	hatalara ve kitlenmelere neden olabilir. </p>
+	<p>O yüzden kodun son satırı olmadığı sürece 
+	refresh işlemlerini connection nesnesi üzerinden(bir döngü içinde tüm 
+	bağlantıları ele alacak şekilde) yapmayı tercih etmeliyiz, 
+	workbook nesnesi üzerinden değil. 
+	Böylece tüm bağlantılar refresh olana kadar beklemiş oluruz. Zira Connection 
+	nesnesinin Refresh metodu, <strong>BackgroundQuery</strong> özelliğine 
+	<strong>False</strong> atandığında
+	<strong>synchronous</strong> çalışır, yani bir sonraki satıra geçmeden önce 
+	mevcut satır icrası beklenir.</p>
+	<pre class="brush:vb">
+Sub AlternatifRefreshAll()
+    'Önceki kodlar
+ 
+    For Each cn In ActiveWorkbook.Connections
+        cn.ODBCConnection.BackgroundQuery = False 'kodun synchronous işlemesini sağlar
+        cn.Refresh
+    Next
+ 
+    'Sonraki kodlar
+End Sub	</pre>
+			<p>
+			Örneğin aşağıdaki tabloda mevcutta bulunan kayıt 
+			sayısını(listobjectin row sayısı) yazdırmak istiyoruz diyelim. Önce 
+			mevcudu yazdıracağız, hemen arkasından DAO ile bir kayıt ekleyeceğiz 
+			ve hemen arkasından tekrardan kayıt sayısını okuyacağız.</p>
+			<p>
+			<img src="../../images/vbaconrefreshall.jpg"></p>
+			<p>
+			Bunun için kodumuzu şu şekilde hazırlarsak</p>
+			<pre class="brush:vb">
+Sub async_refresh()
+Dim ws As Worksheet
+Set ws = ActiveSheet
+
+Debug.Print "Yeni kayıt öncesi:" &amp; ws.ListObjects(1).ListRows.Count, Time
+Call KayıtEkle 'Kayıt ekleme işini yapan prosedür
+ActiveWorkbook.RefreshAll 'yaklaşık 15-20 sn çalışır
+Debug.Print "Yeni kayıt sonrası:" &amp; ws.ListObjects(1).ListRows.Count, Time
+End Sub		</pre>
+			<p>
+			Bunun çıktısı şöyledir:<br><em>&nbsp; Yeni kayıt öncesi:334 21:46:17
+			<br>&nbsp; Yeni kayıt sonrası:334 21:46:18 </em>			
+			</p>
+			<p>
+			Gördüğünüz gibi, uzun süren refresh işini beklememiş ve önceki kayıt 
+			sayısı ile sonrakini aynı vermiş ve bunu 1 sn içinde yapmıştır.</p>
+			<p>
+			Ancak güvenli yöntem ile çalıştırırsak,</p>
+			<pre class="brush:vb">Sub sync_refresh()
+Dim con As WorkbookConnection
+Dim ws As Worksheet
+Set ws = ActiveSheet
+
+Debug.Print "Yeni kayıt öncesi:" &amp; ws.ListObjects(1).ListRows.Count, Time
+Call KayıtEkle
+For Each con In ThisWorkbook.Connections
+  con.ODBCConnection.BackgroundQuery = False
+  con.Refresh
+Next con
+Debug.Print "Yeni kayıt sonrası:" &amp; ws.ListObjects(1).ListRows.Count, Time
+End Sub</pre>
+			<p>Sonuç şöyle çıkacaktır:<br><em>&nbsp; Yeni kayıt öncesi:336 
+			21:47:57 <br>&nbsp; Yeni kayıt sonrası:337 21:48:06 </em>			
+			</p>
+			<p>Görüldüğü üzere 9 sn'lik refresh işlemi beklenmiş ve kayıt 
+			sayısının 1 arttığı gösterilmiştir.</p>
+			<p>"KayıtEkle" prosedürümüz de şöyledir.</p>
+			<pre class="brush:vb">Sub KayıtEkle()
+Dim db As Database
+Dim rs As Recordset
+
+Set db = DAO.OpenDatabase("buraya dosya adresini yazın")
+Set rs = db.OpenRecordset("Anadata", dbOpenTable)
+rs.AddNew
+rs.Fields(0) = 2
+rs.Fields(1) = 1
+rs.Fields(2) = 2
+rs.Fields(3) = WorksheetFunction.RandBetween(1000, 2000)
+rs.Fields(4) = WorksheetFunction.RandBetween(1, 1000000)
+rs.Update
+rs.Close
+db.Close
+
+End Sub</pre>
+	<p><span class="dikkat">ÖNEMLİ: </span>RefreshAll yapılması durumunda ortaya 
+	çıkan sorunlar için birçok sitede önerilen DoEvents, Wait, Sleep 
+	yöntemlerinin hiçbiri işe yaramaz. Bu işin tek çözümü budur. İlgilenenler
+	<a href="https://stackoverflow.com/questions/22083668/wait-until-activeworkbook-refreshall-finishes-vba">
+	buradan</a> da detay baklabiliriler.
+	</p>
+	</div>
+		<h2 class="baslik">ListObject ve QueryTable</h2>
+		<div class="konu">
+	<h3>Data erişim yolları</h3>
+	<p>Excel’den dış dataya çeşitli yollardan ulaşabiliyoruz. Bunların türlerini 
+	Excel ana menüsündaki 
+	<a href="../Excel/DataMenusu_BaskaVeriKaynaklariilecalismak.html">şu sayfadan</a> ulaşabilirsiniz. Bizim için önemli olan 
+	hangi yöntemle yaratıldığında (2013 ve 2016’da yeni gelen Get&amp;Transform, New 
+	Query yöntemleri dahil) nereler değişiyor, ne tipte bir bağlantı oluşuyor detayı. 
+	Çünkü oluşan bağlantı tipinin ODBCConnection mı yoksa OLEDBConnection mı 
+	olduğuna bağlı olarak kodlarımızda ayarlama yapmamız gerekcek.</p>
+	<p>Genel 
+	olarak bakıldığında;</p>
+	<ul>
+		<li><strong>MS Query</strong> her zaman ODBC yaratır</li>
+		<li><strong>Data_Conn_Wizard</strong>:(2016'dan itibaren Legacy)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ODBC DSN--&gt;ODBC<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	Other/Advanced--&gt;OLEDB</li>
+		<li><strong>Data_Import_Access</strong>:OLEDB</li>
+		<li><strong>Txt 
+	import</strong>:TEXT</li>
+		<li><strong>SQLServer</strong>:OLEDB</li>
+		<li><strong>PowerQuery</strong>:OLEDB(Mashup)</li>
+	</ul>
+	<p>NOT:ODBC’de CommandType her 
+	zaman SQL’dir, yani <strong>xlCmdSql</strong>. OLEDB’de ise SQL olabileceği gibi doğrudan bir 
+	tablo/query de olabilir.</p>
+	<h3>ListObject ve QueryTable türleri</h3>
+	<p><strong>ListObject</strong> dediğimiz nesne aslında 
+	<a href="../Excel/HomeMenusu_Tablolar.html">Table sayfasından</a> gördüğümüz Table 
+	alanımızdır.&nbsp; Bu nesnenin Name özelliğine bakınca Table menüsündeki ismin 
+	aynısını görürüz.(ListObject’in eski adı zaten TableList idi, sonradan 
+	ListObject olmuş.)</p>
+	<p>İki tür listobject olabilir:</p>
+	<ul>
+		<li><strong>Data bağlantılı</strong>: Böyleyse bunun QueryTable propertysi vardır, ve 
+	refreshelenebilir.</li>
+		<li><strong>Data bağlantısız</strong>: FormatAsTable ile Table yapıp 
+	uygulanmıştır. Bunun bir data bağlantısı yoktur. Querytable özelliği de 
+	yoktur, dolayısıyla refreshlenemez.</li>
+	</ul>
+	<p>Biz doğal olarak burada ilk tür 
+	Listobject ile ilgileneceğiz.</p>
+	<p>QueryTable’a gelince, o her halükarda 
+	refreshable data içerir. ListObject’deki gibi QueryTable’ın da iki türünden 
+	bahsedebiliriz.</p>
+	<ul>
+		<li><strong>ListObject ile ilişkili</strong>: Access, Oracle gibi 
+	DB’lerden kurulan bağlantılar.</li>
+		<li><strong>ListObject ile ilişkisiz</strong>: Text ve Web 
+	bağlantıları tek başına bulunan(standalone) QueryTable’lar üretir.</li>
+	</ul>
+	<p>Excelde bir bağlantı kurduğumuzda bu bir text veya web bağlantısı değilse 
+	ListObject ve QueryTable ikisi de otomatikman oluşur, ister VBA içinden 
+	ister Excel menülerden oluşturmuş olalım farketmez. Yani VBA’de standalone 
+	ListObject yaratsak bile ona eşlik eden QueryTable de yaratılmış olur.</p>
+	<p>ListObject’e eşlik eden QueryTable’lar Worksheet.QueryTables koleksiyonun 
+	bir parçası değildir. Bunlara sadece ListObject.QueryTable özelliği ile 
+	erişilebilir.</p>
+	<p>Access,Oracle veya SQL Server gibi DB bağlantılarında Listobject'in bir adı varken, 
+	QueryTable'ın adı olmaz.(QueryTable'ın Name propertysi sadece text ve web queyler için 
+	var)</p>
+			<p>Yani bir text bağlantısı(Standalone Querytable) ve bir Oracle 
+			bağlantsı içeren bir dosyada şu sonuçları elde ederiz.</p>
+			<pre class="brush:vb">Debug.Print ActiveWorkbook.Connections.Count '2 (ikisi de)
+Debug.Print ActiveSheet.ListObjects.Count '1 (Oracle)
+Debug.Print ActiveSheet.QueryTables.Count '1 (Text)</pre>
+			<p>Ama dosyamızda aslında iki tane QueryTable var, fakat bunlardan 
+			biri Listobject'n query'si. Bunlarda ayrı ayrı ilgil Listobject'in 
+			QueryTable özelliği ile ulaşaılabilir ama tek seferde hepsini 
+			saydıracak bir Count özelliği yok, zaten buna&nbsp; gerek de yok, 
+			Listobject sayısı kadar Listobjecte bağlı QueryTable sayısı vardır.&nbsp;</p>
+	<p>Yine mesela aşağıdaki kod bi Oracle bağlantısı olan dosyada hiçbirşey 
+	yazmazken text bağlantısı olan bir dosyada QueryTable’nin adını yazar.</p>
+	<pre class="brush:vb">
+Sub LOQT()
+Dim ws As Worksheet
+Dim q As QueryTable
+ 
+Set ws = ActiveSheet
+For Each q In ws.QueryTables 'bu bize standalonelarınkini verir
+    Debug.Print q.Name
+Next q
+End Sub</pre>
+	<h3>Yeni yaratımlar</h3>
+			<p>Yukarıda kısaca değindiğimiz data erişim yollarından biri 
+			kullanılarak yeni bir bağlantı yaratabiliyoruz. Bu yeni yaratımlara çeşitli örnekleri aşağıda bulabileceğiniz gibi Makro Kaydetme aracı ile kendiniz de 
+			görebilirsiniz. Tüm yapmanız gerekn Record Macro tuşuna bastıktan 
+			sonra bağlantınızı kurmak ve sonrasında kodu incelemek. Tabi makro 
+			kaydedeci gereksiz uzunlukta bir kod üretmektedir, zira tüm 
+			parametrelere değer atamak gibi bir özelliği var bu aracın. Siz 
+			burada gereksiz parametre atamalarını çıkarın, diğerlerine 
+			otomatikman default değerleri atanacaktır. Array şeklindeki 
+			CommandText'i de tek bir string olarak yazın.</p>
+	<p>Örneğin <strong>Access</strong>'ten <strong>MS Query </strong>ile bir bağlantı kurduğumuzda aşağıdaki gibi 
+	bir kod oluşmakta</p>
+			<pre class="brush:vb">
+    Application.CutCopyMode = False
+    With ActiveSheet.ListObjects.Add(SourceType:=0, Source:=Array(Array( _
+        "ODBC;DSN=MS Access Database;DBQ=C:\inetpub\wwwroot\aspnettest\excelefendiana\Ornek_dosyalar\Makrolar\vbadb.accdb;DefaultDir=C:\inetp" _
+        ), Array( _
+        "ub\wwwroot\aspnettest\excelefendiana\Ornek_dosyalar\Makrolar;DriverId=25;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;" _
+        )), Destination:=Range("$A$1")).QueryTable
+        .CommandType = 0
+        .CommandText = Array( _
+        "SELECT Data.Bölge, Data.`Şube Adı`, Data.`Ürün Adı`, Data.`Aylık Gerç`" & Chr(13) & "" & Chr(10) & "FROM Data Data" _
+        )
+        .RowNumbers = False
+        .FillAdjacentFormulas = False
+        .PreserveFormatting = True
+        .RefreshOnFileOpen = False
+        .BackgroundQuery = True
+        .RefreshStyle = xlInsertDeleteCells
+        .SavePassword = False
+        .SaveData = True
+        .AdjustColumnWidth = True
+        .RefreshPeriod = 0
+        .PreserveColumnInfo = True
+        .ListObject.DisplayName = "Table_Query_from_MS_Access_Database"
+        .Refresh BackgroundQuery:=False
+    End With</pre>
+			<p>
+    		Biz bunu maneul olarak yazmak istediğimizde aşağıdaki gibi 
+			çok daha sade yazarız.</p>
+
+	<pre class="brush:vb">Sub yeni_access_LO_odbc()
+Dim constr As String
+Dim qt As QueryTable
+
+constr = "ODBC;DSN=MS Access Database;DBQ=C:\inetpub\wwwroot\aspnettest\excelefendiana\Ornek_dosyalar\Makrolar\vbadb.accdb;DefaultDir=C:\inetpub\wwwroot\aspnettest\excelefendiana\Ornek_dosyalar\Makrolar;DriverId=25;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;"
+' OLEDB versiyonu--> constr = "OLEDB;Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\......."
+
+Set qt = ActiveSheet.ListObjects.Add(SourceType:=0, Source:=constr, Destination:=ActiveCell).QueryTable
+ 
+With qt
+    .CommandType = xlCmdSql 'recordmacro sırasında 0 yazar, aynen brakabilecğeiniz gibi manuel yazarken intellisense çıkar ve bunu seçersiniz
+    .CommandText = "select * from data" 'Record macroda otomatik oluşan Array yerine tek bir string içine yazarsınız
+    .ListObject.Name = "Acces bağlantı"
+     'Diğer öğeleri pas geçebiliriz, böylece default değerleri atanır
+    .Refresh BackgroundQuery:=False
+End With
+    
+End Sub	</pre>
+
+			<p>
+			Bu arada eğer dataya erişim yöntemi olarak Data&gt;Get&amp;Transform&gt;From 
+			Database diyip Access seçerseniz, üretilen kod biraz daha farklı 
+			olmakta, zira burada <strong>Power Query</strong> devreye sokulmaktadır.</p>
+			<pre class="brush:vb">
+ ActiveWorkbook.Queries.Add Name:="Data (2)", Formula:= _
+        "let" & Chr(13) & "" & Chr(10) & "    Source = Access.Database(File.Contents(""C:\inetpub\wwwroot\aspnettest\excelefendiana\Ornek_dosyalar\Makrolar\vbadb.accdb""), [CreateNavigationProperties=true])," & Chr(13) & "" & Chr(10) & "    _Data = Source{[Schema="""",Item=""Data""]}[Data]" & Chr(13) & "" & Chr(10) & "in" & Chr(13) & "" & Chr(10) & "    _Data"
+    ActiveWorkbook.Worksheets.Add
+    With ActiveSheet.ListObjects.Add(SourceType:=0, Source:= _
+        "OLEDB;Provider=Microsoft.Mashup.OleDb.1;Data Source=$Workbook$;Location=""Data (2)"";Extended Properties=""""" _
+        , Destination:=Range("$A$1")).QueryTable
+        .CommandType = xlCmdSql
+        .CommandText = Array("SELECT * FROM [Data (2)]")
+        .RowNumbers = False
+        .FillAdjacentFormulas = False
+        .PreserveFormatting = True
+        .RefreshOnFileOpen = False
+        .BackgroundQuery = True
+        .RefreshStyle = xlInsertDeleteCells
+        .SavePassword = False
+        .SaveData = True
+        .AdjustColumnWidth = True
+        .RefreshPeriod = 0
+        .PreserveColumnInfo = True
+        .ListObject.DisplayName = "Data__2"
+        .Refresh BackgroundQuery:=False
+    End With				</pre>
+			<p>Biz şimdilik MS Query yöntemiyle ilerleyeceğiz. Zira birçok 
+			kullanıcıda şuan için PowerQuery entegrasyonunun olmadığını 
+			varsayabiliriz. Gerçi olsa da farketmez, kodlar büyük ölçüde aynı, 
+			sadece connection strginlerinde küçük farklar sözkonusu.</p>
+			<h4>Standalone bağlantı</h4>
+			<p>Öncelikle standalone(kendi başına) bağlantılara bakalım. </p>
+			<p>Bu örneğe bakarken hali hazırda üzerinde bağlantı olan bir dosya 
+			ile çalışmanızı tavsiye ederim. Bu dosya sizin kendinize ait bir 
+			dosya olabileceği gibi en üstte benim linkini verdiğim örnek dosya 
+			da olabilir.</p>
+		<pre class="brush:vb">
+Sub standalone_LO_QT()
+'F8 ile tk tek çalıştırın
+Dim ws As Worksheet
+Dim qts As QueryTables
+Dim qt1 As QueryTable, qt2 As QueryTable, yeniqt As QueryTable
+Dim los As ListObjects
+Dim lo1 As ListObject, lo2 As ListObject, yenilo As ListObject
+
+Set ws = ActiveSheet
+Set dest = ActiveCell
+
+'1)*******QueryTable işlemleri************Bunlar standalone QueryTable'ler içindir.(Text dosyası gibi)
+'1a)Mevcutlara erişim:Mevcutta standalone Querytable bulunan bir sayfada çalışın
+Set qts = ws.QueryTables
+Set qt1 = qts.Item(1) 'veya item kullanılmayadan doğrudan qts(1) yazılabilir
+Set qt2 = qts("ExternalData_4") 'ismiyle de ulaşaibliriz
+
+'1b)Yeni yaratım
+Set yeniqt = qts.Add(connection:="TEXT;" &amp; adres &amp; "hatalog.txt", Destination:=dest)
+yeniqt.Refresh
+
+'!!!!!!!!!!!!!!!!!!!!!!----şimdi başka bir boş hücre seçin-----------!!!!!!!!!!!!!!!!
+Set dest = ActiveCell
+
+'2)*******standalone ListObject işlemleri*********(Access, Sqlserver, oracle v.s)
+'2a)Mevcutlara erişim:Mevcutta listobject bulunan bir sayfada çalışın(standalone olup olmadığı farketmez)
+Set los = ws.ListObjects
+Set lo1 = los.Item(1) 'veya item kullanılmayadan doğrudan los(1) yazılabilir
+Set lo2 = los("Table_Query_from_MS_Access_Database") 'ismiyle de ulaşaibliriz
+
+'2b)yeni eklemek için querytable lazım zira refreshlenen şey aslında querytabledır. o yüzden bu madde standalon listobject içermez
+strSource = "ODBC;DSN=MS Access Database;DBQ=" &amp; adres &amp; "vbadb.accdb;DefaultDir=" &amp; _
+                adres &amp; ";DriverId=25;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;"
+
+Set yenilo = los.Add( _
+    SourceType:=xlSrcExternal, _
+    Source:=strSource, _
+    LinkSource:=True, _
+    XlListObjectHasHeaders:=xlGuess, _
+    Destination:=dest)
+    
+With yenilo.QueryTable
+    .CommandText = "SELECT Data.Bölge, Data.`Şube Adı`, Data.`Ürün Adı`, Data.`Aylık Gerç`" &amp; Chr(13) &amp; "" &amp; Chr(10) &amp; "FROM Data"
+    .CommandType = xlCmdSql
+    .Refresh BackgroundQuery:=False
+End With
+'Ancak yaratım olduktan sonra standalone listobject refreshlenebilir
+yenilo.Refresh
+
+End Sub	</pre>
+			<h4>
+			ListObject ile ilişkili bağlantılar</h4>
+			<p>
+			Aşağıkida örnekte ListObject 
+			ilişkili bir QueryTable'la ilgili çeşitli özelliklere bakıyoruz.</p>
+			<pre class="brush:vb">Sub qt_ilişkili_lo()
+Dim lo As ListObject
+Dim loqt As QueryTable
+
+Set lo = ActiveSheet.ListObjects.Item(1)
+Set loqt = lo.QueryTable
+
+Debug.Print loqt.Connection 'connection string verir
+Debug.Print loqt.CommandText 'SQLi verir
+'Debug.Print loqt.FieldNames 'bişey dğeil, true/false, isimler gürnümsünmü
+Debug.Print loqt.ListObject.Name 'Table_Query_from_MS_Access_Database7
+'Debug.Print loqt.Name 'hata verir
+Debug.Print loqt.QueryType '1 yazar. 1:xlODBCQuery 2: xlDAORecordset 7: xlADORecordset 5: xlOLEDBQuery 6: xlTextImport
+Debug.Print loqt.WorkbookConnection.Name 'Query from PDWH_USR11
+Debug.Print lo.DisplayName 'Query from MS Access Database1
+Debug.Print lo.ListColumns.Count
+Debug.Print lo.ListColumns(5) 'son eklediğim manuel alanı da saydı
+Debug.Print lo.Name 'Table_Query_from_MS_Access_Database7
+'Debug.Print lo.QueryTable.Name 'hata verir
+Debug.Print lo.Range.Address 'son yeni eklenen kolon dahil verir
+Debug.Print lo.SourceType '3 3:xlSrcQuery, 0:xlSrcExternal 1:xlSrcRange
+loqt.Refresh 'lo.refresh de olur
+
+End Sub</pre>
+			<h4>Text dosyası bağlantısı</h4>
+			<pre class="brush:vb">Sub txt_yeni_con()
+'sadece QueryTable, ListObject olmaz<br>&nbsp;&nbsp;&nbsp; kaynak = "TEXT;Q:\.......\kredilog.txt"<br>&nbsp;&nbsp;&nbsp; Set qt = ActiveSheet.QueryTables.Add(Connection:=kaynak, Destination:=ActiveCell)<br>&nbsp;&nbsp;&nbsp; qt.Name = "kredi sorgusu"<br>&nbsp;&nbsp;&nbsp; qt.Refresh<br>End Sub</pre>
+		<h3>Çeşitli üyeler</h3>
+		<p><span class="keywordler">Unlink</span>: 
+		Listobject'in veri kaynağıyla bağını koparır ama Table özelliği devam eder.</p>
+			<p><span class="keywordler">Unlist</span>: Listobject'in hem veri 
+		kaynağıyla bağı koparır hem de Table özelliği 
+	bozulur, yani Table formatından normalde Range’e döndürür. Gerçi zebra 
+	desen olarak yine kalır ama fonksiyonalite olarak artık Table gibi 
+	davranamaz. Yani herhangi bir yere yeni satır eklenince zebra deseni de 
+	bozmuş olursunuz. (Table seçiliyken Design menüsündeki "Convert to Range" 
+			ile aynı işi yapar)</p>
+		<p>Ben daha çok Unlinki tercih etmenizi tavsiye 
+	ederim. Ne de olsa <a href="../Excel/HomeMenusu_Tablolar.html">Table</a> candır.</p>
+			<p><span class="keywordler">ListColumns</span>: Bu özellik de yine 
+			ListObject'e ait olup, çoğu durumda çektiğimiz veri kaynağındaki 
+			kolon sayısını elde etmede kullanılır. Ancak bazı durumlarda biz Excel üzerinde de 
+			yeni kolonlar ekleyebilir ve bu kolonda çeşitli hesaplamalar yapabiliriz. Örneğin 
+			ListObjectin altında yatan QueryTable’ımıza baz teşkil eden SQL 
+	metni (veya tablo/query) 5 kolondan oluşuyor diyelim. Sonuç döndükten sonra biz 
+	bir de formül yazacağımız 6.kolon açarsak, ListObject’in kolon 
+	sayısı(<strong>ListColumns.Count</strong>) 5 değil 6 olacaktır.</p>
+			<p><span class="keywordler">ListRows</span>: İlgili ListObject'te 
+			kayt sayısıyla ilgili işlemler yapmayı sğalayan collectiondır. Bunun 
+			da Count property'si ve index alma özelliği kullanılabilir. Toplam 
+			kayıt sayıt sayısını veren B ve son kaydı silen <strong>
+			lo.ListRows(lo.ListRows.Count).Delete</strong> gibi.</p>
+			<p>Diğer üyelerini de Macro Recorder ile Table menüsündeki ayarlarla oynayarak kendinizi 
+			görebilirsiniz ama en önemlileri bunlardı diyebilirim.</p>
+
+		<h3>Refresh</h3>
+	<p>Bir Table'ı refreshleme 2 türlü olabilir. </p>
+	<h4>1)ListObject veya 
+	QueryTable üzerinden</h4>
+		<p>Refresh işlemleri için 
+	QueryTable’nin de ListObject’in de <span class="keywordler">Refresh</span> metodu kullanılabilir. 
+		Bu bağlamda <strong>Activesheet.ListObjects(1).QueryTable.Refresh</strong> ile&nbsp; 
+		<strong>Activesheet.ListObjects(1).Refresh</strong> tamamen özdeştir.</p>
+	<pre class="brush:vb">
+'i)Text ve Web dışı kaynaklarda
+ActiveSheet.ListObjects(1).QueryTable.Refresh BackgroundQuery:=False
+'veya
+ActiveSheet.ListObjects(1).Refresh BackgroundQuery:=False
+ 
+'ii)Text veya web kaynaklarda
+ActiveSheet.QueryTables(1).Refresh BackgroundQuery:=False</pre>
+	<h4>2)Doğrudan 
+	connection üzerinden gidilebilir</h4>
+			<p>Bu yöntemi yukarıda connections konusunda görmüştük.</p>
+	<pre class="brush:vb">ActiveWorkbook.Connections(1).ODBCConnection.BackgroundQuery = False
+ActiveWorkbook.Connections(1).Refresh</pre>
+			<p>NOT: Her iki grupta da senkron bir refresh işlemi için 
+			BackgroundQuery özelliklerine False değeri atanmıştır.</p>
+		<h3 id="passsecurity">Şifre Güvenliği</h3>
+	<p>ListObject ve QueryTable kullanmanın bir 
+	sakıncası veritabanı bağlantı şifrelerinizin Excel içinde gömülü olarak 
+	bulunması olacaktır. Bunun ele geçmemesi için alınabilecek birkaç önlem 
+	olmakla birlikte bilgili (ve kötü niyetli) bir kullanıcı tarafından ele 
+	geçirilebilir. Bu önlemlere aşağıda yer verilmiştir.</p>
+	<ul>
+		<li>Bir sayfa Activesheet.Visible= xlVeryHidden yapılıp şifre buradan okunabilir.
+		</li>
+		<li>Ribbon ilgili dosya aktifken geçici olarak kapatılabilir. Böylece Data veya Table menüsünden Properties 
+	butonuna tıklayamazlar.<br>
+		<pre class="brush:vb">
+Private Sub Workbook_Activate()
+   If Environ("UserName") = 12345 Then Exit Sub
+	Application.ExecuteExcel4Macro "SHOW.TOOLBAR(""Ribbon"",False)"
+	Application.DisplayFormulaBar = False
+	Application.DisplayStatusBar = 	Not Application.DisplayStatusBar
+	ActiveWindow.DisplayWorkbookTabs = False
+End Sub
+'------------------------
+Private Sub Workbook_Deactivate()
+    If Environ("UserName") = 12345 Then Exit Sub
+	Application.ExecuteExcel4Macro "SHOW.TOOLBAR(""Ribbon"",True)"
+	Application.DisplayFormulaBar = True
+	Application.DisplayStatusBar = True
+	ActiveWindow.DisplayWorkbookTabs = True
+End Sub
+'-------------------------
+Private Sub Workbook_Open()
+    If Environ("UserName") = 12345 Then Exit Sub
+     MsgBox "Ribbon bu dosya aktif olduğu sürece devre dışı olacaktır. Başka bir excel dosyasına geçerseniz tekrar aktif olacaktır."
+End Sub</pre>
+		</li>
+		<li>Unlist veya Unlink kullanımı: Sözkonusu dosya günlük oluşan bir rapor ise 
+	şifreniz Format dosyanızda durur, dosya hergün kaydolurken ilgili günün 
+	tarihi ile kaydolur ve bu dosyada Unlist/Unlink yaparak şifrenin 
+	görünmesini engellemiş olursunuz. Ancak Format dosyasında şifreniz hala 
+	kalacaktır.<br><br>Kullanıcıların şifreyi içeren Format dosyasını açmasını 
+	engellemek için de ilgili dosyanın Workbook_Open markosuna sizden başkasının açmasını 
+	engelleyecek bir kod koyabilirsiniz. Üstelik bu tür giriş denemelerini
+		<a href="Dosyaislemleri_Dosyaokumaveyazma.html#logger">Logger</a> gibi 
+		bir fonksiyonla da kayıt altına alabilirsiniz. (Tabi kötü niyetli kullanıcı makroları 
+	disable yaparak bu engeli de aşabilir.)<br>
+	<pre class="brush:vb">
+If readonlykontrol = True Then
+    If Environ("UserName") &lt;&gt; 12345 Then 'bu sizin siciliniz olsun
+        If InStr(ActiveWorkbook.Name, "Format") &gt; 0 Then
+            Logger WorksheetFunction.Rept(" ", 50 - Len(raporad)) &amp; raporad, "İzinsizGiriş", 0, Environ("UserName") + " nolu sicil Q'dan giriş yapmaya çalıştı"
+            MsgBox "Hey dostum, ortalığı karıştırmayı bırak. Format dosyama sakın bir daha dokunayım deme"
+            ActiveWorkbook.Close savechanges:=False
+            Exit Sub
+        End If
+    End If
+End If</pre>
+	</li>
+		<li>ListObject ve QueryTable’yi VBA ile oluşturmak: Son çözüm, 
+	Workbook_Open içinde ilgili bağlantıların yaratıldığı kodları yazmaktır. VBA 
+	projesine de Protection koydunuzmu işlem tamamdır. Bu da kırılamaz bir şifre 
+	değildir tabi ancak bu hinlikleri bilen biri tarafından kırılabilir.</li>
+		<li>Çözüm değil 
+	ancak alternatif olarak yukarıdaki ADO ve DAO yöntemlerini kullanmak da 
+	işinize yarayabilir. Ancak SQL çok çok çoooook uzunsa bunu direkt VBA 
+	ortamında hazırlamak sıkıntılı olabilir, onun yerine SQL kısmını bir txt/sql 
+	uzantılı dosyasından okutmakta fayda var.</li>
+	</ul>
+</div>
+<h2 id="hayaletprotokol" class='baslik'>Hayalet Protokol: Application.OnTime ile Scheduling işlemleri</h2>
+<div class='konu'>
+<p>Aşağıdaki kodlar benim günde yaklaşık 40 raporun kendiliğinden çalışmasını, refresh olmasını ve yeni günün tarihiyle kaydedilmesini, gerekiyorsa ilgili alıcılara maille iletimini sağlar. 
+(NOT:Ben yerimde yokken departmaan benden mailler geldiğinde arkadşaların 
+"Volkan sen yokken senin hayaletin ortalıkta dolaşıp mailler atıyordu" 
+demesinden kaynaklı olarak bu sistemin adını Hayalet Protokol olarak 
+belirledim.)</p>
+	<p><span>Gerek konu gerek kodlar ilk başta karışık gelebilir. Anlaşılırlığı artırmak adına kodlardan hemen önce bir akış diyagramı da ekledim. </span>Udemy'deki eğitimime kaydolursanız orada 
+	görsel olarak da akışı takip edebilirsiniz. <strong>Düzenli rapor üreten biriyseniz bu konuyu mutlaka anlamaya çalışın.
+	Size ve bölümünüze sunacağı fayayı tahmin bile edemezsiniz.</strong> En az 3-4 adamlık tasarruftan bahsediyorum. 
+	Şahsen tüm sitede benim en önem verdiğim konu burasıdır.</p>
+	<p><strong>Ön bilgiler:</strong></p>
+	<ul>
+		<li>İki bilgisayarla çalışıyorum. Biri, sadece birkaç makronun çalıştığı PC'm, biri de schedule edilmiş işlerin ağırlıklı olarak çalıştığı laptop.</li>
+		<li>Kodların bazısı her iki makinada da çalışıyor, bazısı sadece PC'de, bazısı da sadece laptopta</li>
+		<li>PC'de çalışanlar genelde mesai saati dışında çalışıp bitiyor. Gün içinde çalışanlar da hep laptopta çalışıyor.</li>
+		<li>Diyelim ki sicilim 12345. PC ismim B12345, laptop ismim L12345 </li>
+		<li>Raporların bir kısmı Veri Ambarı(kısaca DWH) tablolarına SQL atıyor, bazısı DWH'tan türeyen datamartlara, bazıları da online sistemlere. Online olanlar için herhangi bir "tablo dolmuş mu" kontrolü yapmıyorken, DWH ve ondan türeyen datamartlar için dünün datası dolmuş mu diye kontrol yapıyorum</li>
+                <li>İlk kod bloğunda kapatOnMakroPC diye bir modül var. Bunun hikayesi şu. Her akşam laptopta(makroPC) Exceli otomatik kapattırıyorum, ki güncel Personal.xlsb ve Schedule.xlsb dosyaları laptopa yedeklenebilsin. Böyelce kendi PC'mde shcedule ayarlarında bir değişiklik yaptığımda veya Personal.xlsb dosyama yeni bir prosedür eklediğimde laptopa da aynen geçmesini sağlıyorum ki işlerde aksama olmasın. Bunun için PC'de bu iki dosyayı ne zaman kaydetsem, bunların "Workbook_AfterSave" eventi devreye giriyor ve dosyaların güncel halini ortak alana da kaydediyor. Laptopta da Windows Task Scheduler ile her gece yarısı önce yedeklemeyi yaptırıyorum, sonra Excel'i tekrar açtırıyorum</li>
+                <li>Hem PC'de hem laptop'ta Personal.xlsb ve Schedule.xlsb dosyam  XLSTART klasöründe yer alıyor, böylece Excel açılır açılmaz onlar da gizli olarak açılıyorlar</li>
+		<li>Keza, her iki bilgisayarda da bilgisayar açılır açılmaz Excel'in de 
+		açılmasını sağlayan bir kurgu var. Bunu windows ayarlarından siz de 
+		yapabilirsniz.</li>
+		<li>Bundan sonra süreç şu şekilde devam ediyor.<ul>
+			<li>Schedule dosyasının Workbook_Open eventi devreye giriyor, ve bu event de 
+		StartTimer prosedürünü çalıştırıyor.</li>
+			<li>Bu prosedür, Dwh(Veri ambarı) dolmuş mu yani güncel data yüklenmiş 
+		mi kontrolünü yapıyor.</li>
+			<li>Dwh dolmadıysa 10 dk sonrasına kendisini tekrar schedule ediyor, dwh 
+		dolduysa "dwh raporları" isimli prosedürü çalıştııryor</li>
+			<li>Dwhçılar içindeki tüm prosedürler sırayla çalıştırılıyor.</li>
+			<li>Varsa diğer datamart kontrolleri de aynı süreçte yapılmaktadır.</li>
+		</ul>
+		</li>
+	</ul>
+	<p>
+        <strong>Akış şeması</strong></p>
+    <p>
+        Bu şemayı Udemy kursum için hazırlamıştım. Videoda animasyonlu olarak teker teker uygun sırada açıldıkları için oradan bakmanızı da tavsiye ederim.</p>
+    <p>Aşağıdaki DWH(HR) diye geçen şey, bilgisayarıma kurduğum Oracle <span>veritabanındaki </span>HR şeması. Temsili olarak DWH, yani veri ambarı tabloları bu şemada olacak, Volkan şemasında da DM yani datamart olacak. Bunlardaki tablolar dolmuş mu diye kontrol edeceğiz. </p>
+    <p>
+       <img alt="" src="../../images/vba_hayaletflow.jpg" /> </p>
+    <p>Schedule dosyasını <a href="../../Ornek_dosyalar/Makrolar/schedule.html">buradan</a> indirebilirsiniz. Açılır açılma çalışmasını engellemek için Workbook_Open&#39;ın başlangıcına geçici olarak Exit Sub satırı ekledim.</p>
+    <p>Şimdi bir de örnek klasörlere bakalım.</p>
+    <p>
+        <img alt="" src="../../images/vba_hayaletsonuc.jpg" /></p>
+    <p>Aşağıdaki vereceğim tüm prosedürler <strong>Schedule.xlsb</strong> 
+	dosyamda bulunmaktadır. Şimdi, ilk olarak Workbook_Open prosedürüne bakalım. </p>
+
+<pre class="brush:vb">
+Private Sub Workbook_Open()
+    ilksaat = Date + TimeSerial(23, 30, 0)
+    
+    'Debug.Assert False
+    
+    'PC'yi mesai başlangıç saatinden sonra açmışsak kontrol raporları hemen başlasın, diğerlerine gerek yok
+    If TimeValue(Now) > ilksaat Then
+        Application.OnTime Now + TimeSerial(0, 0, 10), Procedure:="dwh_kontrol"
+        Application.OnTime Now + TimeSerial(0, 0, 20), Procedure:="dm_kontrol"
+    Else 'gece 00:00'da programlandığı saatte açıldıysa
+        Call StartTimer
+    End If
+End Sub
+</pre>
+
+<p>Şimdi de StartTimer prosedürünü inceleyelim. Bu, schedule işlemlerini ele aldığım ana prosedürdür.</p>
+
+<pre class="brush:vb">
+Sub StartTimer()
+
+'anapc veya makropc dışında bir bilgisayarda çalışırsa çıksın
+If Environ("computername") <> volkanpc And Environ("computername") <> makropc Then Exit Sub
+
+'hem anapc hem makropcde şunlar çalışsın
+Application.OnTime Now + TimeSerial(24, 0, 0), Procedure:="StartTimer"
+
+If Environ("computername") = volkanpc Then
+    Application.OnTime TimeValue("00:05:00"), Procedure:="eskilerisil"
+    Application.OnTime ilksaat, Procedure:="dwh_kontrol"
+    Application.OnTime ilksaat + TimeSerial(0, 1, 0), Procedure:="dm_kontrol"
+    Application.OnTime TimeValue("11:00:00"), Procedure:="AccessRaporu"
+    Application.OnTime TimeValue("11:30:00"), Procedure:="SQLServerRaporu"
+Else 'makropc
+    '.....
+    Application.OnTime TimeValue("23:55:00"), Procedure:="kapatOnMakroPC" 'gece diğer pclere yedekleme yapılsın diye dosyayı kapatmamız gerekiyor
+End If
+
+End Sub
+</pre>
+
+<p>Şimdi de kontroller modülündeki prosedürlere bakalım. Burada da kalabalık olmaması adına tüm kontrol prosedürlerini koymadım, onun yerine iki farklı yöntemi göstermesi adına iki prosedürü verdim. İlkinde , BT ekiplerinden gelen "Tablo doldu" tarzındaki mailin varlığını kontrol ediyorum. İkincisinde ise farklı dinamiğe sahip olduğundan "Tablo doldu" maili gelmeyen bir datamart için bir tabloya SQL atıp kayıt dönüp dönmediğine bakıyorum. </p>
+
+<pre class="brush:vb">
+'1.yöntem
+Sub dwh_kontrol()
+Const raporad As String = "dwh_kontrol"
+Const adresKontrol As String = "yükleme kontrol\dwh\dwhyüklemekontrol - "
+Dim outApp As New Outlook.Application
+Dim ns As Outlook.Namespace
+Dim myroot As Outlook.Folder, klasör As Outlook.Folder
+Dim eItems As Outlook.Items
+Dim eItem As Outlook.MailItem
+Dim fso As New FileSystemObject
+
+'Debug.Assert False
+Logger Now, Environ("computername"), raporad, "Kontrol", 0, "Girildi"
+On Error GoTo hata
+
+If Mevcutmu(adres & adresKontrol & Date - 1 & " Sonuçları.txt") Then
+    Logger Now, Environ("computername"), raporad, "Kontrol", 0, "ZatenOK"
+    Call dwh_raporları
+    Exit Sub
+End If
+
+AlertUpdatingEvent False, False 'normalde commentsiz olmalı
+
+Set ns = outApp.GetNamespace("MAPI")
+'hem benim hem serkanın pcsinde aynı klasör olduğunu varsayıyorum
+Set myroot = ns.Folders("volkan.yurtseven@hotmail.com")
+Set klasör = myroot.Folders("Kontrol Mailleri")
+
+Set eItems = klasör.Items
+
+Kriter1 = "[Subject]=""DWH yüklemesi tamamlanmıştır"""
+Kriter2 = "[ReceivedTime]>'" & Date & "'" 'Tarihin saat kısmından dolayı > olmalı
+Set kriterliler = eItems.Restrict(Kriter1).Restrict(Kriter2)
+ 
+If kriterliler.Count < 1 Then 'maili bulamadıysak 10 dk sonra yeniden schedule ederiz
+   Logger Now, Environ("computername"), raporad, "Kontrol", 0, "Reschedule"
+   Application.OnTime Now + TimeSerial(0, 10, 0), Procedure:="dwh_kontrol"
+Else 'mail varsa sürece devam
+    fso.CreateTextFile adres & adresKontrol & Date - 1 & " Sonuçları.txt"
+    Call MailBilgi("DWH Kontrolü", anaAlicilar)
+    Logger Now, Environ("computername"), raporad, "Kontrol", 0, "OK"
+    Call dwh_raporları
+    GoTo çıkış
+End If
+
+çıkış:
+Set myroot = Nothing: Set klasör = Nothing
+Set ns = Nothing: Set outApp = Nothing
+Set eItems = Nothing: Set eItem = Nothing: Set fso = Nothing
+AlertUpdatingEvent True, True
+Exit Sub
+
+hata:
+AlertUpdatingEvent True, True
+Set myroot = Nothing: Set klasör = Nothing
+Set ns = Nothing: Set outApp = Nothing
+Set eItems = Nothing: Set eItem = Nothing: Set fso = Nothing
+Logger Now, Environ("computername"), raporad, "Kontrol", Err.Number, Err.Description
+
+End Sub
+'----------------------------------------------------------------
+'2.yöntem
+Sub dm_kontrol()
+Const raporad As String = "dm_kontrol"
+Const adresKontrol As String = "yükleme kontrol\dm\dmyüklemekontrol - "
+
+'Debug.Assert False
+Logger Now, Environ("computername"), raporad, "Kontrol", 0, "Girildi"
+
+AlertUpdatingEvent False, False 'normalde commentsiz olmalı
+On Error GoTo hata
+
+If Mevcutmu(adres & adresKontrol & Date - 1 & " Sonuçları.xlsb") Then
+    Logger Now, Environ("computername"), raporad, "Kontrol", 0, "ZatenOK"
+    Call dm_raporları
+    Exit Sub
+End If
+
+Workbooks.Open adres & adresKontrol & "Format.xlsb" 'workbook_open kodu çalışacak
+
+'veritabanı yüklenmediyse 10 dk sonraya reschedule
+If Not Mevcutmu(adres & adresKontrol & Date - 1 & " Sonuçları.xlsb") Then
+    ActiveWorkbook.Close savechanges:=False
+    Logger Now, Environ("computername"), raporad, "Kontrol", 0, "Reschedule"
+    Application.OnTime Now + TimeSerial(0, 10, 0), Procedure:="dm_kontrol"
+    Exit Sub
+Else 'başarılıysa devam edelim
+    ActiveWorkbook.Close
+    Kill "C:\geçici\geçici2.xlsb"
+    Call MailBilgi("DM Kontrolü", anaAlicilar)
+    Logger Now, Environ("computername"), raporad, "Kontrol", 0, "OK"
+    Call dm_raporları
+    GoTo çıkış
+End If
+
+çıkış:
+AlertUpdatingEvent True, True
+Exit Sub
+
+hata:
+AlertUpdatingEvent True, True
+End Sub
+</pre>
+
+<p><span>Şimdi de dwh_raporları ve dm_raporları prosedürlerine bakalım. Burada raporlar çalışma sırasına sokuluyor.</span></p>
+
+<pre class="brush:vb">
+Sub dwh_raporları()
+    'Debug.Assert False
+    Application.OnTime Now + TimeSerial(0, 0, 10), Procedure:="dwhrapor1"
+    Application.OnTime Now + TimeSerial(0, 0, 20), Procedure:="dwhrapor2"
+    Application.OnTime Now + TimeSerial(0, 0, 30), Procedure:="dwhrapor3"
+End Sub
+
+Sub dm_raporları()
+    'Debug.Assert False
+    Application.OnTime Now + TimeValue("00:00:10"), Procedure:="dmrapor1"
+    Application.OnTime Now + TimeSerial(0, 0, 20), Procedure:="dmrapor2"
+    Application.OnTime Now + TimeSerial(0, 0, 30), Procedure:="mixrapor1"
+End Sub
+</pre>
+
+<p>Şimdi de online olan, ve dolayısıyla "dolmuş mu?" kontrolüne gerek olmayan prosedürlere bakalım.</p>
+<pre class="brush:vb">
+Sub AccessRaporu()
+    rprLog = "AccessBlg"
+    rprMail = "Accesten Bölge Rakamları"
+    yol = "Accesten Bölge Rakamları\Accesten Bölge Rakamları - "
+    kontrol1 = vbNullString
+    alıcı = diğerAlıcılar
+    
+    RutinKod rprLog, rprMail, yol, kontrol1, alıcı
+End Sub
+
+'-----------------------
+Sub SQLServerRaporu()
+    rprLog = "dwh1"
+    rprMail = "dwh 1 raporu"
+    yol = "Sqlserverdan site konuları\Sqlserverdan site konuları - "
+    kontrol1 = vbNullString
+    alıcı = diğerAlıcılar
+    
+    RutinKod rprLog, rprMail, yol, kontrol1, alıcı
+End Sub
+</pre>
+
+<p>Şimdi dwh raporlarından birine ait prosedüre bakalım; şuan hala schedule.xlsb içindeyiz.</p>
+	<pre class="brush:vb">
+Sub dwhrapor1()
+    'Debug.Assert False
+    rprLog = "dwh1"
+    rprMail = "dwh 1 raporu"
+    yol = "Oracle dwh - hr şemasından country\Oracle dwh - hr şemasından country - "
+    kontrol1 = "yükleme kontrol\dwh\dwhyüklemekontrol - " & Date - 1 & " Sonuçları.txt"
+    alıcı = dwhRapor1Alıcıları
+    
+    RutinKod rprLog, rprMail, yol, kontrol1, alıcı
+End Sub
+</pre>
+<p>Bazı raporlar ise hem dwh hem dm tablolarının yüklenmesini gerekebilir.</p>
+<pre class="brush:vb">
+Sub mixrapor1()
+    rprLog = "mix"
+    rprMail = "Mix raporu"
+    yol = "Mix raporlar\Mix rapor1 - "
+    kontrol1 = "yükleme kontrol\dm\dmyüklemekontrol - " & Date - 1 & " Sonuçları.xlsb"
+    kontrol2 = "yükleme kontrol\dwh\dwhyüklemekontrol - " & Date - 1 & " Sonuçları.txt"
+    alıcı = diğerAlıcılar
+    
+    RutinKod rprLog, rprMail, yol, kontrol1, alıcı, kontrol2
+End Sub
+</pre>
+<p>Şimdi de bu son iki kodun sonundaki RutinKod prosedürüne bakalım. Gördüğünüz üzere bu prosedür, oldukça çok parametre alıyor. Bunları anlayabileceğinizi düşünüyorum.
+	Son parametre opsiyonel olup, mixrapor1'deki gibi, iki rapor kaynağından(dwh ve dm) da beslenen raporlar için kullanılmaktadır.
+</p>
+<pre class="brush:vb">
+Sub RutinKod(ByVal raporLogger As String, ByVal raporMail As String, ByVal folderfile As String, _
+             ByVal kontrol1 As String, ByVal alıcılar As String, _
+             Optional ByVal kontrol2 As Variant)
+                 
+    'Debug.Assert False
+    'normalde kontrol dosyalarını kontrole gerek yok. ihtiyaden kontrol yapıyoruz
+    If Not Mevcutmu(adres + kontrol1) Then Exit Sub
+    If Not IsMissing(kontrol2) Then
+        If Not Mevcutmu(adres + kontrol2) Then Exit Sub
+    End If
+    
+    'Daha önce oluştuysa çıkalım
+    If Mevcutmu(adres & folderfile & Date - 1 & " Sonuçları.xlsb") Then Exit Sub
+    
+    On Error GoTo hata
+    AlertUpdatingEvent False, False
+    
+    Workbooks.Open adres & folderfile & "Format.xlsb"  'çalışmaya başlayacak
+    ActiveWorkbook.Close
+    Kill "C:\geçici\geçici2.xlsb"
+    Call MailBilgi(raporMail, alıcılar)
+    Logger Now, Environ("computername"), raporLogger, "OK", 0, "rapor başarıyla çalıştı"
+    AlertUpdatingEvent True, True
+    Exit Sub
+    
+hata:
+AlertUpdatingEvent True, True
+Logger Now, Environ("computername"), raporLogger, "Hata", 0, Err.Description
+End Sub
+</pre>
+<p>Şimdi schedule.xlsb'den çıkıp, veritabanı sorgulaması yapılacak rapor dosyasındaki koda bakalım.</p>
+<pre class="brush:vb">
+Private Sub Workbook_Open()
+Const raporad = "dwh-country"
+Application.Run "schedule.xlsm!wbopen", raporad
+End Sub
+</pre>
+<p>Gördüğünüz üzere kod çok kısa ve bizi tekrar schedule.xlsb'ye yönlendiriyor. Bunu böyle yaptık, çünkü yaklaşık 40 rapor içinde her birine aynı kodu yazmanın anlamı
+	yok. Onun yerine bi kere yazıyoruz, ve her defasında bu kodu, uygun parametreyle(rapor adı) çağırıyoruz. Hadi şimdi bir de bu son koda bakalım.
+</p>
+<pre class="brush:vb">
+Sub wbopen(ByVal raporad As String, Optional ptrefresh As Boolean = False)
+    Dim lo As ListObject
+    Dim con As WorkbookConnection
+    Dim ws As Worksheet
+    Dim pt As PivotTable
+    On Error GoTo hata
+    
+    'Debug.Assert False
+    'yetkili kişiler dışında direkt açan kişilere uyarı çıksın
+    If Environ("username") <> "Volkan" And Environ("username") <> "Serkan" Then
+        If ActiveWorkbook.ReadOnly = False Then
+            'Date - 1'de bazen manuel değişiklikler yapmak gerekebiliyor
+            If InStr(ActiveWorkbook.Name, "Format") > 0 Or InStr(ActiveWorkbook.Name, Date - 1) > 0 Then
+                  Logger Now, Environ("computername"), raporad, "YetkisizGiriş", 0, ""
+                  MsgBox "Dosyaya doğrudan değil, Kokpit formundan ulaşınız"
+                  ActiveWorkbook.Close savechanges:=False
+                  Exit Sub
+            Else 'date - 2 ve öncesini açarsa sorun yok, ama burda koddan çıksın
+                Exit Sub
+            End If
+        Else 'readonly açılmazsa yani kokpitten açılmışsa sorun yok, ama burda koddan çıksın
+            Exit Sub
+        End If
+    End If
+    
+    'volkan ve serkansa devam ediyoruz. İçinde refreshlenebilir bir Table yoksa çıksın
+    'excel versiyonunuza göre Queries soruglaması desteklenmeyebilir, o zaman bunu kaldırırsınız
+    If ActiveWorkbook.Queries.Count = 0 And ActiveWorkbook.Connections.Count = 0 Then Exit Sub
+    
+    Logger Now, Environ("computername"), raporad, "WBOpen", 0, "WB giriş yapıldı"
+    isim = Left(ActiveWorkbook.Name, Len(ActiveWorkbook.Name) - 14) 'Neden 14, "dd.mm.yyy - Sonuçları"nın uzunluğu
+    
+    'tüm connectionlar refresh
+    For Each con In ActiveWorkbook.Connections
+        If con.Type = xlConnectionTypeODBC Then
+            con.ODBCConnection.BackgroundQuery = False
+        Else
+            con.OLEDBConnection.BackgroundQuery = False
+        End If
+        con.Refresh
+    Next con
+    
+    For Each ws In ActiveWorkbook.Sheets
+        ws.Activate
+        
+        If ws.ListObjects.Count > 0 Then 'refresh olacak sayfalarda
+            'refresh sonucu data gelmiyorsa çıkalım
+            If Range("a1").End(xlDown).Row = 2 Then GoTo iptal '??????dosya açık kalmıyor mu????
+        
+            'refresh sonucu data geliyorsa unlink yapalım
+            For Each lo In ws.ListObjects
+                lo.Unlink
+            Next lo
+        End If
+        
+        'pivot refresh
+        If ptrefresh = True Then
+            For Each pt In ws.PivotTables
+                pt.RefreshTable
+            Next pt
+        End If
+    Next ws
+
+    hedef = ActiveWorkbook.Path & "\" & isim & " - " & Date - 1 & " Sonuçları.xlsb"
+    saveas_işlemi_inworkbook isim, hedef
+    Logger Now, Environ("computername"), raporad, "WBOpen", 0, "OK"
+
+iptal:
+'???wb close??
+Exit Sub
+
+hata:
+    Logger Now, Environ("computername"), raporad, "WBOpen", Err.Number, Err.Description
+    ActiveWorkbook.Close savechanges:=FalseEnd Sub
+</pre>
+
+<p>Bu kod da çalışınca sıra, schedule kuyruğundaki diğer kodlara geçer ve işlemler 
+	aynen devam eder.</p>
+	<p>&nbsp;Rapor log dosyamızın içine de bakalım.</p>
+   <p>	   
+       <img alt="" src="../../images/vba_hayaletraporlog.jpg" /></p>
+    <p>Schedule.xlsb dosyamızdaki Thisworkbook modülünde bir kodumuz daha var, ona da bakalım. <span>Açıklamasını en başta yapmıştık.</span></p>
+	<pre class="brush:vb">
+Private Sub Workbook_AfterSave(ByVal Success As Boolean)
+    yol = "C:\inetpub\wwwroot\aspnettest\excelefendiana\Ornek_dosyalar\Makrolar\makroyedek\"
+    FileSystem.SetAttr yol & Me.Name, vbNormal
+    fso.CopyFile Me.FullName, yol
+    FileSystem.SetAttr yol & Me.Name, vbReadOnly
+End Sub</pre>
+    <p><span>Son olarak </span>Schedule.xlsb dosyamdaki diğer kodlar ise şöyle;</p>
+<pre class="brush:vb">
+Sub AlertUpdatingEvent(a As Boolean, u As Boolean, Optional e As Boolean = True)
+    With Application
+      .DisplayAlerts = a
+      .ScreenUpdating = u
+      .EnableEvents = e
+    End With
+End Sub
+Function Mevcutmu(adres As String) As Boolean
+    On Error GoTo hata
+    If GetAttr(adres) >= 0 Then Mevcutmu = True
+    Exit Function
+     
+hata:
+    Mevcutmu = False
+End Function
+Sub kapatOnMakroPC()
+    Application.Quit
+End Sub
+Sub Logger(ByVal tarih As String, ByVal pc As String, ByVal rapor As String, ByVal logtipi As String, ByVal hatano As Integer, _
+    ByVal açıklama As String)
+
+    Dim dosya As String
+    Dim dosyano As Integer
+    
+    dosyano = FreeFile()
+    dosya = adres & "RaporLog.txt"
+    
+    Open dosya For Append As #dosyano
+    Print #dosyano, tarih, pc, rapor, logtipi, hatano, açıklama
+    Close #dosyano
+    
+End Sub
+Sub MailBilgi(ByVal rapor As String, ByVal alıcılar As String)
+    Dim outApp As New Outlook.Application
+    Dim outMail As MailItem
+    
+    Set outMail = outApp.CreateItem(olMailItem)
+    With outMail
+        .Subject = rapor & " raporu yüklemesi"
+        .Body = "Güncel " & rapor & " raporu oluşmuştur"
+        .To = alıcılar
+        .Send
+    End With
+End Sub
+Sub saveas_işlemi_inworkbook(ByVal dosyaismi As String, ByVal hedef As String)
+    ActiveWorkbook.SaveAs "C:\geçici\geçici.xlsb" 'dosya tipine göre kontrol de yapılabilir
+    kaynak = ActiveWorkbook.FullName
+    ActiveWorkbook.SaveAs "C:\geçici\geçici2.xlsb" 'dosya tipine göre kontrol de yapılabilir
+    kaynak2 = ActiveWorkbook.FullName
+    
+    FileCopy kaynak, hedef
+    Kill kaynak
+    'kaynak 2 nerde kullanım?
+End Sub
+
+Sub eskilerisil()
+'Ödev olacak
+End Sub
+</pre>
+	<h3>Özet</h3>
+	<p>Tüm bu süreç kendini besleyen otomatik bir süreçtir. Başarılı bir şekilde 
+	kurulması durumunda müthiş bir verimlilik sağlanacaktır.  </p>
+	<p>Yukarıda belirttiğim üzere, konu biraz karmaşık olup, daha verimli bir 
+	şekilde algılanabilmesi için Udemy eğitimininden yararlanmanızı tavsiye 
+	ederim.</p>
+
+
+<h3>Scheduled program akışını kesintiye uğratan unsurlar</h3>
+	<p>Bazen schedule edilmiş dosyalarınızı güniçinde de açmanız ve kullanmanız 
+	gerekebilir. O yüzden belli saatlerde açıldığında faklı bir davranış 
+	göstermesini isteyebilirsiniz. Keza dosyayı açan sizseniz başka, diğer kişilerse başka şekilde 
+	davranmasını isteyebilirsiniz.</p>
+	<p>Bu davranış şekillerinden biri de kullanıcıya bir mesaj göstermek 
+	olabilir. Eğer 
+	programın bir yerinde mesaj verirseniz, bu mesaj kutusundaki bir 
+	düğmeye basılana kadar ekranda kalır, bu da takip eden schedule kodlarınızın 
+	çalışmasını engellemiş olur. O yüzden MsgBox'lı uyarılarınızı Schedule 
+	zamanı içinde <span style="text-decoration: underline;font-weight: bold">size kesinlikle çıkarmamalı</span>, 
+	sadece diğer kişilere çıkarmalıdır. Gerekiyorsa kendinize bir maille 
+	bilgilendirme yaptırabilir veya Statusbara mesaj yazdırabilir veya 
+	<a href="Dosyaislemleri_Dosyaokumaveyazma.html#logger">logger</a> 
+	prosedürüyle kayıt altına alabilirsiniz. </p>
+
+<p>Benim kullandığım yöntem şudur. Kullanıcılara UserForm kullanarak Kokpit diye bir arayüz oluşturdum ve bunu onlara verdiğim Add-in'deki menüye yerleştirdim. Kullanıcılar ilgili dosyayı kokpitten açtıklarında, dosyanın readonly açılmasını sağlıyorum. Normalde herkes hep dünün raporunu açmak ister , o yüzden kokopitten de sadece dünün raporlarını açabiliyorlar. Daha eski raporları açmak için ortak alana gidip klasörden manuel açmaları gerekiyor. Şimdi öyle bir kod yazmam gerekiyor ki, dünkü raporu ortak alandan açamasınlar, zira bir rapor gün içinde iki defa farklı zamanlarda refresh ediliyor; aynı zamanda ana format dosyamın da açılmaması lazım, zira onu açarlarsa schedule makrom takılmaktadır. O yüzden dünün dosyasını veya Format dosyasını klasörden manuel açmaya çalışırlarsa uyarı verdiriyorum. Şimdi aşağıdaki kodu inceleyelim.</p>
+
+
+<pre class="brush:vb">
+Private Sub Workbook_Open()
+On Error GoTo hata
+
+If Environ("UserName") <> 12345 Then 'Dosya benim dışında biri tarafından açıldıysa
+    If Right(Me.Name, 11) = "Format.xlsm" Or (Right(Me.Name, 25) = Date - 1 & " Sonuçları.xlsm" And Not Me.ReadOnly) Then
+        MsgBox "Dosyayı ortak alandan değil, Kokpitten açın."
+        Me.Close savechanges:=False
+    End If
+End If
+
+If Environ("computername") <> "L12345" Then Exit Sub 'dosyayı bazen PC'mde açıp SQL'inde veya genel sayfa düzeninde güncelleme yapmam gerekiyor. Açılır açılmaz da refresh olmasın diye laptop dışında açılırsa yani PC'mde açılırsa kalan kodlar çalışmasın istiyorum
+'Diğer kodlar
+
+End Sub</pre>
+
+
+	<p>Bir diğer önemli husus da, programınızda son derece ince ayarlanmış bir hata yönetimi mekanizması olması gerekir. Detaylar için 
+	<a href="DebuggingveHataYonetimi_HataYakalama.html">hata yakalama</a> bölmünü iyice özümsemiş olmanızı tavise ederim. Schedule edilmiş programlarda hataları hata mesajı olark vermek yerine bir 
+	<a href="Dosyaislemleri_Dosyaokumaveyazma.html#logger">logger</a> prosedürüyle bir dosyaya yazdırmayı tercih edebilirsiniz.</p>
+
+	</div>
+
+
+
+		<h2 class="baslik">Yöntemlerin Karşılaştırılması</h2>
+	<div class="konu">
+	<ul>
+		<li>QueryTable’lar oldukça 
+	hızlıdır ve özellikle VBA bilmeyenler için bile dataya ulaşmada kolaylık 
+	sağlar. ADO için mutlaka VBA bilmek gerekir. Ancak ADO’nun da QueryTable’ya göre 
+	avantajları vardır.</li>
+		<li>ADO ile aynı anda birden çok DB(Ör:SQL Server 
+	ve Access) sorgulanabilirken QueryTable ile tek seferde sadece tek DB 
+	sorgulanabilir.</li>
+		<li>ADO ve DAO ile gelen data formatsız bir data 
+	olacaktır. Bunu formatlı hale getirmek için ek kod yazmak gerekir. Halbuki 
+	bir WorkbookConnection kurulduğunda(text/web değilse) Table formatı otomatik 
+	gelmektedir.</li>
+		<li>Ayrıca manuel refreshlemek gereken durumlarda 
+	ListObject yine bir kolaylık sağlamakta iken ADO/DAO için kod sayfasına 
+	girip kodu manuel çalıştırmak gerekmektedir. Belki bunun için sayfaya bir 
+	buton konularak kodun refresh mantığıyla çalıştırılması sağlanabilir.</li>
+	</ul>
+	</div>
+	<h2 class="baslik">Çeşitli Örnekler</h2>
+	<div class="konu">
+	
+		<h4 class="baslik">Bir grup dosyadaki şifreleri (ve/veya userları) toplu 
+		olarak değiştirme</h4>
+		<div class="konu">
+		<p>Bu kod özellike benim gibi günde 30-40 civarı dosyayı schedule etmiş 
+		kişiler için çok faydalı olacaktır. Oracle/DB2 gibi veritabanlarına 
+		bağlanıp veri çekiyorsanız çok büyük ihtimalle ayda bir şifrenizi 
+		değiştirmeniz gerekmektedir. Excel içine gömdüğünüz şifre bilgilerinin 
+		de aynı şekilde değişmesi gerekir. Sadece şifre değil, bazen schedule 
+		işlemini başka birinine devretmeniz de gerekebilir, bu durumda user 
+		bilgilerinin de değişmesi gerekir. İşte böyle bir durumda bu 30-40 
+		dosyayı tek tek açıp, kimisinde 5-6 connection da bulunabilir, tek tek 
+		user/şifre bilgisi değiştirmek tüm gününüzü alabilir, zira tüm 
+		sorguların çalışması gerekecektir. İşte bu aşağıdaki kod, sadece birkaç 
+		dakika içinde tüm dosyalarda gerekli değişklikleri yapacaktır.(Dosyaları 
+		kaydedip kapatma işlemini de prosedürün sonuna siz ekleyin)</p>
+		<p>Burda toplamda üç ayrı prosedür bulunuyor. Bunlardan biri, diğer iki 
+		prosedür tarafından çağrılan bir Function. Zaten iki kez kullanılması 
+		gerektiği için bunu Function yaptım. (Bu Function'da çoklu değer 
+		döndürmek için Collection kullandım). Yaptığımız değişiklikler olmuş mu 
+		diye görmek için baktığımız üçüncü prosedüre gerek duymazsanız, Function 
+		içindeki kodu ana prosedüre yedirebilrsiniz(isterseniz tabi).</p>
+		<p>Kodun içinden de gördüğünüz üzere, oracle bağlantısı olanlar için 
+		ayrı, DB2 bağlantıları için ayrı olmak üzere ana prosedürü toplamda 2 
+		kez çalıştırıyorum. Siz, kaç farklı veritabanına bağlanıyorsanız o kadar 
+		çalıştırmanız gerekecek. (Database'lerin illa farklı makinalarda olması 
+		gerekmiyor, Oracle üzerinde bulunan 3 farklı database'e de bağlanmanız 
+		durumunda yine 3 kez çalıştırmanız gerekir.)</p>
+		<pre class="brush:vb">
+Dim files As Collection
+'-----------------------
+Sub toplu_sifre_degisme()
+'bir grup dosyadaki şifreleri (ve/veya userları) toplu olarak değiştirmek için kullanılır
+On Error Resume Next
+ 
+Dim wB As Workbook
+Dim cvp As VbMsgBoxResult
+Dim protectlimi As Boolean
+ 
+Application.Calculation = xlCalculationManual 'Dosyalarda yoğun formülasyon varsa bunlar devreye girmesin diye
+hey = MsgBox("Tüm makrolar çalıştıktan sonra değiştiiryosun dimi, çünkü bazı raporlarda DateModifed kontrolü var?", vbYesNo)
+If hey = vbNo Then
+    Exit Sub
+End If
+ 
+cvp = MsgBox("Tüm dosyalar kapalı ve collectionın son hali güncel, değil mi?", vbYesNo)
+If cvp = vbNo Then
+    Exit Sub
+End If
+ 
+eski = InputBox("Eski şifreyi girin")
+If eski = "" Then Exit Sub
+yeni = InputBox("Yeni şifreyi girin")
+If yeni = "" Then Exit Sub
+ 
+'çalışmasınlar diye event disable yapalım
+Application.EnableEvents = False
+ 
+'collection fonksiyonu çağıralım
+Set files = dosyacoll
+ 
+'şimdi dosyaları açıp şifreleri değiştirelim
+For Each File In files
+    Workbooks.Open Filename:=File
+    Set wB = ActiveWorkbook
+    If wB.ProtectStructure = True Then 'protection varsa kaldıralım, aksi halde değişiklik yapamayız
+        protectlimi = True
+        wB.Unprotect (1234) 'haftalık skorkart, tmv
+    End If
+
+    For Each cn In wB.Connections
+        If cn.Type = xlConnectionTypeODBC Then
+            If InStr(cn.ODBCConnection.connection, eski) &gt; 0 Then
+                cn.ODBCConnection.connection = Replace(cn.ODBCConnection.connection, eski, yeni)
+            End If
+        End If
+    Next cn
+    
+    'protection varsa tekrar koyalım
+    If protectlimi = True Then wB.Protect (1234)
+    protectlimi = False 'tekrar false yapıyorum ki, mevcut değeri taşımasın
+Next File
+ 
+'son olarak da doğru değişmiş mi diye bakalım
+Call toplu_connecition_string_gorme
+Application.EnableEvents = True
+Set files = Nothing
+
+Application.Calculation = xlCalculationAutomatic
+ 
+End Sub
+'--------------------------------------
+Function dosyacoll() As Collection
+Const gunlukyol As String = "..."
+Dim files As Collection
+Dim DBtür As Byte
+ 
+DBtür = Application.InputBox("DB türünü girin. Oracle için 1, DB2 için 2", Type:=1)
+ 
+'collectionı oluşturalım
+Set files = New Collection
+With files
+    If DBtür = 1 Then 'oracle
+        .Add (gunlukyol + "…...xlsb")
+        'diğer dosyalar da aynı şekilde collectiona eklenir
+    ElseIf DBtür = 2 Then 'DB2
+        .Add (gunlukyol + "…...xlsb")
+        'diğer dosyalar da aynı şekilde collectiona eklenir
+    Else
+        MsgBox "yanlış DB türü girdiniz"
+        Application.EnableEvents = True
+        Exit Function
+    End If
+End With
+ 
+db = DBtür
+Set dosyacoll = files
+ 
+End Function
+'--------------------------------------
+Sub toplu_connecition_string_gorme()
+'pwdyi bul sonraki 10 karakteri al
+On Error Resume Next
+ 
+Dim wB As Workbook
+Dim cn As WorkbookConnection
+Dim dizi() As String
+Dim fso As New FileSystemObject
+ 
+Application.EnableEvents = False
+'files dolu mu diye kontrol edelim, doluysa ilk prosedürün devamıdır, değilse bağımsız açılmıştır
+If Not files Is Nothing Then
+    GoTo atla
+Else
+    Set files = dosyacoll
+    For Each c In files
+        Workbooks.Open Filename:=c
+    Next c
+End If
+ 
+atla:
+N = 0 'maksimum connection sayısını bulmaya çalışıyoruz
+For Each f In files
+    dosyaad = fso.GetFileName(f)
+    If Workbooks(dosyaad).Connections.Count  &gt; N Then
+        N = Workbooks(dosyaad).Connections.Count
+    End If
+Next f
+ 
+ReDim dizi(1 To files.Count, 1 To N)
+ 
+ 
+i = 1
+j = 1
+dosyalar = ""
+done = False
+For Each f In files
+    dosyaad = fso.GetFileName(f)
+    dizi(i, j) = dosyaad
+    For Each cn In Workbooks(dosyaad).Connections
+        j = j + 1
+        dizi(i, j) = cn.ODBCConnection.Connection 'hepsinin odbc olduğunu bildiğim için
+    Next cn
+    j = 1
+    i = i + 1
+Next f
+ 
+ 
+Workbooks.Add
+ 
+For i = 1 To files.Count
+    For j = 1 To N
+        If InStr(1, dizi(i, j), "UID") = 0 Then
+            Cells(i, j).Value2 = dizi(i, j)
+        Else
+            Cells(i, j).Value2 = Mid(dizi(i, j), InStr(1, dizi(i, j), "UID"), 30)
+        End If
+    Next j
+Next i
+ 
+Application.EnableEvents = True
+Exit Sub
+ 
+exudo:
+Application.EnableEvents = True
+MsgBox "Bir hata oluştu, örneğin protectli bir dosyada şifre değiştirmeye çalışıyor olabilirsiniz"
+
+End Sub	</pre>
+		(NOT:Her ne kadar
+	<a href="#passsecurity">şifre güvenliği </a>kısmında şifrenizi connection 
+		string içinde yazmamanızı önerdiysem de, olur da böyle birşey 
+		yaptıysanız diye bu örneği koydum. Aslında şifreyi tek bir yerden okumanız durumunda sadece orada değiştirmeniz 
+		yeterli olacaktır ve yukarıdaki zahmete de girmemiş olursunuz. Dediğim gibi bir nedenden bu yolu benimsediyseniz
+		diye bu örneği koydum)
+		</div>
+		<h4 class="baslik">Açık olan dosyalardaki Connectionların Şifre/user 
+		ve SQL bilgilerini değiştirme</h4>
+		<div class="konu">
+	<p>Diyelim ki içinde bir veya daha fazla connection olan bir veya daha fazla dosya 
+	açık durumda. Bir önceki örnekte dosyalar kapalıydı, bu örnekte bu sefer açık 
+	durumdalar. Bir diğer fark da bu sefer SQL değişikliği de yapmak 
+	isteyebilirsiniz. Mesela açık olan tüm dosyalarda 1 gün öncesinin datasını çeken SQL’ler(“sysdate-1” satırını 
+	içeren) olduğunu düşünün. Bunların hepsini 2 gün öncesinin datasını gösteren 
+	SQL’e(sysdate-2) çevirmek isteyebilirsiniz. Bunu manuel yaparsanız yine şifre değişimde olduğu gibi 
+	SQL değişiminde de tüm bağlantıların çalışmasını beklemek zorundasınızdır. 
+	İşte bu aşağıdaki kod ile beklemeden tek seferde hızlıca gerekli kod 
+	değişikliklerini yapabilirsiniz.</p>
+		<p>Kodun yeterince açık olduğunu düşündüğüm için ilave bir açıklama 
+		yazmıyorum. Anlaşılmayan birşey olması durumunda aşağıdaki Yorum bölümüne sorunuzu yazabilirsiniz.</p>
+	<pre class="brush:vb">
+Sub ConString_veya_SQL_degistir()
+'açık olan bir dosyada SQL veya connectionstring(genellikle şifre ve user için) değiştirir
+On Error GoTo çıkış
+ 
+Dim wB As Workbook
+Dim cn As WorkbookConnection
+Dim eski As String
+Dim yeni As String
+Dim contype As Byte
+Dim neyi As Byte
+ 
+Do
+    neyi = InputBox("SQL için 1, connection string için 2 girin")
+Loop Until neyi &lt; 3
+ 
+eski = InputBox("Eski değeri girin")
+If eski = "" Then Exit Sub
+yeni = InputBox("Yeni değeri girin")
+If yeni = "" Then Exit Sub
+ 
+ 
+N = 0
+dosyalar = ""
+For Each wB In Application.Workbooks
+    If Windows(wB.Name).Visible = True Then 'Personal.xlsb gibi gizli dosyalarda çalışmasına gerek yok
+        If wB.Connections.Count &gt; 0 Then 'içinde bağlantı olan dosyalarda yapsın
+            For Each cn In ActiveWorkbook.Connections
+            'sadece ODBC ve OLEDB'lerde yapsın, diğerlerinde bi işlem yapmasın
+                If cn.Type = xlConnectionTypeODBC Or cn.Type = xlConnectionTypeOLEDB Then
+                    If neyi = 1 Then 'SQL-comnandtext
+                        If cn.Type = xlConnectionTypeODBC Then
+                            cn.ODBCConnection.CommandText = Replace(cn.ODBCConnection.CommandText, eski, yeni)
+                        Else
+                            cn.OLEDBConnection.CommandText = Replace(cn.OLEDBConnection.CommandText, eski, yeni)
+                        End If
+                    Else 'con string
+                        If cn.Type = xlConnectionTypeODBC Then
+                            cn.ODBCConnection.connection = Replace(cn.ODBCConnection.connection, eski, yeni)
+                        Else
+                            cn.OLEDBConnection.connection = Replace(cn.OLEDBConnection.connection, eski, yeni)
+                        End If
+                    End If
+                End If
+            Next cn
+            N = N + 1
+            dosyalar = wB.Name &amp; ";" &amp; dosyalar
+        End If
+    End If
+Next wB
+ 
+MsgBox N &amp; " adet dosyada şifre değişti. "
+ 
+Workbooks.Add
+Range("a1") = dosyalar
+Exit Sub
+ 
+çıkış:
+MsgBox "Bir hata oluştu"
+End Sub</pre>
+</div>
+	<h4 class="baslik">Tüm workbookların refresh olmasını sağlama</h4>
+	<div class="konu">
+<p>Diyelim ki, o anda açık olan tüm dosyaların refresh olmasını istiyorsunuz. 
+Normalde Data menüsündeki RefreshAll sadece açık olan doyadaki bağlantıları 
+refreshler. Biz ise açık olan tüm dosyalarda bunu yapmak istiyoruz. Tabi gizli 
+olan Personal.xlsb tarzı makro dosyalarımız hariç. Bunun için gerekli kod 
+aşağıdaki gibidir.</p>
+	<pre class="brush:vb">
+Sub tum_wblarda_tum_connectionlar_refresh()
+On Error GoTo çık
+ 
+For Each wB In Application.Workbooks
+    If Windows(wB.Name).Visible = True Then
+        If wB.Connections.Count &gt; 0 Then
+            Debug.Print wB.Name
+            For Each cn In ActiveWorkbook.Connections
+                Debug.Print cn.Name
+                bBackground = cn.ODBCConnection.BackgroundQuery
+                cn.ODBCConnection.BackgroundQuery = False
+                cn.Refresh
+                cn.ODBCConnection.BackgroundQuery = bBackground
+            Next cn
+        End If
+    End If
+Next wB
+Exit Sub
+ 
+çık:
+MsgBox "hata"
+End Sub</pre>
+		</div>
+		</div>
+
+                            
+                            <div id="testsoru">
+                                <h2 class="baslik">TEST SORULARI</h2>
+                                <div class="konu">
+                                <div id="yenitestekle">
+                                    
+
+  <div>
+        <strong>
+            <span id="testsorucontrol_sonsoru">Son Sorumuz şuymuş:Bir metindeki tüm noktaları yoketmek istiyorsunuz. Hangi fonksiyonu kullanırdınız?</span>
+        </strong>
+        <hr />
+    </div>
+    <div class="container">
+        <div class="row">
+            <span id="testsorucontrol_Label1" class="col-md-1">Soru:</span>
+            <textarea name="ctl00$testsorucontrol$txtSoru" rows="2" cols="20" id="testsorucontrol_txtSoru" class="col-md-11">
+</textarea>
+        </div>      
+        <hr />
+        <div class="row">
+            <span id="testsorucontrol_Label2" class="col-md-1">A şıkkı:</span>
+            <textarea name="ctl00$testsorucontrol$txtOptA" rows="2" cols="20" id="testsorucontrol_txtOptA" class="col-md-3" placeholder="Şıkkı gir">
+</textarea>
+            <select name="ctl00$testsorucontrol$drpPrefixWhenAWrong" id="testsorucontrol_drpPrefixWhenAWrong" class="col-md-5">
+	<option value="--Doğrular için--">--Doğrular i&#231;in--</option>
+	<option value="Brava. ">Brava. </option>
+	<option value="Doğru söze ne denir. ">Doğru s&#246;ze ne denir. </option>
+	<option value="Tebrikler. ">Tebrikler. </option>
+	<option value="Saygılar sunarım efenim. ">Saygılar sunarım efenim. </option>
+	<option value="------Yanlışlar için-----">------Yanlışlar i&#231;in-----</option>
+	<option value="Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. ">Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. </option>
+	<option value="Açık söyleyim, güzel atıyosun. ">A&#231;ık s&#246;yleyim, g&#252;zel atıyosun. </option>
+	<option value="Atış serbest ama o kadar da serbest değil. ">Atış serbest ama o kadar da serbest değil. </option>
+	<option value="Atışta sınır tanımıyosun, bu da güzel. ">Atışta sınır tanımıyosun, bu da g&#252;zel. </option>
+	<option value="Atıyorum öyleyse varım. ">Atıyorum &#246;yleyse varım. </option>
+	<option value="Atmayalım lütfen. ">Atmayalım l&#252;tfen. </option>
+	<option value="Atmayı unutturdun bana. ">Atmayı unutturdun bana. </option>
+	<option value="Ayıptır ya, salla da bu kadar sallama. ">Ayıptır ya, salla da bu kadar sallama. </option>
+	<option value="Bak hele bak. ">Bak hele bak. </option>
+	<option value="Ben attım sen atma. ">Ben attım sen atma. </option>
+	<option value="Bi yaşıma daha girdim. ">Bi yaşıma daha girdim. </option>
+	<option value="Bu dünyaya sallamaya gelmişsin dostum. ">Bu d&#252;nyaya sallamaya gelmişsin dostum. </option>
+	<option value="Bundan önceki hayatında atıcı mıydın? ">Bundan &#246;nceki hayatında atıcı mıydın? </option>
+	<option value="Cahil cahil konuşup moralimi bozma benim. ">Cahil cahil konuşup moralimi bozma benim. </option>
+	<option value="Çok yaklaştın. Şaka şaka, alakası bile yok, uçmanın sınırlarındasın şuan. ">&#199;ok yaklaştın. Şaka şaka, alakası bile yok, u&#231;manın sınırlarındasın şuan. </option>
+	<option value="Daha neler! ">Daha neler! </option>
+	<option value="Ehhh. ">Ehhh. </option>
+	<option value="Gözüme görünmeden yavaşça terket burayı. ">G&#246;z&#252;me g&#246;r&#252;nmeden yavaş&#231;a terket burayı. </option>
+	<option value="Güzal atıyosun, bravo. ">G&#252;zal atıyosun, bravo. </option>
+	<option value="İyi denemeydi. ">İyi denemeydi. </option>
+	<option value="Kabul edelim, güzel atıyosun. ">Kabul edelim, g&#252;zel atıyosun. </option>
+	<option value="Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı kötü anlatmışım. ">Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı k&#246;t&#252; anlatmışım. </option>
+	<option value="Konuları takip ederken aynı anda sevgilini düşünürsen olacağı bu. ">Konuları takip ederken aynı anda sevgilini d&#252;ş&#252;n&#252;rsen olacağı bu. </option>
+	<option value="Lütfen rica ederim, düzgün sallayalım. ">L&#252;tfen rica ederim, d&#252;zg&#252;n sallayalım. </option>
+	<option value="Milletin hayal gücünün sınırı yok, senin atış gücünün. Beni korkutuyorsun. ">Milletin hayal g&#252;c&#252;n&#252;n sınırı yok, senin atış g&#252;c&#252;n&#252;n. Beni korkutuyorsun. </option>
+	<option value="Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hiç iyi takip etmemişsin. ">Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hi&#231; iyi takip etmemişsin. </option>
+	<option value="Muhteşem sallıyorsun dostum. ">Muhteşem sallıyorsun dostum. </option>
+	<option value="Nayır, nolamaz. ">Nayır, nolamaz. </option>
+	<option value="Ne alakası var ya. ">Ne alakası var ya. </option>
+	<option value="Ne yaptın sen ya. ">Ne yaptın sen ya. </option>
+	<option value="Neeeey. ">Neeeey. </option>
+	<option value="Saçmalıyosun galiba. ">Sa&#231;malıyosun galiba. </option>
+	<option value="Sallamada sınır tanmıyorsun. ">Sallamada sınır tanmıyorsun. </option>
+	<option value="Sana diyecek laf bulamıyorum. ">Sana diyecek laf bulamıyorum. </option>
+	<option value="Süper sallıyorsun arkadaşım. ">S&#252;per sallıyorsun arkadaşım. </option>
+	<option value="Şakacı seni. ">Şakacı seni. </option>
+	<option value="Tabi caaaanım. ">Tabi caaaanım. </option>
+	<option value="Tuhaf bir atıcısın, yine de sevdim seni. ">Tuhaf bir atıcısın, yine de sevdim seni. </option>
+	<option value="Ya bırak Allah aşkına ya. ">Ya bırak Allah aşkına ya. </option>
+	<option value="Ya ya tabi tabi. ">Ya ya tabi tabi. </option>
+	<option value="Yalaaaaan, yalan söylüyorsun. ">Yalaaaaan, yalan s&#246;yl&#252;yorsun. </option>
+	<option value="&lt;a href=../../sorun44af.html?v=l03DCLQH0RY'>Ziyaaa. &lt;/a>">&lt;a href=&#39;https://www.youtube.com/watch?v=l03DCLQH0RY&#39;&gt;Ziyaaa. &lt;/a&gt;</option>
+
+</select>
+            <textarea name="ctl00$testsorucontrol$txtWhenA" rows="2" cols="20" id="testsorucontrol_txtWhenA" class="col-md-3" placeholder="Cevaba göre uygun mesjaı gir, prefixten sorna bu gelecek">
+</textarea>
+        </div><br />
+        <div class="row">
+            <span id="testsorucontrol_Label3" class="col-md-1">B şıkkı:</span>
+            <textarea name="ctl00$testsorucontrol$txtOptB" rows="2" cols="20" id="testsorucontrol_txtOptB" class="col-md-3" placeholder="Şıkkı gir">
+</textarea>
+            <select name="ctl00$testsorucontrol$drpPrefixWhenBWrong" id="testsorucontrol_drpPrefixWhenBWrong" class="col-md-5">
+	<option value="--Doğrular için--">--Doğrular i&#231;in--</option>
+	<option value="Brava. ">Brava. </option>
+	<option value="Doğru söze ne denir. ">Doğru s&#246;ze ne denir. </option>
+	<option value="Tebrikler. ">Tebrikler. </option>
+	<option value="Saygılar sunarım efenim. ">Saygılar sunarım efenim. </option>
+	<option value="------Yanlışlar için-----">------Yanlışlar i&#231;in-----</option>
+	<option value="Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. ">Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. </option>
+	<option value="Açık söyleyim, güzel atıyosun. ">A&#231;ık s&#246;yleyim, g&#252;zel atıyosun. </option>
+	<option value="Atış serbest ama o kadar da serbest değil. ">Atış serbest ama o kadar da serbest değil. </option>
+	<option value="Atışta sınır tanımıyosun, bu da güzel. ">Atışta sınır tanımıyosun, bu da g&#252;zel. </option>
+	<option value="Atıyorum öyleyse varım. ">Atıyorum &#246;yleyse varım. </option>
+	<option value="Atmayalım lütfen. ">Atmayalım l&#252;tfen. </option>
+	<option value="Atmayı unutturdun bana. ">Atmayı unutturdun bana. </option>
+	<option value="Ayıptır ya, salla da bu kadar sallama. ">Ayıptır ya, salla da bu kadar sallama. </option>
+	<option value="Bak hele bak. ">Bak hele bak. </option>
+	<option value="Ben attım sen atma. ">Ben attım sen atma. </option>
+	<option value="Bi yaşıma daha girdim. ">Bi yaşıma daha girdim. </option>
+	<option value="Bu dünyaya sallamaya gelmişsin dostum. ">Bu d&#252;nyaya sallamaya gelmişsin dostum. </option>
+	<option value="Bundan önceki hayatında atıcı mıydın? ">Bundan &#246;nceki hayatında atıcı mıydın? </option>
+	<option value="Cahil cahil konuşup moralimi bozma benim. ">Cahil cahil konuşup moralimi bozma benim. </option>
+	<option value="Çok yaklaştın. Şaka şaka, alakası bile yok, uçmanın sınırlarındasın şuan. ">&#199;ok yaklaştın. Şaka şaka, alakası bile yok, u&#231;manın sınırlarındasın şuan. </option>
+	<option value="Daha neler! ">Daha neler! </option>
+	<option value="Ehhh. ">Ehhh. </option>
+	<option value="Gözüme görünmeden yavaşça terket burayı. ">G&#246;z&#252;me g&#246;r&#252;nmeden yavaş&#231;a terket burayı. </option>
+	<option value="Güzal atıyosun, bravo. ">G&#252;zal atıyosun, bravo. </option>
+	<option value="İyi denemeydi. ">İyi denemeydi. </option>
+	<option value="Kabul edelim, güzel atıyosun. ">Kabul edelim, g&#252;zel atıyosun. </option>
+	<option value="Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı kötü anlatmışım. ">Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı k&#246;t&#252; anlatmışım. </option>
+	<option value="Konuları takip ederken aynı anda sevgilini düşünürsen olacağı bu. ">Konuları takip ederken aynı anda sevgilini d&#252;ş&#252;n&#252;rsen olacağı bu. </option>
+	<option value="Lütfen rica ederim, düzgün sallayalım. ">L&#252;tfen rica ederim, d&#252;zg&#252;n sallayalım. </option>
+	<option value="Milletin hayal gücünün sınırı yok, senin atış gücünün. Beni korkutuyorsun. ">Milletin hayal g&#252;c&#252;n&#252;n sınırı yok, senin atış g&#252;c&#252;n&#252;n. Beni korkutuyorsun. </option>
+	<option value="Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hiç iyi takip etmemişsin. ">Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hi&#231; iyi takip etmemişsin. </option>
+	<option value="Muhteşem sallıyorsun dostum. ">Muhteşem sallıyorsun dostum. </option>
+	<option value="Nayır, nolamaz. ">Nayır, nolamaz. </option>
+	<option value="Ne alakası var ya. ">Ne alakası var ya. </option>
+	<option value="Ne yaptın sen ya. ">Ne yaptın sen ya. </option>
+	<option value="Neeeey. ">Neeeey. </option>
+	<option value="Saçmalıyosun galiba. ">Sa&#231;malıyosun galiba. </option>
+	<option value="Sallamada sınır tanmıyorsun. ">Sallamada sınır tanmıyorsun. </option>
+	<option value="Sana diyecek laf bulamıyorum. ">Sana diyecek laf bulamıyorum. </option>
+	<option value="Süper sallıyorsun arkadaşım. ">S&#252;per sallıyorsun arkadaşım. </option>
+	<option value="Şakacı seni. ">Şakacı seni. </option>
+	<option value="Tabi caaaanım. ">Tabi caaaanım. </option>
+	<option value="Tuhaf bir atıcısın, yine de sevdim seni. ">Tuhaf bir atıcısın, yine de sevdim seni. </option>
+	<option value="Ya bırak Allah aşkına ya. ">Ya bırak Allah aşkına ya. </option>
+	<option value="Ya ya tabi tabi. ">Ya ya tabi tabi. </option>
+	<option value="Yalaaaaan, yalan söylüyorsun. ">Yalaaaaan, yalan s&#246;yl&#252;yorsun. </option>
+	<option value="&lt;a href=../../sorun44af.html?v=l03DCLQH0RY'>Ziyaaa. &lt;/a>">&lt;a href=&#39;https://www.youtube.com/watch?v=l03DCLQH0RY&#39;&gt;Ziyaaa. &lt;/a&gt;</option>
+
+</select>
+            <textarea name="ctl00$testsorucontrol$txtWhenB" rows="2" cols="20" id="testsorucontrol_txtWhenB" class="col-md-3" placeholder="Cevaba göre uygun mesjaı gir, prefixten sorna bu gelecek">
+</textarea>
+        </div><br />
+        <div class="row">
+            <span id="testsorucontrol_Label4" class="col-md-1">C şıkkı:</span>
+            <textarea name="ctl00$testsorucontrol$txtOptC" rows="2" cols="20" id="testsorucontrol_txtOptC" class="col-md-3" placeholder="Şıkkı gir">
+</textarea>
+            <select name="ctl00$testsorucontrol$drpPrefixWhenCWrong" id="testsorucontrol_drpPrefixWhenCWrong" class="col-md-5">
+	<option value="--Doğrular için--">--Doğrular i&#231;in--</option>
+	<option value="Brava. ">Brava. </option>
+	<option value="Doğru söze ne denir. ">Doğru s&#246;ze ne denir. </option>
+	<option value="Tebrikler. ">Tebrikler. </option>
+	<option value="Saygılar sunarım efenim. ">Saygılar sunarım efenim. </option>
+	<option value="------Yanlışlar için-----">------Yanlışlar i&#231;in-----</option>
+	<option value="Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. ">Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. </option>
+	<option value="Açık söyleyim, güzel atıyosun. ">A&#231;ık s&#246;yleyim, g&#252;zel atıyosun. </option>
+	<option value="Atış serbest ama o kadar da serbest değil. ">Atış serbest ama o kadar da serbest değil. </option>
+	<option value="Atışta sınır tanımıyosun, bu da güzel. ">Atışta sınır tanımıyosun, bu da g&#252;zel. </option>
+	<option value="Atıyorum öyleyse varım. ">Atıyorum &#246;yleyse varım. </option>
+	<option value="Atmayalım lütfen. ">Atmayalım l&#252;tfen. </option>
+	<option value="Atmayı unutturdun bana. ">Atmayı unutturdun bana. </option>
+	<option value="Ayıptır ya, salla da bu kadar sallama. ">Ayıptır ya, salla da bu kadar sallama. </option>
+	<option value="Bak hele bak. ">Bak hele bak. </option>
+	<option value="Ben attım sen atma. ">Ben attım sen atma. </option>
+	<option value="Bi yaşıma daha girdim. ">Bi yaşıma daha girdim. </option>
+	<option value="Bu dünyaya sallamaya gelmişsin dostum. ">Bu d&#252;nyaya sallamaya gelmişsin dostum. </option>
+	<option value="Bundan önceki hayatında atıcı mıydın? ">Bundan &#246;nceki hayatında atıcı mıydın? </option>
+	<option value="Cahil cahil konuşup moralimi bozma benim. ">Cahil cahil konuşup moralimi bozma benim. </option>
+	<option value="Çok yaklaştın. Şaka şaka, alakası bile yok, uçmanın sınırlarındasın şuan. ">&#199;ok yaklaştın. Şaka şaka, alakası bile yok, u&#231;manın sınırlarındasın şuan. </option>
+	<option value="Daha neler! ">Daha neler! </option>
+	<option value="Ehhh. ">Ehhh. </option>
+	<option value="Gözüme görünmeden yavaşça terket burayı. ">G&#246;z&#252;me g&#246;r&#252;nmeden yavaş&#231;a terket burayı. </option>
+	<option value="Güzal atıyosun, bravo. ">G&#252;zal atıyosun, bravo. </option>
+	<option value="İyi denemeydi. ">İyi denemeydi. </option>
+	<option value="Kabul edelim, güzel atıyosun. ">Kabul edelim, g&#252;zel atıyosun. </option>
+	<option value="Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı kötü anlatmışım. ">Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı k&#246;t&#252; anlatmışım. </option>
+	<option value="Konuları takip ederken aynı anda sevgilini düşünürsen olacağı bu. ">Konuları takip ederken aynı anda sevgilini d&#252;ş&#252;n&#252;rsen olacağı bu. </option>
+	<option value="Lütfen rica ederim, düzgün sallayalım. ">L&#252;tfen rica ederim, d&#252;zg&#252;n sallayalım. </option>
+	<option value="Milletin hayal gücünün sınırı yok, senin atış gücünün. Beni korkutuyorsun. ">Milletin hayal g&#252;c&#252;n&#252;n sınırı yok, senin atış g&#252;c&#252;n&#252;n. Beni korkutuyorsun. </option>
+	<option value="Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hiç iyi takip etmemişsin. ">Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hi&#231; iyi takip etmemişsin. </option>
+	<option value="Muhteşem sallıyorsun dostum. ">Muhteşem sallıyorsun dostum. </option>
+	<option value="Nayır, nolamaz. ">Nayır, nolamaz. </option>
+	<option value="Ne alakası var ya. ">Ne alakası var ya. </option>
+	<option value="Ne yaptın sen ya. ">Ne yaptın sen ya. </option>
+	<option value="Neeeey. ">Neeeey. </option>
+	<option value="Saçmalıyosun galiba. ">Sa&#231;malıyosun galiba. </option>
+	<option value="Sallamada sınır tanmıyorsun. ">Sallamada sınır tanmıyorsun. </option>
+	<option value="Sana diyecek laf bulamıyorum. ">Sana diyecek laf bulamıyorum. </option>
+	<option value="Süper sallıyorsun arkadaşım. ">S&#252;per sallıyorsun arkadaşım. </option>
+	<option value="Şakacı seni. ">Şakacı seni. </option>
+	<option value="Tabi caaaanım. ">Tabi caaaanım. </option>
+	<option value="Tuhaf bir atıcısın, yine de sevdim seni. ">Tuhaf bir atıcısın, yine de sevdim seni. </option>
+	<option value="Ya bırak Allah aşkına ya. ">Ya bırak Allah aşkına ya. </option>
+	<option value="Ya ya tabi tabi. ">Ya ya tabi tabi. </option>
+	<option value="Yalaaaaan, yalan söylüyorsun. ">Yalaaaaan, yalan s&#246;yl&#252;yorsun. </option>
+	<option value="&lt;a href=../../sorun44af.html?v=l03DCLQH0RY'>Ziyaaa. &lt;/a>">&lt;a href=&#39;https://www.youtube.com/watch?v=l03DCLQH0RY&#39;&gt;Ziyaaa. &lt;/a&gt;</option>
+
+</select>
+            <textarea name="ctl00$testsorucontrol$txtWhenC" rows="2" cols="20" id="testsorucontrol_txtWhenC" class="col-md-3" placeholder="Cevaba göre uygun mesjaı gir, prefixten sorna bu gelecek">
+</textarea>
+        </div><br />
+        <div class="row">
+            <span id="testsorucontrol_Label5" class="col-md-1">D şıkkı:</span>
+            <textarea name="ctl00$testsorucontrol$txtOptD" rows="2" cols="20" id="testsorucontrol_txtOptD" class="col-md-3" placeholder="Şıkkı gir">
+</textarea>
+            <select name="ctl00$testsorucontrol$drpPrefixWhenDWrong" id="testsorucontrol_drpPrefixWhenDWrong" class="col-md-5">
+	<option value="--Doğrular için--">--Doğrular i&#231;in--</option>
+	<option value="Brava. ">Brava. </option>
+	<option value="Doğru söze ne denir. ">Doğru s&#246;ze ne denir. </option>
+	<option value="Tebrikler. ">Tebrikler. </option>
+	<option value="Saygılar sunarım efenim. ">Saygılar sunarım efenim. </option>
+	<option value="------Yanlışlar için-----">------Yanlışlar i&#231;in-----</option>
+	<option value="Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. ">Bravo!&#39;, demek isterdim ama bu cevaba nasıl diyim. </option>
+	<option value="Açık söyleyim, güzel atıyosun. ">A&#231;ık s&#246;yleyim, g&#252;zel atıyosun. </option>
+	<option value="Atış serbest ama o kadar da serbest değil. ">Atış serbest ama o kadar da serbest değil. </option>
+	<option value="Atışta sınır tanımıyosun, bu da güzel. ">Atışta sınır tanımıyosun, bu da g&#252;zel. </option>
+	<option value="Atıyorum öyleyse varım. ">Atıyorum &#246;yleyse varım. </option>
+	<option value="Atmayalım lütfen. ">Atmayalım l&#252;tfen. </option>
+	<option value="Atmayı unutturdun bana. ">Atmayı unutturdun bana. </option>
+	<option value="Ayıptır ya, salla da bu kadar sallama. ">Ayıptır ya, salla da bu kadar sallama. </option>
+	<option value="Bak hele bak. ">Bak hele bak. </option>
+	<option value="Ben attım sen atma. ">Ben attım sen atma. </option>
+	<option value="Bi yaşıma daha girdim. ">Bi yaşıma daha girdim. </option>
+	<option value="Bu dünyaya sallamaya gelmişsin dostum. ">Bu d&#252;nyaya sallamaya gelmişsin dostum. </option>
+	<option value="Bundan önceki hayatında atıcı mıydın? ">Bundan &#246;nceki hayatında atıcı mıydın? </option>
+	<option value="Cahil cahil konuşup moralimi bozma benim. ">Cahil cahil konuşup moralimi bozma benim. </option>
+	<option value="Çok yaklaştın. Şaka şaka, alakası bile yok, uçmanın sınırlarındasın şuan. ">&#199;ok yaklaştın. Şaka şaka, alakası bile yok, u&#231;manın sınırlarındasın şuan. </option>
+	<option value="Daha neler! ">Daha neler! </option>
+	<option value="Ehhh. ">Ehhh. </option>
+	<option value="Gözüme görünmeden yavaşça terket burayı. ">G&#246;z&#252;me g&#246;r&#252;nmeden yavaş&#231;a terket burayı. </option>
+	<option value="Güzal atıyosun, bravo. ">G&#252;zal atıyosun, bravo. </option>
+	<option value="İyi denemeydi. ">İyi denemeydi. </option>
+	<option value="Kabul edelim, güzel atıyosun. ">Kabul edelim, g&#252;zel atıyosun. </option>
+	<option value="Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı kötü anlatmışım. ">Kafamı taşlara mı vurayım, ne yapayım. Bu kadar mı k&#246;t&#252; anlatmışım. </option>
+	<option value="Konuları takip ederken aynı anda sevgilini düşünürsen olacağı bu. ">Konuları takip ederken aynı anda sevgilini d&#252;ş&#252;n&#252;rsen olacağı bu. </option>
+	<option value="Lütfen rica ederim, düzgün sallayalım. ">L&#252;tfen rica ederim, d&#252;zg&#252;n sallayalım. </option>
+	<option value="Milletin hayal gücünün sınırı yok, senin atış gücünün. Beni korkutuyorsun. ">Milletin hayal g&#252;c&#252;n&#252;n sınırı yok, senin atış g&#252;c&#252;n&#252;n. Beni korkutuyorsun. </option>
+	<option value="Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hiç iyi takip etmemişsin. ">Moralimi bozuyorsun. Bu kadar mı sıkıcı anlattım ki bu dersi, hi&#231; iyi takip etmemişsin. </option>
+	<option value="Muhteşem sallıyorsun dostum. ">Muhteşem sallıyorsun dostum. </option>
+	<option value="Nayır, nolamaz. ">Nayır, nolamaz. </option>
+	<option value="Ne alakası var ya. ">Ne alakası var ya. </option>
+	<option value="Ne yaptın sen ya. ">Ne yaptın sen ya. </option>
+	<option value="Neeeey. ">Neeeey. </option>
+	<option value="Saçmalıyosun galiba. ">Sa&#231;malıyosun galiba. </option>
+	<option value="Sallamada sınır tanmıyorsun. ">Sallamada sınır tanmıyorsun. </option>
+	<option value="Sana diyecek laf bulamıyorum. ">Sana diyecek laf bulamıyorum. </option>
+	<option value="Süper sallıyorsun arkadaşım. ">S&#252;per sallıyorsun arkadaşım. </option>
+	<option value="Şakacı seni. ">Şakacı seni. </option>
+	<option value="Tabi caaaanım. ">Tabi caaaanım. </option>
+	<option value="Tuhaf bir atıcısın, yine de sevdim seni. ">Tuhaf bir atıcısın, yine de sevdim seni. </option>
+	<option value="Ya bırak Allah aşkına ya. ">Ya bırak Allah aşkına ya. </option>
+	<option value="Ya ya tabi tabi. ">Ya ya tabi tabi. </option>
+	<option value="Yalaaaaan, yalan söylüyorsun. ">Yalaaaaan, yalan s&#246;yl&#252;yorsun. </option>
+	<option value="&lt;a href=../../sorun44af.html?v=l03DCLQH0RY'>Ziyaaa. &lt;/a>">&lt;a href=&#39;https://www.youtube.com/watch?v=l03DCLQH0RY&#39;&gt;Ziyaaa. &lt;/a&gt;</option>
+
+</select>
+            <textarea name="ctl00$testsorucontrol$txtWhenD" rows="2" cols="20" id="testsorucontrol_txtWhenD" class="col-md-3" placeholder="Cevaba göre uygun mesjaı gir, prefixten sorna bu gelecek">
+</textarea>
+        </div>
+        <br />
+        <div class="row">
+            <span id="testsorucontrol_Label6" class="col-md-1">Doğru Cevap</span>
+            <select name="ctl00$testsorucontrol$drpCevap" id="testsorucontrol_drpCevap" class="col-md-1">
+	<option value="A">A</option>
+	<option value="B">B</option>
+	<option value="C">C</option>
+	<option value="D">D</option>
+
+</select>
+            <span id="testsorucontrol_Label7" class="col-md-1">Etiketler</span>
+            <input name="ctl00$testsorucontrol$txtTag" type="text" maxlength="150" id="testsorucontrol_txtTag" class="col-md-9" />
+        </div>
+        <br />
+        <div id="testsorucontrol_UpdatePanel1">
+	
+        <div class="row">
+            <span id="testsorucontrol_Label8" class="col-md-3">İlişkili konuyu seç</span>
+
+            <select name="ctl00$testsorucontrol$drpAna" id="testsorucontrol_drpAna" class="col-md-3">
+		<option selected="selected" value="1">Excel</option>
+		<option value="2">VBAMakro</option>
+		<option value="3">VSTO</option>
+		<option value="4">Fasulye</option>
+
+	</select>
+            
+
+            <select name="ctl00$testsorucontrol$drpAlt" id="testsorucontrol_drpAlt" class="col-md-3">
+		<option selected="selected" value="1">Giriş</option>
+		<option value="2">Home Men&#252;s&#252;</option>
+		<option value="3">Insert Men&#252;s&#252;</option>
+		<option value="4">Formulas Men&#252;s&#252;(Fonksiyonlar)</option>
+		<option value="5">Formulas Men&#252;s&#252;(Diğer)</option>
+		<option value="6">Data Men&#252;s&#252;</option>
+		<option value="7">Review Men&#252;s&#252;</option>
+		<option value="33">Yeni Eklenen Ara&#231;lar</option>
+		<option value="34">Developer Men&#252;s&#252;</option>
+
+	</select>
+            
+
+            <select name="ctl00$testsorucontrol$drpKonu" id="testsorucontrol_drpKonu" class="col-md-3">
+		<option value="1">Excelin Tarihsel Gelişimi</option>
+		<option value="2">Dosya Uzantıları</option>
+		<option value="3">File Men&#252;s&#252;</option>
+		<option value="4">Pratik Kısayollar</option>
+		<option value="5">Ribbon</option>
+
+	</select>
+            
+
+        </div>
+                
+</div>
+        <br />
+        <div class="row">
+            <span id="testsorucontrol_lblControl">286360</span><br />
+            <input name="ctl00$testsorucontrol$txtControl" type="text" value="Yukardakini gircen baboş" id="testsorucontrol_txtControl" /><br />
+            <input type="submit" name="ctl00$testsorucontrol$Button1" value="Ekle" id="testsorucontrol_Button1" class="col-md-1" />
+
+            <span id="testsorucontrol_lblResult" class="col-md-1">Label</span>
+        </div>
+     </div>
+
+                                </div>
+                                    <div id="espiricevaptest" class="alert alert-info alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" onclick="espiricookie()">&times;</button>
+                                                * Sorulara verilen yanlış cevaplardaki esprili yorumlarım için hoşgörünüze sığınıyorum.<br />
+                                                 * Test ve Ödevlerdeki bazı detaylar burada anlatılmamış olabilir. Bunları kendiniz araştırıp bulmalısınız.<br />
+                                                 * Birden çok konuya ait içeriği olan ödevler var. Algoritmik açıdan bakıldığında o an en uygun konuya adreslenmiştir.<br />
+                                                 <strong>Dikkat!</strong> Bir soruya cevap verdikten sonra geri dönemezsiniz.
+                                              </div>                             
+                                             
+
+
+                                    <div id="UpdatePanel1">
+	
+                                            <div class="gizlefortestodev">
+                                                <span id="lblSoruadet">0</span><br />
+                                                <span id="lblSoruno">0</span><br />
+                                                <span id="lbltoplamDogruCevaplananSoru">0</span><br />                        
+                                                <span id="lblCevapDeneme">0</span><br />
+                                                <select size="4" name="ctl00$lbTest" id="lbTest">
+
+	</select><br />
+                                            </div>
+                        
+                                            <strong><span id="lblSoruID">SoruID:...</span></strong>
+                                            
+                                            <span id="lblSoru">Şu an için bu konu için soru bulunmamaktadır. İletişim menüsünden örnek sorularınızı bana iletebilirsiniz.</span>
+                                            <span id="RadioButtonList1" style="display:none;"><input id="RadioButtonList1_0" type="radio" name="ctl00$RadioButtonList1" value="a" /><label for="RadioButtonList1_0">a</label><br /><input id="RadioButtonList1_1" type="radio" name="ctl00$RadioButtonList1" value="b" /><label for="RadioButtonList1_1">b</label><br /><input id="RadioButtonList1_2" type="radio" name="ctl00$RadioButtonList1" value="c" /><label for="RadioButtonList1_2">c</label><br /><input id="RadioButtonList1_3" type="radio" name="ctl00$RadioButtonList1" value="d" /><label for="RadioButtonList1_3">d</label></span>
+                                            
+                                            <input type="submit" name="ctl00$btnTestKontrol" value="Cevabı kontrol et" id="btnTestKontrol" class="btn btn-primary" />
+                                            <br /><br />
+                                            <div id="testsonucalert"></div>
+                                            
+                                            <div id="lblTestMesaj" class="alert alert-dark alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>                                                
+                                              </div>
+                                            
+                                           <br />                                           
+                                           <input type="submit" name="ctl00$btnNextSoru" value="Sonraki Soru" id="btnNextSoru" class="btn btn-danger float-right" />
+                                            <br /><br />
+                                                       
+                                           
+                                        
+</div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div id="odevler">
+                                
+                                <h2 class="baslik">ÖDEVLER</h2>
+                                <div class="konu">
+                                    <div id="UpdatePanel2">
+	
+                                            <div class="gizlefortestodev">
+                                                <span id="lblOdevadet">0</span><br />
+                                                <span id="lblOdevno">0</span><br />
+                                                <select size="4" name="ctl00$lbOdev" id="lbOdev">
+
+	</select>
+                                            </div>
+
+                                            <strong><span id="lblOdevID">ÖdevNo:...</span></strong>
+                                             
+                                            <span id="lblOdevSoru">Şu an için bu konu için ödev bulunmamaktadır. İletişim menüsünden örnek ödev sorularını bana iletebilirsin.</span>
+                                            <br />   
+                                                            
+                                            <span id="lblEkdosya"><span></span></span>
+                                            
+                                            <a href="#odevcvp" data-toggle="collapse">Çözüme bakın(Başka türlü de çözülebilir tabi, bu benim çözümüm.)</a>   
+                                            <br /> <br />
+                                            <div id="odevcvp" class="collapse">
+                                                <span id="lblOdevCevap" style="display:none;"></span>
+                                                <br />
+                                             </div>
+
+                                           <input type="submit" name="ctl00$btnPrevOdev" value="Önceki Ödev" id="btnPrevOdev" class="btn btn-danger" />                                             
+                                           <input type="submit" name="ctl00$btnNextOdev" value="Sonraki Ödev" id="btnNextOdev" class="btn btn-danger float-right" />
+                                            <br /><br />
+         
+                                        
+</div>
+                                </div>
+                            </div>
+
+                            <div id="diskas">
+                                <h2 id="disqusyorum" class="baslik">=YORUMLAR ve SORULAR=</h2>
+                                <div id="disqus_thread">
+                                </div>
+
+                                <script>								
+                                    /**
+                                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                                    /*
+                                    var disqus_config = function () {
+                                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                    };
+                                    */
+                                    (function () { // DON'T EDIT BELOW THIS LINE
+                                        var d = document, s = d.createElement('script');
+                                        s.src = '../../../www-excelinefendisi-com.disqus.com/embed.js';
+                                        s.setAttribute('data-timestamp', +new Date());
+                                        (d.head || d.body).appendChild(s);
+                                    })();
+                                </script>
+
+                                <noscript>
+                                    Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+                                </noscript>
+                            </div>
+
+
+
+
+
+                                    <div id="prevnext">
+                                        <input type="submit" name="ctl00$btnPrev" value="Önceki" id="btnPrev" />
+                                        <input type="submit" name="ctl00$btnNext" value="Sonraki" id="btnNext" />
+                                     
+                                        
+                                        
+                                    </div>
+                                
+                            <br />                          
+
+                        </div>
+
+                    </div>
+
+                    <div id="ortablok_footer" class="row justify-content-center">
+                        <div>
+                            <div id="copyright">Copyright &copy; Volkan Yurtseven. Tüm hakları saklıdır. İzinsiz alıntı yapılamaz.</div>
+                            <span id="lblOnlineUser">Aktif kullanıcı sayısı:25</span>
+                        </div>
+                    </div>
+
+                    <div id="share-buttons">
+
+
+                        <!-- Twitter -->
+                        <a href="https://twitter.com/share?url=http://www.excelinefendisi.com&amp;text=Bir%c5%9fey%20yaz%c4%b1n,%20hashtags=excelinefendisi" target="_blank">
+                            <img src="../../images/social/twitter.png" alt="Twitter" />
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.excelinefendisi.com" target="_blank">
+                            <img src="../../images/social/linkedin.png" alt="LinkedIn" />
+                        </a>
+
+                        <!-- Print -->
+                        <a href="javascript:;" onclick="window.print()">
+                            <img src="../../images/social/print.png" alt="Print" />
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:?Subject=Simple Share Buttons&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 http://www.excelinefendisi.com">
+                            <img src="../../images/social/email.png" alt="Email" />
+                        </a>
+
+                        <!-- Facebook -->
+                        <a href="http://www.facebook.com/sharer.php?u=http://www.excelinefendisi.com" target="_blank">
+                            <img src="../../images/social/facebook.png" alt="Facebook" />
+                        </a>
+                        <div class="fb-like" data-href="https://www.facebook.com/ExcelinEfendisi-1912938025620770/" data-width="30" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+
+
+                    </div>
+
+                </div>
+
+                <div id="sagsutunbilgi" class="col-md-2">     
+                    <div id="udemydestek" class="yankutuluarmobildegizle">
+                        <h2>KAPANIŞ UYARISI</h2>
+                        <p>Herkese merhaba, uzun bir yolculuğun sonuna geldik. Üzülerek söylüyorum ki, hosting maliyetlerinin aşırı artması yüzünden sitemi yakın zamanda(en geç Mayıs 2023) kapatmaya 
+                        karar verdim. Umarım şimdiye kadar sizlere faydam dokunmuştur. Bununla beraber, site içeriğine <a href="https://github.com/VolkiTheDreamer/Excelinefendisi">
+                        github repomdan</a> hala ulaşabilirsiniz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+showHiddenTag('prevnext','id');showHiddenTag('diskas','id');showHiddenTag('testsoru','id');showHiddenTag('odevler','id');//]]>
+</script>
+</form>
+
+    
+    <!--		NOOOOW JAVASCRIPT TIME-->
+    
+    <script type="text/javascript"> 
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en', includedLanguages: 'be,de,en,es,fr,it,ru,sv,tr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true },
+                'google_translate_element'
+            );
+        }
+    </script> 
+    <script type="text/javascript" src="../../../translate.google.com/translate_a/element7a1d.js?%20%20%20%20%20%20%20%20cb=googleTranslateElementInit">
+    </script> 
+
+
+    <!-- VBA kopyala butonu -->
+    <script>
+        var tags = document.getElementsByClassName("brush:vb");
+        for (var i = 0, len = tags.length; i < len; i++) {
+            tags[i].insertAdjacentHTML('beforebegin', "<div class='SmartHeaderContainer'><div class='pre_baslik'>VBA Kodu</div><div class='CopyContent'>Kopyala</div></div>");
+        }
+
+        var tags = document.getElementsByClassName("brush:vbnet");
+        for (var i = 0, len = tags.length; i < len; i++) {
+            tags[i].insertAdjacentHTML('beforebegin', "<div class='SmartHeaderContainer'><div class='pre_baslik'>VB.Net Kodu</div><div class='CopyContent'>Kopyala</div></div>");
+        }
+
+        var tags = document.getElementsByClassName("brush:csharp");
+        for (var i = 0, len = tags.length; i < len; i++) {
+            tags[i].insertAdjacentHTML('beforebegin', "<div class='SmartHeaderContainer'><div class='pre_baslik'>C# Kodu</div><div class='CopyContent'>Kopyala</div></div>");
+        }
+
+        //"Üye olun" kutusu
+        var konular = document.getElementsByClassName("konu");
+        for (var i = 0, len = konular.length; i < len; i++) {
+            if (konular[i].parentNode.nodeName != 'LI' && (konular[i].parentNode.id != 'testsoru') && (konular[i].parentNode.id != 'odevler')) {
+                konular[i].insertAdjacentHTML('beforeend', "<div class='mailTopla'><a href='../../uyelik.html'>Üye olun</a> ve yeni eklenen sayfalardan hemen haberdar olun.</div>");
+            }
+        }
+
+        //h1lere last modified için ekleme+ziyaret kutusu
+        if (document.URL.indexOf('Konular.aspx') == -1 && document.URL.indexOf('/Konular') > -1) //konular sayfası dışındakilere yazmasın
+        {
+            var headerH1 = document.getElementsByTagName("h1");
+            headerH1[0].insertAdjacentHTML('afterend', '<span id="lblLastMod">Son Güncellenme Tarihi: 27.11.2022; Önceki değişim tarihi:28.04.2019;  Değişim derecesi:Yüksek</span>'); //zaten sadece 1 tane var, o yüzden 0 indeksli eyterli
+            /*				document.getElementById("lblLastMod").insertAdjacentHTML('afterend', '<br><a href="https://restpack.io/html2pdf/save-as-pdf" target="_blank">Save this page as PDF</a>');*/
+            document.getElementById("ziyaret").innerText = DisplayPageVisitInfo();
+        }
+
+        if (document.location.pathname == "/Default.aspx" || document.location.pathname == "../../index.html") //ikincisi localhost için
+            document.getElementById("ziyaret").innerText = DisplaySiteVisitInfo();
+
+        //testimonial için
+        //if (document.location.pathname == "/Testimonials.aspx") {
+        //        wpac_init = window.wpac_init || [];
+        //        wpac_init.push({widget: 'Review', id: 18500});
+        //        (function() {
+        //            if ('WIDGETPACK_LOADED' in window) return;
+        //            WIDGETPACK_LOADED = true;
+        //            var mc = document.createElement('script');
+        //            mc.type = 'text/javascript';
+        //            mc.async = true;
+        //            mc.src = 'https://embed.widgetpack.com/widget.js';
+        //            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+        //        })();
+        //}
+
+        cookieUyariGoster(); //cerez ziyaret cooki burada başlıyor.
+
+    </script>
+
+    <!--Scroll üzerine BAŞ ve SON butonları-->
+    <script>
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("navhome").style.display = "block";
+                document.getElementById("navend").style.display = "block";
+                document.getElementById("udemy").style.display = "block";
+            } else {
+                document.getElementById("navhome").style.display = "none";
+                document.getElementById("navend").style.display = "none";
+                document.getElementById("udemy").style.display = "none";
+            }
+        }
+    </script>
+
+    <script>
+        //bu olursa önce jquery için taşı, sonra da line gutter için de yap
+
+        var waitForEl = function (selector, callback) {
+            if (d(selector).length) {
+                callback();
+            } else {
+                setTimeout(function () {
+                    waitForEl(selector, callback);
+                }, 100);
+            }
+        };
+
+        waitForEl(".vb.spaces", function () {
+            // work the magic
+            d(".vb.spaces").each(function () {
+                d(this).html(d(this).html().replace(/&nbsp;/g, " "));
+            });
+            d('td.code>div.container').each(function () {
+                d(this).html(d(this).html().replace(/&nbsp;/g, " "));
+            });
+
+        });
+
+    </script>
+
+ 
+    <img id="keepAliveIMG" width="1" height="1" src="../../img/ui/spacerd41d.html?" /> 
+
+    <script> 
+        var myImg = document.getElementById("keepAliveIMG");
+
+        if (myImg) {
+            window.setInterval(function () {
+                myImg.src = myImg.src.replace(/\?.*$/, '?' + Math.random());
+            }, 1000*60*59);
+        }   
+    </script>
+
+</body>
+
+
+<!-- Mirrored from www.excelinefendisi.com/Konular/VBAMakro/DigerUygulamalarlailetisim_VeriTabani-ConnectionListObjectveQueryTable.aspx by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Nov 2022 16:26:54 GMT -->
+</html>
